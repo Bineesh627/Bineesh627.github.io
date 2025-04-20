@@ -1,0 +1,160 @@
+/* Add these styles to your Skills.css file */
+
+.skill-item {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.skill-level {
+  font-weight: 600;
+  color: #b8b8b8;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skill-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.skill-bar {
+  height: 100%;
+  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  border-radius: 4px;
+  transition: width 1.5s ease;
+}
+
+.skill-description {
+  font-size: 0.85rem;
+  color: #b8b8b8;
+  margin-top: 5px;
+}
+
+/* Carousel wrapper to help with positioning */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 30px;
+}
+
+/* Custom arrow styling */
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.custom-arrow:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.custom-arrow-left {
+  left: 0px;
+}
+
+.custom-arrow-right {
+  right: 0px;
+}
+
+/* Arrow icons styling - assumes Font Awesome is available */
+.fa-chevron-left, .fa-chevron-right {
+  font-size: 16px;
+}
+
+/* If Font Awesome isn't available, you can use these instead */
+.custom-arrow-left::before {
+  content: "←";
+}
+
+.custom-arrow-right::before {
+  content: "→";
+}
+
+/* Carousel item fixes */
+.carousel-item-padding {
+  padding: 0 10px;
+  display: flex !important;
+  justify-content: center;
+}
+
+.skill-slider .item {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Custom dots styling */
+.custom-dot-list {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  display: flex !important;
+  justify-content: center;
+}
+
+/* Animation for skill bars */
+@keyframes skillFill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.wow.zoomIn .skill-bar {
+  animation: skillFill 2s forwards;
+}
+
+/* Make sure items are contained in their container */
+.skill-slider .react-multi-carousel-track {
+  display: flex;
+  align-items: stretch;
+}
+
+.skill-slider .react-multi-carousel-item {
+  display: flex;
+  justify-content: center;
+  height: auto !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    padding: 0 10px;
+  }
+  
+  .custom-arrow {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .custom-arrow-left {
+    left: -10px;
+  }
+  
+  .custom-arrow-right {
+    right: -10px;
+  }
+}
