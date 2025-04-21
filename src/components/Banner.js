@@ -4,6 +4,7 @@ import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import "../assets/styles/Banner.css";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -11,6 +12,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const period = 2000;
+  const cvLink = "https://drive.google.com/file/d/10GeOyDXPJ9qx76e5XL0-Hk7nZE5aEkmv/view?usp=drivesdk";
 
   // Use useCallback for the tick function as it's a dependency
   const tick = useCallback(() => {
@@ -42,9 +44,16 @@ export const Banner = () => {
 
     return () => { clearInterval(ticker) };
   }, [delta, tick]); // delta and tick are the correct dependencies
+  
+  const handleDownloadCV = () => {
+    window.open(cvLink, '_blank');
+  };
 
-  const handleConnectClick = () => {
-    window.location.hash = '#connect';
+  const handleConnect = () => {
+    const connectSection = document.getElementById('connect');
+    if (connectSection) {
+      connectSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -58,7 +67,10 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Bineesh S`} <span className="txt-rotate" data-period="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
                 <p>Your website is the center of your digital eco-system, like a brick and mortar location, the experience matters once a customer enters, just as much as the perception they have of you before they walk through the door.</p>
-                <button onClick={handleConnectClick}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                <div className="banner-btns">
+                  <button className="cv-btn" onClick={handleDownloadCV}>Download CV</button>
+                  <button onClick={handleConnect}>Let's Connect <ArrowRightCircle size={25} /></button>
+                </div>
               </div>}
             </TrackVisibility>
           </Col>

@@ -4,6 +4,7 @@ import { MailchimpForm } from "./MailchimpForm";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
+import navIcon4 from "../assets/img/nav-icon4.svg";
 
 export const Footer = () => {
   return (
@@ -19,8 +20,9 @@ export const Footer = () => {
               <a href="https://www.linkedin.com/in/bineesh627" target="_blank" rel="noopener noreferrer"><img src={navIcon1} alt="LinkedIn Icon" /></a>
               <a href="https://github.com/Bineesh627" target="_blank" rel="noopener noreferrer"><img src={navIcon2} alt="Facebook Icon" /></a>
               <a href="https://www.instagram.com/dream_boy_.627" target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt="Instagram Icon" /></a>
+              <a href="https://wa.me/+919567314355" target="_blank" rel="noopener noreferrer"><img src={navIcon4} alt="WhatsApp Icon" /></a>
             </div>
-            <p>Copyright 2025. All Rights Reserved</p>
+            <p>Copyright 2025. All Rights Reserved By Bineesh S</p>
           </Col>
         </Row>
       </Container>
