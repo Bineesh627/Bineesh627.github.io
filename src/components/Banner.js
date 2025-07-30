@@ -14,7 +14,7 @@ export const Banner = () => {
 
   // Use useCallback for the tick function as it's a dependency
   const tick = useCallback(() => {
-    const toRotate = [ "Full-Stack Developer", "Python Developer", "UI/UX Designer" ]; // Moved inside useCallback
+    const toRotate = [ "Cyber Security", "Python Developer", "UI/UX Designer" ]; // Moved inside useCallback
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
@@ -59,7 +59,7 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Bineesh S`} <span className="txt-rotate" data-period="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
+                <h1>{`Hi! I'm Bineesh S`} <span className="txt-rotate" data-period="1000" data-rotate='[ "Cyber Security", "Python Developer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
                 <p>Your website is the center of your digital eco-system, like a brick and mortar location, the experience matters once a customer enters, just as much as the perception they have of you before they walk through the door.</p>
                 <div className="banner-btns">
                   <button onClick={handleConnect}>Let's Connect <ArrowRightCircle size={25} /></button>

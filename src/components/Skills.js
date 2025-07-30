@@ -19,6 +19,7 @@ const skills = [
   { name: "Linux", levelLabel: "Expert", category: "tools" },
   { name: "Postman", levelLabel: "Advanced", category: "tools" },
   { name: "Burp Suite", levelLabel: "Intermediate", category: "tools" },
+  { name: "Nmap", levelLabel: "Intermediate", category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];

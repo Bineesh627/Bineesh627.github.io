@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import profile from "../assets/img/profile-pic.png";
 
 export const About = () => {
-  const cvLink = "https://drive.google.com/file/d/1JoAEaUWU2lyB1GKko7flwfKWrJMy6E93/view?usp=sharing";
+  const cvLink = "https://drive.google.com/file/d/1U2nLSDzrpbBygta8rbe1h3Jobove43Ef/view?usp=sharing";
 
   const handleDownloadCV = () => {
     window.open(cvLink, '_blank');

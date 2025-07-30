@@ -1,88 +1,136 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
+import React from "react";
+import { ArrowRight, ExternalLink, GithubIcon } from "lucide-react";
 import projImg1 from "../assets/img/project-img1.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
 
-export const Projects = () => {
+const projects = [
+  {
+    id: 1,
+    title: "Rag Chatbot",
+    description: "Developed a college chatbot leveraging Retrieval-Augmented Generation (RAG) in collaboration with the principal. The system employs intelligent agents to extract information from the college website and PDF documents, all managed through a dedicated admin panel for seamless operation.",
+    image: projImg1,
+    tags: ["Python", "Bootstrap", "Django", "Langchain", "HTML", "CSS", "Javascript", "Numpy"],
+    demoUrl: "#projects",
+    githubUrl: "https://github.com/Bineesh627/college_chatbot",
+  },
+  {
+    id: 2,
+    title: "Culinary Community & Sharing Platform ",
+    description: "Join a vibrant community of food lovers on RecipeRave! Follow your favorite home cooks and culinary creators, explore a diverse collection of recipes, and share your own delicious creations with the world, just like your favorite photo-sharing platform.",
+    image: projImg2,
+    tags: ["Python", "Django", "HTML", "CSS", "Javascript", "Bootstrap"],
+    demoUrl: "#projects",
+    githubUrl: "https://github.com/Bineesh627/reciperave",
+  },
+  {
+    id: 3,
+    title: "MobileInfoga",
+    description: "MobileInfoGa is a powerful OSINT tool designed to gather comprehensive details about phone numbers. Utilizing various techniques and integrations, it can retrieve information such as country of origin, carrier details, and potential online associations.",
+    image: projImg3,
+    tags: ["Python", "Telethon", "Phonenumbers"],
+    demoUrl: "#projects",
+    githubUrl: "https://github.com/Bineesh627/MobileInfoga",
+  },
+  {
+    id: 4,
+    title: "OpenSS7",
+    description: "Recreating the OpenSS7 website design involves building a structurally sound and information-focused clone emphasizing clear navigation and logical presentation of technical content.",
+    image: projImg4,
+    tags: ["HTML", "CSS"],
+    demoUrl: "#projects",
+    githubUrl: "https://github.com/Bineesh627/openss7",
+  },
+];
 
-  const projects = [
-    {
-      title: "College chatbot",
-      description: "Developed a college chatbot leveraging Retrieval-Augmented Generation (RAG) in collaboration with the principal. The system employs intelligent agents to extract information from the college website and PDF documents, all managed through a dedicated admin panel for seamless operation.",
-      imgUrl: projImg1,
-    },
-    {
-      title: "RecipeRave",
-      description: "Join a vibrant community of food lovers on RecipeRave! Follow your favorite home cooks and culinary creators, explore a diverse collection of recipes, and share your own delicious creations with the world, just like your favorite photo-sharing platform.",
-      imgUrl: projImg2,
-    },
-    {
-      title: "MobileInfoga",
-      description: "MobileInfoGa is a powerful OSINT tool designed to gather comprehensive details about phone numbers. Utilizing various techniques and integrations, it can retrieve information such as country of origin, carrier details, and potential online associations.",
-      imgUrl: projImg3,
-    },
-    {
-      title: "OpenSS7",
-      description: "Recreating the OpenSS7 website design involves building a structurally sound and information-focused clone emphasizing clear navigation and logical presentation of technical content.",
-      imgUrl: projImg4,
-    },
-  ];
+export const Projects = () => (
+  <section id="projects" className="py-5" data-bs-theme="dark">
+    <div className="container">
+      <h2 className="display-5 fw-bold text-center mb-4">
+        Featured <span className="text-primary">Projects</span>
+      </h2>
+      <p className="text-center text-secondary mb-5 mx-auto" style={{ maxWidth: 600 }}>
+        Here are some of my recent projects. Each project was carefully crafted with attention to detail, performance, and user experience.
+      </p>
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {projects.map((project) => (
+          <div key={project.id} className="col">
+            <div className="card h-100 bg-dark text-light shadow border-0">
+              <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="card-img-top"
+                  style={{ height: "200px", objectFit: "cover", transition: "transform 0.3s ease" }}
+                />
+                {/* Overlay */}
+                <div className="overlay d-flex justify-content-center align-items-center">
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary btn-sm mx-2"
+                  >
+                    Demo <ExternalLink size={16} />
+                  </a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary btn-sm mx-2"
+                  >
+                    Code <GithubIcon size={16} />
+                  </a>
+                </div>
+              </div>
+              <div className="card-body">
+                <div className="mb-3">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="badge bg-secondary me-1">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h5 className="card-title">{project.title}</h5>
+                <p className="card-text text-secondary">{project.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="text-center mt-5">
+        <a
+          className="btn btn-primary d-inline-flex align-items-center gap-2"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/Bineesh627"
+        >
+          Check My Github <ArrowRight size={16} />
+        </a>
+      </div>
+    </div>
 
-  return (
-    <section className="project" id="projects">
-      <Container>
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Projects</h2>
-                <p>I have a portfolio of successfully completed projects that showcase my skills and experience. You can view examples of my previous work in the project details below. Let’s discuss how I can help bring your vision to life.</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                      <p>Coming Soon...</p>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p>Coming Soon...</p>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
-            </TrackVisibility>
-          </Col>
-        </Row>
-      </Container>
-      {/* <img className="background-image-right" src={colorSharp2} alt="Colorful Background Shape" /> */}
-    </section>
-  )
-}
+    {/* Styles for overlay */}
+    <style jsx>{`
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      .position-relative:hover .overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .position-relative:hover img {
+        transform: scale(1.05);
+      }
+    `}</style>
+  </section>
+);

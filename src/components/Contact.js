@@ -95,7 +95,7 @@ export const Contact = () => {
                           size={20}
                           aria-label="Address Icon"
                         />
-                        <strong>Address:</strong> Alappuzha, Kerala, India
+                        <strong>Address:</strong> <a href="https://www.google.com/maps?q=Alappuzha,+Kerala,+India" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "#dfe6e9", cursor: "pointer" }}>Alappuzha, Kerala, India</a>
                       </p>
                       <p>
                         <FaEnvelope
