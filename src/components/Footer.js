@@ -9,7 +9,7 @@ export const Footer = () => {
   return (
     <footer 
       className="footer" 
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '20px 0', color: '#fff' }}
+      style={{ backgroundColor: 'rgb(5, 5, 5)', padding: '20px 0', color: '#fff' }}
     >
       <Container>
         <Row className="align-items-center">

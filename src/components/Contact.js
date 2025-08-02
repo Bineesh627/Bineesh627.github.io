@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaUser, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaMapMarkerAlt, FaShareAlt  } from "react-icons/fa";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+
+import navIcon1 from '../assets/img/nav-icon1.svg';
+import navIcon2 from '../assets/img/nav-icon2.svg';
+import navIcon3 from '../assets/img/nav-icon3.svg';
+import navIcon4 from '../assets/img/nav-icon4.svg';
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -105,6 +110,20 @@ export const Contact = () => {
                         />
                         <strong>Email:</strong> <a href="mailto:sbineesh172@gmail.com" style={{ color: "#dfe6e9", textDecoration: "underline" }}>sbineesh172@gmail.com</a>
                       </p>
+                      <p>
+                        <FaShareAlt
+                          style={{ color: "#74b9ff", marginRight: "10px", verticalAlign: 'middle' }}
+                          size={20}
+                          aria-label="Follow Me Icon"
+                        />
+                        <strong>Follow Me</strong>
+                      </p>
+                      <div className="social-icon">
+                        <a href="https://www.linkedin.com/in/bineesh627" target="_blank" rel="noopener noreferrer"><img src={navIcon1} alt="LinkedIn Icon" /></a>
+                        <a href="https://github.com/Bineesh627" target="_blank" rel="noopener noreferrer"><img src={navIcon2} alt="GitHub Icon" /></a>
+                        <a href="https://www.instagram.com/dream_boy_.627" target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt="Instagram Icon" /></a>
+                        <a href="https://wa.me/+919567314355" target="_blank" rel="noopener noreferrer"><img src={navIcon4} alt="WhatsApp Icon" /></a>
+                      </div>
                     </div>
                   </div>
                 )

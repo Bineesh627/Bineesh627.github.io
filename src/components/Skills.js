@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const skills = [
   { name: "HTML/CSS", levelLabel: "Expert", category: "frontend" },
   { name: "JavaScript", levelLabel: "Advanced", category: "frontend" },
-  { name: "Boostrap", levelLabel: "Advanced", category: "frontend" },
+  { name: "Bootstrap", levelLabel: "Advanced", category: "frontend" },
   { name: "React", levelLabel: "Intermediate", category: "frontend" },
   { name: "UI/UX", levelLabel: "Intermediate", category: "frontend" },
 
@@ -54,7 +54,7 @@ export const Skills = () => {
 
   return React.createElement(
     "section",
-    { id: "skills", className: "py-5", style: { backgroundColor: "black", color: "#f8f9fa" } },
+    { id: "skills", className: "py-5"},
     React.createElement(
       "div",
       { className: "container" },
