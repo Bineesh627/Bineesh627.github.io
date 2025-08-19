@@ -234,7 +234,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/img/banner-bg.png');
+  background-image: url('./assets/img/banner/banner-bg.png');
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -604,4 +604,66 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
   letter-spacing: 0.5px;
   margin-top: 20px;
+}
+
+/* Blog css */
+/* Continue Reading Button */
+.continue-btn {
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  color: #fff !important;
+  border: none;
+  border-radius: 50px;
+  padding: 6px 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(255, 65, 108, 0.4);
+}
+
+.continue-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.6);
+}
+
+/* Share Button */
+.share-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 65, 108, 0.6);
+  transform: scale(1.1);
+}
+
+.arrow-btn {
+  background-color: rgba(0, 0, 0, 0.6); /* dark semi-transparent */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.arrow-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* darker on hover */
+  transform: scale(1.05);
+}
+
+.arrow-btn svg {
+  width: 18px;
+  height: 18px;
 }

@@ -6,22 +6,32 @@ import { Banner } from "./components/Banner";
 import { About } from "./components/About";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
+import { Blogs } from "./components/Blogs";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { BrowserRouter as Router } from "react-router-dom";   // ✅ import router
 
 function App() {
   return (
-    <div className="App bg-black text-white">
-      <NavBar />
-      <Banner />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <Router
+      future={{ 
+        v7_startTransition: true,       // ✅ Fixes startTransition warning
+        v7_relativeSplatPath: true      // ✅ Fixes relative splat path warning
+      }}
+    >
+      <div className="App bg-black text-white">
+        <NavBar />
+        <Banner />
+        <About />
+        <Experience />
+        <Skills />
+        <Blogs />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

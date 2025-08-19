@@ -12,6 +12,15 @@ import "react-vertical-timeline-component/style.min.css";
 const timelineElements = [
   {
     id: 1,
+    title: "ESSENTIALS OF ETHICAL HACKING • Intern",
+    location: "RedTeam Hacker Academy, Trivandrum",
+    description:
+      "Completed an internship on Essentials of Ethical Hacking at RedTeam Hacker Academy, Trivandrum, where I gained hands-on knowledge of basic hacking methods, security concepts, and defensive techniques used in cybersecurity.",
+    date: "October 2024 - November 2024",
+    icon: "work",
+  },
+  {
+    id: 2,
     title: "Bachelor of Computer Applications (BCA)",
     location: "IHRD CAS Karthikapally",
     description:
@@ -20,7 +29,7 @@ const timelineElements = [
     icon: "school",
   },
   {
-    id: 2,
+    id: 3,
     title: "Higher Secondary School",
     location: "G.H.S.S Mangalam School, Aratupuzha",
     description:
@@ -29,7 +38,7 @@ const timelineElements = [
     icon: "school",
   },
   {
-    id: 3,
+    id: 4,
     title: "Secondary School",
     location: "St. Thomas Higher Secondary School, Karthikapally",
     description:

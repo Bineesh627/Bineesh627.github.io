@@ -1,9 +1,9 @@
 import React from "react";
 import { ArrowRight, ExternalLink, GithubIcon } from "lucide-react";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
-import projImg4 from "../assets/img/project-img4.png";
+import projImg1 from "../assets/img/projects/project-img1.png";
+import projImg2 from "../assets/img/projects/project-img2.png";
+import projImg3 from "../assets/img/projects/project-img3.png";
+import projImg4 from "../assets/img/projects/project-img4.png";
 
 const projects = [
   {
@@ -112,7 +112,7 @@ export const Projects = () => (
     </div>
 
     {/* Styles for overlay */}
-    <style jsx>{`
+    <style>{`
       .overlay {
         position: absolute;
         top: 0;
