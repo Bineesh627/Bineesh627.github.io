@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/NavBar";
 import { Banner } from "./components/Banner";
+import { GalaxyBackground } from "./components/GalaxyBackground";
 import { About } from "./components/About";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
@@ -21,6 +22,7 @@ function App() {
       }}
     >
       <div className="App bg-black text-white">
+        <GalaxyBackground />
         <NavBar />
         <Banner />
         <About />

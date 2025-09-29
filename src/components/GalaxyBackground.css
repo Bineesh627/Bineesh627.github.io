@@ -1,0 +1,242 @@
+/* Galaxy Background Styles */
+.galaxy-background {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #000;
+}
+
+/* Galaxy cloud layers with radial gradients */
+.galaxy-layer {
+  opacity: 0.8;
+  animation: galaxyRotate 120s linear infinite;
+}
+
+.galaxy-layer-1 {
+  background: radial-gradient(
+    ellipse at 20% 30%, 
+    rgba(138, 43, 226, 0.3) 0%, 
+    transparent 50%
+  ),
+  radial-gradient(
+    ellipse at 80% 70%, 
+    rgba(75, 0, 130, 0.2) 0%, 
+    transparent 50%
+  );
+  animation-duration: 100s;
+}
+
+.galaxy-layer-2 {
+  background: radial-gradient(
+    ellipse at 60% 20%, 
+    rgba(25, 25, 112, 0.4) 0%, 
+    transparent 60%
+  ),
+  radial-gradient(
+    ellipse at 30% 80%, 
+    rgba(72, 61, 139, 0.3) 0%, 
+    transparent 50%
+  );
+  animation-duration: 150s;
+  animation-direction: reverse;
+}
+
+.galaxy-layer-3 {
+  background: radial-gradient(
+    ellipse at 40% 60%, 
+    rgba(123, 104, 238, 0.2) 0%, 
+    transparent 70%
+  ),
+  radial-gradient(
+    ellipse at 70% 40%, 
+    rgba(147, 112, 219, 0.25) 0%, 
+    transparent 60%
+  );
+  animation-duration: 200s;
+}
+
+@keyframes galaxyRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Star styles */
+.star {
+  border-radius: 50%;
+  background: white;
+  animation: starTwinkle 3s ease-in-out infinite alternate;
+}
+
+.star-small {
+  width: 1px;
+  height: 1px;
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.8);
+}
+
+.star-medium {
+  width: 2px;
+  height: 2px;
+  box-shadow: 
+    0 0 8px 2px rgba(255, 255, 255, 0.9),
+    0 0 12px 3px rgba(173, 216, 230, 0.5);
+}
+
+.star-large {
+  width: 3px;
+  height: 3px;
+  box-shadow: 
+    0 0 10px 2px rgba(255, 255, 255, 1),
+    0 0 20px 4px rgba(173, 216, 230, 0.7),
+    0 0 30px 6px rgba(135, 206, 250, 0.4);
+}
+
+@keyframes starTwinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Shooting stars */
+.shooting-star {
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px 2px rgba(255, 255, 255, 1),
+    0 0 20px 4px rgba(173, 216, 230, 0.8);
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(255, 255, 255, 0.4) 50%, 
+    transparent 100%
+  );
+  transform: translateY(-50%);
+  border-radius: 1px;
+}
+
+.shooting-star-1 {
+  top: 20%;
+  animation: shootingStar1 8s linear infinite;
+}
+
+.shooting-star-2 {
+  top: 60%;
+  animation: shootingStar2 12s linear infinite;
+  animation-delay: 3s;
+}
+
+.shooting-star-3 {
+  top: 40%;
+  animation: shootingStar3 10s linear infinite;
+  animation-delay: 6s;
+}
+
+@keyframes shootingStar1 {
+  0% {
+    left: -120px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes shootingStar2 {
+  0% {
+    left: -120px;
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes shootingStar3 {
+  0% {
+    left: -120px;
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .star-large {
+    width: 2px;
+    height: 2px;
+    box-shadow: 
+      0 0 8px 1px rgba(255, 255, 255, 1),
+      0 0 15px 3px rgba(173, 216, 230, 0.7),
+      0 0 20px 4px rgba(135, 206, 250, 0.4);
+  }
+  
+  .shooting-star::before {
+    width: 60px;
+  }
+  
+  .galaxy-layer {
+    opacity: 0.6;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-layer,
+  .star,
+  .shooting-star {
+    animation: none;
+  }
+  
+  .star {
+    opacity: 0.8;
+  }
+}
