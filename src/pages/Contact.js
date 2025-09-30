@@ -420,11 +420,17 @@ export const Contact = () => {
           }
 
           .contact-info-section {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            padding: 0 20px;
+          }
+          
+          .map-section {
+            padding: 0 20px;
           }
 
           .map-card {
             height: 240px;
+            margin-bottom: 40px;
           }
 
           .map-icon {
@@ -432,11 +438,25 @@ export const Contact = () => {
             height: 60px;
             font-size: 1.5rem;
           }
+          
+          .contact-items {
+            gap: 40px;
+            padding: 20px 0;
+          }
+          
+          .contact-item {
+            padding: 20px 0;
+            gap: 24px;
+          }
+          
+          .contact-icon {
+            margin-right: 8px;
+          }
         }
 
         @media (max-width: 767.98px) {
           .contact-page {
-            padding: 80px 0 40px 0;
+            padding: 80px 0 60px 0;
           }
 
           .contact-title {
@@ -460,18 +480,40 @@ export const Contact = () => {
           }
 
           .contact-content {
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+          }
+          
+          .contact-info-section {
+            margin-bottom: 80px;
+            padding: 0 24px;
+          }
+          
+          .map-section {
+            padding: 0 24px;
           }
 
           .contact-item {
-            gap: 16px;
-            padding: 16px 0;
+            gap: 20px;
+            padding: 24px 0;
+            margin: 0 -8px;
+          }
+          
+          .contact-items {
+            gap: 32px;
+            padding: 24px 0;
           }
 
           .contact-icon {
             width: 40px;
             height: 40px;
             font-size: 1rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+          }
+          
+          .contact-details {
+            flex: 1;
+            min-width: 0;
           }
 
           .social-icon {
@@ -483,15 +525,48 @@ export const Contact = () => {
           .social-icons {
             gap: 16px;
           }
+          
+          .map-card {
+            margin-bottom: 60px;
+          }
         }
 
         @media (max-width: 575.98px) {
+          .contact-page {
+            padding: 80px 0 80px 0;
+          }
+          
           .contact-title {
             font-size: 1.8rem;
           }
 
+          .contact-info-section {
+            padding: 0 20px;
+            margin-bottom: 100px;
+          }
+          
+          .map-section {
+            padding: 0 20px;
+          }
+          
+          .contact-items {
+            gap: 36px;
+            padding: 32px 0;
+          }
+          
+          .contact-item {
+            padding: 28px 0;
+            gap: 24px;
+            margin: 0 -4px;
+          }
+          
+          .contact-icon {
+            margin-right: 16px;
+          }
+          
           .map-card {
             height: 200px;
+            margin-bottom: 80px;
           }
 
           .map-card-body {
