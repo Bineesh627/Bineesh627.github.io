@@ -1,11 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.51210943.css",
-    "main.js": "/static/js/main.f42e4546.js",
+    "main.css": "/static/css/main.37ffe1ea.css",
+    "main.js": "/static/js/main.cc4b4629.js",
     "static/js/787.fb771931.chunk.js": "/static/js/787.fb771931.chunk.js",
+    "static/media/Introduction_UI-UX.png": "/static/media/Introduction_UI-UX.69404fee23edcf8fa5b8.png",
+    "static/media/Internship_Certificate.jpg": "/static/media/Internship_Certificate.8f00f849e0a8ceda2660.jpg",
+    "static/media/EEH_Certificate.jpg": "/static/media/EEH_Certificate.f415469ad31bd3a70c50.jpg",
+    "static/media/Outskill_Certificate.jpg": "/static/media/Outskill_Certificate.6a5574f13ff28a72fc83.jpg",
     "static/media/project-img2.png": "/static/media/project-img2.6afd0d7dd5c14ed014d2.png",
     "static/media/profile-pic.png": "/static/media/profile-pic.0044d1396b03c02092de.png",
     "static/media/InnovativeThinkerAward.jpg": "/static/media/InnovativeThinkerAward.8571814d30b10fb4c0a0.jpg",
+    "static/media/Introduction_Machine_Learning.jpg": "/static/media/Introduction_Machine_Learning.58692876489b4d9ddbb3.jpg",
+    "static/media/Introduction_Cloud_Computing.jpg": "/static/media/Introduction_Cloud_Computing.d9ef2a7acc403fe4aad3.jpg",
+    "static/media/Internet_Security.jpg": "/static/media/Internet_Security.0f503659f04a2777dd0c.jpg",
     "static/media/project-img1.png": "/static/media/project-img1.af37a33dba5a07d2e1ec.png",
     "static/media/banner-bg.png": "/static/media/banner-bg.cc1273af450504afe755.png",
     "static/media/header-img.svg": "/static/media/header-img.84bf93eb20488a753440bf83d27db7bb.svg",
@@ -15,18 +22,18 @@
     "static/media/CentraNo2-Book.ttf": "/static/media/CentraNo2-Book.2b143fa4b734a3584043.ttf",
     "static/media/project-img4.png": "/static/media/project-img4.e339a80f68ceb93c8896.png",
     "static/media/nav-icon2.svg": "/static/media/nav-icon2.c8edaa6a1cd1d2af2d257125b27f3bae.svg",
-    "static/media/nav-icon4.svg": "/static/media/nav-icon4.7e8afa91a2be0cb03759d53051759c2a.svg",
+    "static/media/nav-icon4.svg": "/static/media/nav-icon4.39fcd202aa61fa3f94042df7886cbc84.svg",
     "static/media/nav-icon3.svg": "/static/media/nav-icon3.08b285abb8e118b52637efa5d65c5367.svg",
     "static/media/school.svg": "/static/media/school.a41655f6d5350015803153c7410cef6a.svg",
     "static/media/work.svg": "/static/media/work.3710b62484ed638074240e99317c6c60.svg",
     "static/media/nav-icon1.svg": "/static/media/nav-icon1.721d5414c26365f117e71d46b6641cb2.svg",
     "index.html": "/index.html",
-    "main.51210943.css.map": "/static/css/main.51210943.css.map",
-    "main.f42e4546.js.map": "/static/js/main.f42e4546.js.map",
+    "main.37ffe1ea.css.map": "/static/css/main.37ffe1ea.css.map",
+    "main.cc4b4629.js.map": "/static/js/main.cc4b4629.js.map",
     "787.fb771931.chunk.js.map": "/static/js/787.fb771931.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.51210943.css",
-    "static/js/main.f42e4546.js"
+    "static/css/main.37ffe1ea.css",
+    "static/js/main.cc4b4629.js"
   ]
 }
