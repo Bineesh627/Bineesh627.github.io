@@ -20,9 +20,12 @@ const skills = [
   { name: "Postman", levelLabel: "Advanced", category: "tools" },
   { name: "Burp Suite", levelLabel: "Intermediate", category: "tools" },
   { name: "Nmap", levelLabel: "Intermediate", category: "tools" },
+  { name: "Cyber Security Expert", levelLabel: "Expert", category: "tools" },
+  { name: "AI Expert", levelLabel: "Expert", category: "tools" },
+  { name: "Entrepreneur", levelLabel: "Expert", category: "tools" },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
+const categories = ["frontend", "backend", "tools"];
 
 const levelColors = {
   Expert: "bg-success",
@@ -45,11 +48,11 @@ const cardHoverStyle = {
 };
 
 export const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("frontend");
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
+    (skill) => skill.category === activeCategory
   );
 
   return React.createElement(
