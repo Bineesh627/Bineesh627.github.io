@@ -120,10 +120,10 @@ export const Certifications = () => {
 
                   <div className="cert-details">
                     <h3 className="cert-title">{cert.title}</h3>
-                    <p className="cert-id">{cert.certificateId}</p>
+                    <p className="cert-id">ID: {cert.certificateId}</p>
                     <p className="cert-description">{cert.description}</p>
                     <div className="cert-footer">
-                      <span className="cert-date">{cert.completionDate}</span>
+                      <span className="cert-date">Completed: {cert.completionDate}</span>
                     </div>
                   </div>
                 </div>
