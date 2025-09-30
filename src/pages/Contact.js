@@ -1,338 +1,541 @@
-import { useState, useRef } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { FaUser, FaEnvelope, FaMapMarkerAlt, FaShareAlt } from "react-icons/fa";
-import "animate.css";
-import TrackVisibility from "react-on-screen";
-
-import navIcon1 from "../assets/img/icons/nav-icon1.svg";
-import navIcon2 from "../assets/img/icons/nav-icon2.svg";
-import navIcon3 from "../assets/img/icons/nav-icon3.svg";
-import navIcon4 from "../assets/img/icons/nav-icon4.svg";
+import React from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import { 
+  FaEnvelope, 
+  FaPhone, 
+  FaMapMarkerAlt, 
+  FaMap,
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaWhatsapp,
+  FaGithub
+} from "react-icons/fa";
 
 export const Contact = () => {
-  const formInitialDetails = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  };
-
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
-  const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
-
-  const leftVisibleOnce = useRef(false);
-  const rightVisibleOnce = useRef(false);
-
-  const onFormUpdate = (category, value) => {
-    setFormDetails({
-      ...formDetails,
-      [category]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setButtonText("Sending...");
-    try {
-      let response = await fetch("http://localhost:5000/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(formDetails),
-      });
-      let result = await response.json();
-      setButtonText("Send");
-      setFormDetails(formInitialDetails);
-      if (result.code === 200) {
-        setStatus({ success: true, message: "Message sent successfully" });
-      } else {
-        setStatus({
-          success: false,
-          message: "Something went wrong, please try again later.",
-        });
-      }
-    } catch (error) {
-      setButtonText("Send");
-      setStatus({
-        success: false,
-        message: "Failed to send. Please try again later.",
-      });
+  const contactInfo = [
+    {
+      icon: <FaEnvelope />,
+      label: "Email",
+      value: "sbineesh172@gmail.com",
+      link: "mailto:sbineesh172@gmail.com"
+    },
+    {
+      icon: <FaPhone />,
+      label: "Phone",
+      value: "91 95673 14355",
+      link: "tel:+919567314355"
+    },
+    {
+      icon: <FaMapMarkerAlt />,
+      label: "Location",
+      value: "Alappuzha, Kerala",
+      link: "https://www.google.com/maps?q=Alappuzha,+Kerala,+India"
     }
-  };
+  ];
 
-  // Section Style: Removed top padding from here.
-  const sectionStyle = {
-    minHeight: "100vh",
-    background: "black",
-    padding: "0 0 60px 0", // Only keeping bottom padding
-    color: "#f8f9fa",
-  };
+  const socialLinks = [
+    {
+      icon: <FaLinkedin />,
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/bineesh627"
+    },
+    {
+      icon: <FaTwitter />,
+      label: "Twitter",
+      url: "https://twitter.com/bineesh627"
+    },
+    {
+      icon: <FaInstagram />,
+      label: "Instagram",
+      url: "https://www.instagram.com/dream_boy_.627"
+    },
+    {
+      icon: <FaWhatsapp />,
+      label: "WhatsApp",
+      url: "https://wa.me/+919567314355"
+    },
+    {
+      icon: <FaGithub />,
+      label: "GitHub",
+      url: "https://github.com/Bineesh627"
+    }
+  ];
 
-  const infoStyle = {
-    fontSize: "1.17rem",
-    lineHeight: "2.2",
-    marginTop: "36px",
+  const handleMapClick = () => {
+    window.open("https://www.google.com/maps?q=Alappuzha,+Kerala,+India", "_blank");
   };
 
   return (
-    // FIX 1: Increased spacing on the wrapper to pt-5 for maximum clearance
-    <div className="bg-black text-white min-vh-100 pt-5">
-      
-      {/* FIX 2: Added mt-4 to the section itself to push the content down further. 
-          The combination of pt-5 on the parent and mt-4 on the child is a reliable way 
-          to clear a fixed navbar. */}
-      <section className="contact mt-5" style={sectionStyle}>
-        <Container>
-          <Row className="align-items-center">
-            {/* Left column: Contact info */}
-            <Col size={12} md={6}>
-              <TrackVisibility>
-                {({ isVisible }) => {
-                  if (isVisible) leftVisibleOnce.current = true; // ✅ ref, no re-render
-                  const shouldAnimate = isVisible || leftVisibleOnce.current;
-                  return (
-                    <div
-                      className={
-                        shouldAnimate ? "animate__animated animate__fadeIn" : ""
-                      }
-                    >
-                      {/* Using Bootstrap utility classes for heading size and bottom margin */}
-                      <h2 className="display-4 fw-bold mb-4">Get In Touch</h2>
-                      <p>
-                        Do you want to hire me? Do you need any support or
-                        guidance? <br />
-                        Or if you have any questions, please don't hesitate to
-                        connect with me by simply entering your info in the
-                        provided form or hook up with me through email.
-                      </p>
-                      <div style={infoStyle}>
-                        <p>
-                          <FaUser
-                            style={{
-                              color: "#74b9ff",
-                              marginRight: "10px",
-                              verticalAlign: "middle",
-                            }}
-                            size={20}
-                          />
-                          <strong>Name:</strong> Bineesh S
-                        </p>
-                        <p>
-                          <FaMapMarkerAlt
-                            style={{
-                              color: "#fdcb6e",
-                              marginRight: "10px",
-                              verticalAlign: "middle",
-                            }}
-                            size={20}
-                          />
-                          <strong>Address:</strong>{" "}
-                          <a
-                            href="https://www.google.com/maps?q=Alappuzha,+Kerala,+India"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                              textDecoration: "underline",
-                              color: "#dfe6e9",
-                              cursor: "pointer",
-                            }}
-                          >
-                            Alappuzha, Kerala, India
-                          </a>
-                        </p>
-                        <p>
-                          <FaEnvelope
-                            style={{
-                              color: "#ff7675",
-                              marginRight: "10px",
-                              verticalAlign: "middle",
-                            }}
-                            size={20}
-                          />
-                          <strong>Email:</strong>{" "}
-                          <a
-                            href="mailto:sbineesh172@gmail.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                              color: "#dfe6e9",
-                              textDecoration: "underline",
-                            }}
-                          >
-                            sbineesh172@gmail.com
-                          </a>
-                        </p>
-                        <p>
-                          <FaShareAlt
-                            style={{
-                              color: "#74b9ff",
-                              marginRight: "10px",
-                              verticalAlign: "middle",
-                            }}
-                            size={20}
-                          />
-                          <strong>Follow Me</strong>
-                        </p>
-                        <div className="social-icon">
-                          <a
-                            href="https://www.linkedin.com/in/bineesh627"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <img src={navIcon1} alt="LinkedIn Icon" />
-                          </a>
-                          <a
-                            href="https://github.com/Bineesh627"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <img src={navIcon2} alt="GitHub Icon" />
-                          </a>
-                          <a
-                            href="https://www.instagram.com/dream_boy_.627"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <img src={navIcon3} alt="Instagram Icon" />
-                          </a>
-                          <a
-                            href="https://wa.me/+919567314355"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <img src={navIcon4} alt="WhatsApp Icon" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }}
-              </TrackVisibility>
-            </Col>
+    <div className="contact-page">
+      <Container className="contact-container">
+        {/* Header Section */}
+        <div className="contact-header">
+          <h1 className="contact-title">
+            Get In <span className="text-accent">Touch</span>
+          </h1>
+          <p className="contact-subtitle">
+            Let's connect and collaborate
+          </p>
+        </div>
 
-            {/* Right column: Form */}
-            <Col size={12} md={6}>
-              <TrackVisibility>
-                {({ isVisible }) => {
-                  if (isVisible) rightVisibleOnce.current = true; // ✅ ref, no re-render
-                  const shouldAnimate = isVisible || rightVisibleOnce.current;
-                  return (
-                    <div
-                      className={
-                        shouldAnimate ? "animate__animated animate__fadeIn" : ""
-                      }
+        {/* Main Content */}
+        <Row className="contact-content">
+          {/* Left Side - Contact Information */}
+          <Col lg={6} className="contact-info-section">
+            <h2 className="section-title">Contact Information</h2>
+            <div className="contact-items">
+              {contactInfo.map((item, index) => (
+                <div key={index} className="contact-item">
+                  <div className="contact-icon">
+                    {item.icon}
+                  </div>
+                  <div className="contact-details">
+                    <span className="contact-label">{item.label}</span>
+                    <a 
+                      href={item.link}
+                      className="contact-value"
+                      target={item.label === "Location" ? "_blank" : "_self"}
+                      rel={item.label === "Location" ? "noopener noreferrer" : ""}
                     >
-                      <h2 className="display-4 fw-bold mb-4">Contact Us</h2>
-                      <form onSubmit={handleSubmit}>
-                        <Row>
-                          <Col size={12} sm={6} className="px-1">
-                            <input
-                              type="text"
-                              id="firstName"
-                              name="firstName"
-                              value={formDetails.firstName}
-                              placeholder="First Name"
-                              onChange={(e) =>
-                                onFormUpdate("firstName", e.target.value)
-                              }
-                              autoComplete="given-name"
-                              required
-                            />
-                          </Col>
-                          <Col size={12} sm={6} className="px-1">
-                            <input
-                              type="text"
-                              id="lastName"
-                              name="lastName"
-                              value={formDetails.lastName}
-                              placeholder="Last Name"
-                              onChange={(e) =>
-                                onFormUpdate("lastName", e.target.value)
-                              }
-                              autoComplete="family-name"
-                              required
-                            />
-                          </Col>
-                          <Col size={12} sm={6} className="px-1">
-                            <input
-                              type="email"
-                              id="email"
-                              name="email"
-                              value={formDetails.email}
-                              placeholder="Email Address"
-                              onChange={(e) =>
-                                onFormUpdate("email", e.target.value)
-                              }
-                              autoComplete="email"
-                              required
-                            />
-                          </Col>
-                          <Col size={12} sm={6} className="px-1">
-                            <input
-                              type="tel"
-                              id="phone"
-                              name="phone"
-                              value={formDetails.phone}
-                              placeholder="Phone No."
-                              onChange={(e) =>
-                                onFormUpdate("phone", e.target.value)
-                              }
-                              autoComplete="tel"
-                            />
-                          </Col>
-                          <Col size={12} className="px-1">
-                            <textarea
-                              rows="6"
-                              id="message"
-                              name="message"
-                              value={formDetails.message}
-                              placeholder="Message"
-                              onChange={(e) =>
-                                onFormUpdate("message", e.target.value)
-                              }
-                              autoComplete="off"
-                              required
-                            />
-                            <button
-                              type="submit"
-                              style={{
-                                background: "#a29bfe",
-                                border: "none",
-                                color: "#2d3436",
-                                fontWeight: 600,
-                                borderRadius: "6px",
-                                padding: "12px 20px",
-                                marginTop: "18px",
-                                cursor: "pointer",
-                              }}
-                            >
-                              <span>{buttonText}</span>
-                            </button>
-                          </Col>
-                          {status.message && (
-                            <Col>
-                              <p
-                                className={
-                                  status.success === false ? "danger" : "success"
-                                }
-                              >
-                                {status.message}
-                              </p>
-                            </Col>
-                          )}
-                        </Row>
-                      </form>
-                    </div>
-                  );
-                }}
-              </TrackVisibility>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+                      {item.value}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Col>
+
+          {/* Right Side - Map Section */}
+          <Col lg={6} className="map-section">
+            <Card className="map-card" onClick={handleMapClick}>
+              <Card.Body className="map-card-body">
+                <div className="map-icon">
+                  <FaMap />
+                </div>
+                <p className="map-text">
+                  View Location on Google Maps
+                </p>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+
+        {/* Bottom Section - Social Media */}
+        <div className="social-section">
+          <h2 className="social-title">Follow Me</h2>
+          <div className="social-icons">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label={social.label}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </div>
+      </Container>
+
+      <style jsx>{`
+        .contact-page {
+          background-color: #000;
+          color: #fff;
+          min-height: 100vh;
+          padding: 120px 0 80px 0;
+          font-family: 'Inter', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .contact-container {
+          max-width: 1200px;
+        }
+
+        /* Header Styles */
+        .contact-header {
+          text-align: center;
+          margin-bottom: 80px;
+        }
+
+        .contact-title {
+          font-size: 3.5rem;
+          font-weight: 700;
+          margin-bottom: 16px;
+          letter-spacing: -0.02em;
+          line-height: 1.2;
+        }
+
+        .text-accent {
+          color: rgb(13, 110, 253);
+        }
+
+        .contact-subtitle {
+          font-size: 1.2rem;
+          color: #cccccc;
+          margin: 0;
+          font-weight: 400;
+        }
+
+        /* Main Content */
+        .contact-content {
+          margin-bottom: 80px;
+        }
+
+        /* Contact Information Section */
+        .contact-info-section {
+          padding-right: 2rem;
+        }
+
+        .section-title {
+          color: rgb(13, 110, 253);
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin-bottom: 40px;
+          letter-spacing: -0.01em;
+        }
+
+        .contact-items {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+        }
+
+        .contact-item {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding: 20px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+          transform: translateX(8px);
+          border-bottom-color: rgb(13, 110, 253);
+        }
+
+        .contact-icon {
+          width: 50px;
+          height: 50px;
+          background: rgba(13, 110, 253, 0.1);
+          border: 2px solid rgb(13, 110, 253);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(13, 110, 253);
+          font-size: 1.2rem;
+          flex-shrink: 0;
+          transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+          background: rgb(13, 110, 253);
+          color: #fff;
+          transform: scale(1.1);
+        }
+
+        .contact-details {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .contact-label {
+          font-size: 0.9rem;
+          color: #cccccc;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .contact-value {
+          font-size: 1.1rem;
+          color: #ffffff;
+          font-weight: 600;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .contact-value:hover {
+          color: rgb(13, 110, 253);
+          text-decoration: none;
+        }
+
+        /* Map Section */
+        .map-section {
+          padding-left: 2rem;
+          display: flex;
+          align-items: center;
+        }
+
+        .map-card {
+          background: #1a1a1a;
+          border: 2px solid rgba(13, 110, 253, 0.2);
+          border-radius: 16px;
+          width: 100%;
+          height: 280px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          overflow: hidden;
+        }
+
+        .map-card:hover {
+          border-color: rgb(13, 110, 253);
+          transform: translateY(-4px);
+          box-shadow: 0 20px 40px rgba(13, 110, 253, 0.2);
+        }
+
+        .map-card-body {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 40px 20px;
+        }
+
+        .map-icon {
+          width: 80px;
+          height: 80px;
+          background: rgba(13, 110, 253, 0.1);
+          border: 3px solid rgb(13, 110, 253);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(13, 110, 253);
+          font-size: 2rem;
+          margin-bottom: 24px;
+          transition: all 0.3s ease;
+        }
+
+        .map-card:hover .map-icon {
+          background: rgb(13, 110, 253);
+          color: #fff;
+          transform: scale(1.1);
+        }
+
+        .map-text {
+          color: rgb(13, 110, 253);
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin: 0;
+          transition: color 0.3s ease;
+        }
+
+        .map-card:hover .map-text {
+          color: #fff;
+        }
+
+        /* Social Section */
+        .social-section {
+          text-align: center;
+          padding-top: 40px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-title {
+          color: #ffffff;
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin-bottom: 40px;
+          letter-spacing: -0.01em;
+        }
+
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .social-icon {
+          width: 60px;
+          height: 60px;
+          background: #1a1a1a;
+          border: 2px solid rgba(13, 110, 253, 0.3);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #cccccc;
+          font-size: 1.4rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .social-icon::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgb(13, 110, 253);
+          transform: scale(0);
+          transition: transform 0.3s ease;
+          border-radius: 50%;
+        }
+
+        .social-icon:hover {
+          border-color: rgb(13, 110, 253);
+          transform: translateY(-4px);
+          box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+        }
+
+        .social-icon:hover::before {
+          transform: scale(1);
+        }
+
+        .social-icon:hover {
+          color: #fff;
+        }
+
+        .social-icon > * {
+          position: relative;
+          z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991.98px) {
+          .contact-page {
+            padding: 100px 0 60px 0;
+          }
+
+          .contact-title {
+            font-size: 2.8rem;
+          }
+
+          .contact-info-section,
+          .map-section {
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          .contact-info-section {
+            margin-bottom: 40px;
+          }
+
+          .map-card {
+            height: 240px;
+          }
+
+          .map-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+          }
+        }
+
+        @media (max-width: 767.98px) {
+          .contact-page {
+            padding: 80px 0 40px 0;
+          }
+
+          .contact-title {
+            font-size: 2.2rem;
+          }
+
+          .contact-subtitle {
+            font-size: 1rem;
+          }
+
+          .section-title {
+            font-size: 1.5rem;
+          }
+
+          .social-title {
+            font-size: 1.5rem;
+          }
+
+          .contact-header {
+            margin-bottom: 60px;
+          }
+
+          .contact-content {
+            margin-bottom: 60px;
+          }
+
+          .contact-item {
+            gap: 16px;
+            padding: 16px 0;
+          }
+
+          .contact-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+          }
+
+          .social-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+          }
+
+          .social-icons {
+            gap: 16px;
+          }
+        }
+
+        @media (max-width: 575.98px) {
+          .contact-title {
+            font-size: 1.8rem;
+          }
+
+          .map-card {
+            height: 200px;
+          }
+
+          .map-card-body {
+            padding: 30px 15px;
+          }
+
+          .map-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+          }
+
+          .map-text {
+            font-size: 1rem;
+          }
+        }
+
+        /* Focus States for Accessibility */
+        .contact-value:focus,
+        .social-icon:focus,
+        .map-card:focus {
+          outline: 2px solid rgb(13, 110, 253);
+          outline-offset: 2px;
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+          .contact-item,
+          .contact-icon,
+          .map-card,
+          .map-icon,
+          .social-icon,
+          .social-icon::before {
+            transition: none;
+          }
+
+          .contact-item:hover,
+          .map-card:hover,
+          .social-icon:hover {
+            transform: none;
+          }
+        }
+      `}</style>
     </div>
   );
 };
