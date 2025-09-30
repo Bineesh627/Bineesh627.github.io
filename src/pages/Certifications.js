@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "./Certifications.css";
+import "../components/Certifications.css";
 
 // Sample certification data - replace with your actual certifications
 const certifications = [
@@ -62,62 +62,64 @@ const certifications = [
 
 export const Certifications = () => {
   return (
-    <section id="certifications" className="certifications-section">
-      <Container>
-        {/* Section Header */}
-        <div className="certifications-header">
-          <h2 className="certifications-title">
-            My <span className="text-accent">Certifications</span>
-          </h2>
-          <p className="certifications-subtitle">
-            Professional credentials and achievements
-          </p>
-          <div className="decorative-line"></div>
-        </div>
+    <div className="bg-black text-white min-vh-100">
+      <section className="certifications-section">
+        <Container>
+          {/* Section Header */}
+          <div className="certifications-header">
+            <h2 className="certifications-title">
+              My <span className="text-accent">Certifications</span>
+            </h2>
+            <p className="certifications-subtitle">
+              Professional credentials and achievements
+            </p>
+            <div className="decorative-line"></div>
+          </div>
 
-        {/* Certifications Grid */}
-        <Row className="certifications-grid">
-          {certifications.map((cert, index) => (
-            <Col key={cert.id} xs={12} md={6} lg={4} className="certification-col">
-              <div 
-                className="certification-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Certificate Image */}
-                <div className="cert-image-container">
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="cert-image"
-                    loading="lazy"
-                  />
-                  <div className="cert-overlay">
-                    <span className="cert-issuer">{cert.issuer}</span>
+          {/* Certifications Grid */}
+          <Row className="certifications-grid">
+            {certifications.map((cert, index) => (
+              <Col key={cert.id} xs={12} md={6} lg={4} className="certification-col">
+                <div 
+                  className="certification-card"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {/* Certificate Image */}
+                  <div className="cert-image-container">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="cert-image"
+                      loading="lazy"
+                    />
+                    <div className="cert-overlay">
+                      <span className="cert-issuer">{cert.issuer}</span>
+                    </div>
+                  </div>
+
+                  {/* Certificate Details */}
+                  <div className="cert-details">
+                    <h3 className="cert-title">{cert.title}</h3>
+                    <p className="cert-id">{cert.certificateId}</p>
+                    <p className="cert-description">{cert.description}</p>
+                    <div className="cert-footer">
+                      <span className="cert-date">{cert.completionDate}</span>
+                    </div>
                   </div>
                 </div>
+              </Col>
+            ))}
+          </Row>
 
-                {/* Certificate Details */}
-                <div className="cert-details">
-                  <h3 className="cert-title">{cert.title}</h3>
-                  <p className="cert-id">{cert.certificateId}</p>
-                  <p className="cert-description">{cert.description}</p>
-                  <div className="cert-footer">
-                    <span className="cert-date">{cert.completionDate}</span>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          ))}
-        </Row>
-
-        {/* View All Button */}
-        <div className="certifications-footer">
-          <button className="view-all-btn">
-            View All Certifications
-            <span className="btn-arrow">→</span>
-          </button>
-        </div>
-      </Container>
-    </section>
+          {/* View All Button */}
+          <div className="certifications-footer">
+            <button className="view-all-btn">
+              View All Certifications
+              <span className="btn-arrow">→</span>
+            </button>
+          </div>
+        </Container>
+      </section>
+    </div>
   );
 };

@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 // import logo from '../assets/img/logo.svg';
-import { HashLink } from 'react-router-hash-link';
 
 export const NavBar = () => {
-
-  const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => {
@@ -22,8 +21,10 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [])
 
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
+  const isActive = (path) => {
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
   }
 
   return (
@@ -37,18 +38,15 @@ export const NavBar = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-              <Nav.Link href="#about" className={activeLink === 'about' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('about')}>About</Nav.Link>
-              <Nav.Link href="#experience" className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('experience')}>Experience</Nav.Link>
-              <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-              <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
-              <Nav.Link href="#certifications" className={activeLink === 'certifications' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('certifications')}>Certifications</Nav.Link>
-              <Nav.Link href="#blogs" className={activeLink === 'blogs' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('blogs')}>Blogs</Nav.Link>
+              <Nav.Link as={Link} to="/" className={isActive('/') ? 'active navbar-link' : 'navbar-link'}>Home</Nav.Link>
+              <Nav.Link as={Link} to="/projects" className={isActive('/projects') ? 'active navbar-link' : 'navbar-link'}>Projects</Nav.Link>
+              <Nav.Link as={Link} to="/certifications" className={isActive('/certifications') ? 'active navbar-link' : 'navbar-link'}>Certifications</Nav.Link>
+              <Nav.Link as={Link} to="/blogs" className={isActive('/blogs') ? 'active navbar-link' : 'navbar-link'}>Blogs</Nav.Link>
             </Nav>
             <span className="navbar-text">
-              <HashLink to='#connect'>
+              <Link to='/contact'>
                 <button className="vvd"><span>Let’s Connect</span></button>
-              </HashLink>
+              </Link>
             </span>
           </Navbar.Collapse>
         </Container>

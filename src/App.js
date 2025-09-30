@@ -1,18 +1,16 @@
-// import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
-import { Banner } from "./components/Banner";
 import { GalaxyBackground } from "./components/GalaxyBackground";
-import { About } from "./components/About";
-import { Experience } from "./components/Experience";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Certifications } from "./components/Certifications";
-import { Blogs } from "./components/Blogs";
-import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-import { BrowserRouter as Router } from "react-router-dom";   // ✅ import router
+
+// Import page components
+import { Home } from "./pages/Home";
+import { Projects } from "./pages/Projects";
+import { Certifications } from "./pages/Certifications";
+import { Blogs } from "./pages/Blogs";
+import { Contact } from "./pages/Contact";
 
 function App() {
   return (
@@ -25,14 +23,15 @@ function App() {
       <div className="App bg-black text-white">
         <GalaxyBackground />
         <NavBar />
-        <Banner />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Certifications />
-        <Blogs />
-        <Contact />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/certifications" element={<Certifications />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        
         <Footer />
       </div>
     </Router>
