@@ -29,7 +29,7 @@
 }
 
 .brand-accent {
-  color: #e63946;
+  color: rgb(13 110 253);
   transition: color 0.3s ease;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .brand-name:hover .brand-accent {
-  color: #ff6b6b;
+  color: rgb(13 110 253);
 }
 
 .brand-tagline {
@@ -56,7 +56,7 @@
 }
 
 .links-heading {
-  color: #e63946;
+  color: rgb(13 110 253);
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 20px;
@@ -97,7 +97,7 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #e63946;
+  background-color: rgb(13 110 253);
   transition: width 0.3s ease;
 }
 
@@ -128,7 +128,7 @@
 }
 
 .company-link {
-  color: #e63946;
+  color: rgb(13 110 253);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -136,7 +136,7 @@
 
 .company-link:hover,
 .company-link:focus {
-  color: #ff6b6b;
+  color: rgb(13 110 253);
   text-decoration: none;
 }
 
@@ -225,7 +225,7 @@
 /* Focus States for Accessibility */
 .footer-link:focus,
 .company-link:focus {
-  outline: 2px solid #e63946;
+  outline: 2px solid rgb(13 110 253);
   outline-offset: 2px;
   border-radius: 2px;
 }

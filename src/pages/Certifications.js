@@ -1,63 +1,85 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../components/Certifications.css";
+import EEHCertificate from "../assets/img/certifications/EEH_Certificate.jpg";
+import OutskillCertificate from "../assets/img/certifications/Outskill_Certificate.jpg";
+import InterCertificate from "../assets/img/certifications/Internship_Certificate.jpg";
+import InternetSecurity from "../assets/img/certifications/Internet_Security.jpg";
+import IntroductionCloudComputing from "../assets/img/certifications/Introduction_Cloud_Computing.jpg";
+import IntroductionMachineLearning from "../assets/img/certifications/Introduction_Machine_Learning.jpg";
+import IntroductionUiUx from "../assets/img/certifications/Introduction_UI-UX.png";
 
-// Sample certification data - replace with your actual certifications
 const certifications = [
   {
     id: 1,
-    title: "Ethical Hacking Essentials",
-    certificateId: "RTA-EHE-2024-001",
-    description: "Comprehensive training in ethical hacking methodologies, penetration testing, and cybersecurity fundamentals.",
-    completionDate: "November 2024",
-    image: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400",
-    issuer: "RedTeam Hacker Academy"
+    title: "Generative AI Mastermind",
+    certificateId: "",
+    description:
+      "Advanced program focused on generative AI concepts, prompt engineering, and real-world applications.",
+    completionDate: "September 2025",
+    image: OutskillCertificate,
+    issuer: "Outskill",
   },
   {
     id: 2,
-    title: "Full Stack Web Development",
-    certificateId: "FSD-2024-002",
-    description: "Complete web development certification covering frontend and backend technologies including React, Node.js, and databases.",
+    title: "Ethical Hacking Essentials",
+    certificateId: "RTXSTU1318012510",
+    description:
+      "Core training in penetration testing, system vulnerabilities, and defensive cybersecurity techniques.",
     completionDate: "October 2024",
-    image: "https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=400",
-    issuer: "Tech Academy"
+    image: EEHCertificate,
+    issuer: "RedTeam Hacker Academy",
   },
   {
     id: 3,
-    title: "Python Programming",
-    certificateId: "PY-ADV-2024-003",
-    description: "Advanced Python programming certification covering data structures, algorithms, and application development.",
-    completionDate: "September 2024",
-    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=400",
-    issuer: "Python Institute"
+    title: "Cyber Security Internship",
+    certificateId: "",
+    description:
+      "Hands-on experience in cybersecurity projects covering threat analysis, testing, and security operations.",
+    completionDate: "November 2024",
+    image: InterCertificate,
+    issuer: "RedTeam Hacker Academy",
   },
   {
     id: 4,
-    title: "UI/UX Design Fundamentals",
-    certificateId: "UX-FUND-2024-004",
-    description: "User experience and interface design principles, wireframing, prototyping, and design thinking methodologies.",
-    completionDate: "August 2024",
-    image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=400",
-    issuer: "Design Academy"
+    title: "Internet and Security",
+    certificateId: "EDPT1681140384408L",
+    description:
+      "Foundation course on online safety, data protection, and secure internet practices.",
+    completionDate: "April 2023",
+    image: InternetSecurity,
+    issuer: "Edapt",
   },
   {
     id: 5,
-    title: "Cybersecurity Fundamentals",
-    certificateId: "CS-FUND-2024-005",
-    description: "Foundation course in cybersecurity covering network security, threat analysis, and security best practices.",
-    completionDate: "July 2024",
-    image: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=400",
-    issuer: "Cyber Security Institute"
+    title: "Introduction to Cloud Computing",
+    certificateId: "EDPT1680971415613F",
+    description:
+      "Beginner-level training on cloud platforms, services, and deployment models.",
+    completionDate: "April 2023",
+    image: IntroductionCloudComputing,
+    issuer: "Edapt",
   },
   {
     id: 6,
-    title: "Database Management",
-    certificateId: "DB-ADV-2024-006",
-    description: "Advanced database management covering SQL, NoSQL, database design, optimization, and administration.",
-    completionDate: "June 2024",
-    image: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400",
-    issuer: "Database Academy"
-  }
+    title: "Introduction to Machine Learning",
+    certificateId: "EDPT1682006280907N",
+    description:
+      "Introductory course covering supervised and unsupervised learning, algorithms, and applications.",
+    completionDate: "April 2023",
+    image: IntroductionMachineLearning,
+    issuer: "Edapt",
+  },
+  {
+    id: 7,
+    title: "Introduction to UI/UX Design",
+    certificateId: "",
+    description:
+      "Creative course on design principles, user experience fundamentals, and interface prototyping.",
+    completionDate: "September 2024",
+    image: IntroductionUiUx,
+    issuer: "Faith Academy",
+  },
 ];
 
 export const Certifications = () => {
@@ -65,7 +87,6 @@ export const Certifications = () => {
     <div className="bg-black text-white min-vh-100">
       <section className="certifications-section">
         <Container>
-          {/* Section Header */}
           <div className="certifications-header">
             <h2 className="certifications-title">
               My <span className="text-accent">Certifications</span>
@@ -76,28 +97,27 @@ export const Certifications = () => {
             <div className="decorative-line"></div>
           </div>
 
-          {/* Certifications Grid */}
-          <Row className="certifications-grid">
+          {/* Use Bootstrap gutters for spacing */}
+          <Row className="g-4 certifications-grid">
             {certifications.map((cert, index) => (
               <Col key={cert.id} xs={12} md={6} lg={4} className="certification-col">
-                <div 
-                  className="certification-card"
+                <div
+                  className="certification-card h-100"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  {/* Certificate Image */}
                   <div className="cert-image-container">
                     <img
                       src={cert.image}
                       alt={cert.title}
                       className="cert-image"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="cert-overlay">
                       <span className="cert-issuer">{cert.issuer}</span>
                     </div>
                   </div>
 
-                  {/* Certificate Details */}
                   <div className="cert-details">
                     <h3 className="cert-title">{cert.title}</h3>
                     <p className="cert-id">{cert.certificateId}</p>
@@ -110,14 +130,6 @@ export const Certifications = () => {
               </Col>
             ))}
           </Row>
-
-          {/* View All Button */}
-          <div className="certifications-footer">
-            <button className="view-all-btn">
-              View All Certifications
-              <span className="btn-arrow">→</span>
-            </button>
-          </div>
         </Container>
       </section>
     </div>

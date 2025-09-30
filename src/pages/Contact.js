@@ -22,7 +22,6 @@ export const Contact = () => {
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
 
-  // ✅ useRef instead of useState (avoids re-renders inside TrackVisibility)
   const leftVisibleOnce = useRef(false);
   const rightVisibleOnce = useRef(false);
 
@@ -64,11 +63,11 @@ export const Contact = () => {
     }
   };
 
-  // Section Background Color
+  // Section Style: Removed top padding from here.
   const sectionStyle = {
     minHeight: "100vh",
     background: "black",
-    padding: "60px 0",
+    padding: "0 0 60px 0", // Only keeping bottom padding
     color: "#f8f9fa",
   };
 
@@ -79,8 +78,13 @@ export const Contact = () => {
   };
 
   return (
-    <div className="bg-black text-white min-vh-100">
-      <section className="contact" style={sectionStyle}>
+    // FIX 1: Increased spacing on the wrapper to pt-5 for maximum clearance
+    <div className="bg-black text-white min-vh-100 pt-5">
+      
+      {/* FIX 2: Added mt-4 to the section itself to push the content down further. 
+          The combination of pt-5 on the parent and mt-4 on the child is a reliable way 
+          to clear a fixed navbar. */}
+      <section className="contact mt-5" style={sectionStyle}>
         <Container>
           <Row className="align-items-center">
             {/* Left column: Contact info */}
@@ -95,7 +99,8 @@ export const Contact = () => {
                         shouldAnimate ? "animate__animated animate__fadeIn" : ""
                       }
                     >
-                      <h2>Get In Touch</h2>
+                      {/* Using Bootstrap utility classes for heading size and bottom margin */}
+                      <h2 className="display-4 fw-bold mb-4">Get In Touch</h2>
                       <p>
                         Do you want to hire me? Do you need any support or
                         guidance? <br />
@@ -220,7 +225,7 @@ export const Contact = () => {
                         shouldAnimate ? "animate__animated animate__fadeIn" : ""
                       }
                     >
-                      <h2>Contact Us</h2>
+                      <h2 className="display-4 fw-bold mb-4">Contact Us</h2>
                       <form onSubmit={handleSubmit}>
                         <Row>
                           <Col size={12} sm={6} className="px-1">

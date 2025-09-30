@@ -46,8 +46,8 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <div className="bg-black text-white min-vh-100">
-      <section className="py-5" data-bs-theme="dark">
+    <div className="bg-black text-white pt-5">
+      <section className="py-5 pt-5" data-bs-theme="dark">
         <div className="container">
           <h2 className="display-5 fw-bold text-center mb-4">
             Featured <span className="text-primary">Projects</span>

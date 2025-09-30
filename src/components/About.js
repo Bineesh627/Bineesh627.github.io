@@ -14,12 +14,12 @@ export const About = () => {
       <h2 className="mb-1 text-center" style={{ fontWeight: "400" }}>
         About me
       </h2>
-      <div className="d-flex flex-column align-items-center" style={{ color: "#c72d57", fontWeight: "500", marginBottom: "1.5rem" }}>
+      <div className="d-flex flex-column align-items-center" style={{ color: "rgb(13 110 253)", fontWeight: "500", marginBottom: "1.5rem" }}>
         <span>who I am</span>
         <hr
           style={{
             width: "180px",
-            border: "1px solid #c72d57",
+            border: "1px solid rgb(13 110 253)",
             margin: "0.5rem 0",
           }}
         />
@@ -50,13 +50,13 @@ export const About = () => {
         <Col xs={12} md={8}>
           <h4 style={{ fontWeight: "600" }}>
             I'm Bineesh and I'm a{" "}
-            <span style={{ color: "#c72d57" }}>Developer</span>
+            <span style={{ color: "rgb(13 110 253)" }}>Developer</span>
           </h4>
           <p className="mt-3" style={{ textAlign: "justify", lineHeight: "1.7" }}>
             I'm an aspiring Full-Stack Developer specializing in 4.0 technologies. I thrive on tackling coding challenges and gaining practical experience through hands-on projects. Eager to contribute and innovate in the evolving tech landscape.
             Additionally, I am a highly motivated professional with a rapid learning curve and a strong ability to self-learn. I take initiative, am proactive, and consistently deliver high-quality, efficient, and reliable solutions. My expertise spans designing, developing, and deploying robust applications, websites, and complex systems even within tight project timelines. I thrive on challenges and continually seek to expand my skill set independently.
           </p>
-          <Button variant="danger" size="md" className="cv-btn mt-2" style={{ backgroundColor: "#c72d57", border: "none" }} onClick={handleDownloadCV}>Download CV</Button>
+          <Button variant="danger" size="md" className="cv-btn mt-2" style={{ backgroundColor: "rgb(13 110 253)", border: "none" }} onClick={handleDownloadCV}>Download CV</Button>
         </Col>
       </Row>
     </Container>

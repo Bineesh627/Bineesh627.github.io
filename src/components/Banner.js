@@ -14,7 +14,7 @@ export const Banner = () => {
 
   // Use useCallback for the tick function as it's a dependency
   const tick = useCallback(() => {
-    const toRotate = [ "Cyber Security", "Python Developer", "UI/UX Designer" ]; // Moved inside useCallback
+    const toRotate = [ "AI Expert", "Python Developer", "Cyber Security" ]; // Moved inside useCallback
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);

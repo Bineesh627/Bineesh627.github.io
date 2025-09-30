@@ -12,7 +12,7 @@ import "react-vertical-timeline-component/style.min.css";
 const timelineElements = [
   {
     id: 1,
-    title: "ESSENTIALS OF ETHICAL HACKING • Intern",
+    title: "Cyber Security • Intern",
     location: "RedTeam Hacker Academy, Trivandrum",
     description:
       "Completed an internship on Essentials of Ethical Hacking at RedTeam Hacker Academy, Trivandrum, where I gained hands-on knowledge of basic hacking methods, security concepts, and defensive techniques used in cybersecurity.",
@@ -30,7 +30,7 @@ const timelineElements = [
   },
   {
     id: 3,
-    title: "Higher Secondary School",
+    title: "HSC (Biology Science)",
     location: "G.H.S.S Mangalam School, Aratupuzha",
     description:
       "Completed higher secondary education with a focus on biology science, gaining in-depth knowledge of biological concepts alongside foundational sciences.",
@@ -39,7 +39,7 @@ const timelineElements = [
   },
   {
     id: 4,
-    title: "Secondary School",
+    title: "SSLC Examination",
     location: "St. Thomas Higher Secondary School, Karthikapally",
     description:
       "Successfully completed secondary education, laying a strong foundation in core academic subjects and developing essential skills.",
@@ -51,7 +51,7 @@ const timelineElements = [
 export const Experience = () => {
   const workIconStyles = { background: "#06D6A0", color: "black" };
   const schoolIconStyles = { background: "#f9c74f", color: "black" };
-  const branchColor = "#FF595E";
+  const branchColor = "rgb(13 110 253)";
 
   return (
     <div 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaShareAlt, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { ArrowRight } from "react-bootstrap-icons";
-import InnovativeThinkerAward  from "../assets/img/blogs/InnovativeThinkerAward.jpg";
+import InnovativeThinkerAward from "../assets/img/blogs/InnovativeThinkerAward.jpg";
 
 const projects = [
   {
@@ -85,8 +85,8 @@ export const Blogs = () => {
   };
 
   return (
-    <div className="bg-black text-white min-vh-100">
-      <section className="py-5" data-bs-theme="dark">
+    <div className="bg-black text-white min-vh-100 pt-2"> 
+      <section className="py-5 mt-5" data-bs-theme="dark">
         <div className="container">
           <h2 className="display-5 fw-bold text-center mb-4">
             Insights & <span className="text-primary">Blogs</span>

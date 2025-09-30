@@ -11,7 +11,7 @@ export const Footer = () => {
           <Col xs={12} md={6} className="brand-section">
             <div className="brand-name">
               <span className="brand-primary">Bineesh</span>
-              <span className="brand-accent">S</span>
+              <span className="brand-accent"> S</span>
             </div>
             <p className="brand-tagline">
               Tech-Driven Innovator | Building Future-Ready Vision
@@ -23,12 +23,27 @@ export const Footer = () => {
             <h2 className="links-heading">Quick Links</h2>
             <ul className="footer-links">
               <li>
-                <a href="#blogs" className="footer-link">
-                  Blog
+                <a href="/" className="footer-link">
+                  Home
                 </a>
               </li>
               <li>
-                <a href="#connect" className="footer-link">
+                <a href="/projects" className="footer-link">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="/certifications" className="footer-link">
+                  Certifications
+                </a>
+              </li>
+              <li>
+                <a href="/blogs" className="footer-link">
+                  Blogs
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="footer-link">
                   Contact
                 </a>
               </li>
@@ -42,15 +57,16 @@ export const Footer = () => {
         {/* Bottom Section */}
         <div className="footer-bottom">
           <p className="copyright-text">
-            © 2025 Bineesh S All rights reserved. |{" "}
-            <a 
-              href="https://neuraq.com" 
+            © 2025 Bineesh S All rights reserved.
+             {/* |{" "} */}
+            {/* <a 
+              href="#" 
               target="_blank" 
               rel="noopener noreferrer"
               className="company-link"
             >
-              Neuraq Technologies
-            </a>
+              company Name
+            </a> */}
           </p>
         </div>
       </Container>
