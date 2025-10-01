@@ -1,12 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.242d815d.css",
-    "main.js": "/static/js/main.e625a3f4.js",
+    "main.css": "/static/css/main.5b37e761.css",
+    "main.js": "/static/js/main.ea2009e5.js",
     "static/js/787.fb771931.chunk.js": "/static/js/787.fb771931.chunk.js",
+    "static/media/Critical_soft_skills_for_project_managers.png": "/static/media/Critical_soft_skills_for_project_managers.13074c7e46c47ec963b7.png",
+    "static/media/Communicating_with_impact.png": "/static/media/Communicating_with_impact.da2260c1f65a74689efe.png",
+    "static/media/Edunet_skillsBuild_orientation.png": "/static/media/Edunet_skillsBuild_orientation.1bcaa5f1b1dc9884f20d.png",
     "static/media/Introduction_UI-UX.png": "/static/media/Introduction_UI-UX.69404fee23edcf8fa5b8.png",
     "static/media/Internship_Certificate.jpg": "/static/media/Internship_Certificate.8f00f849e0a8ceda2660.jpg",
     "static/media/EEH_Certificate.jpg": "/static/media/EEH_Certificate.f415469ad31bd3a70c50.jpg",
+    "static/media/Nxtwave_completion.png": "/static/media/Nxtwave_completion.1674a1d6c3803c3953f6.png",
     "static/media/Outskill_Certificate.jpg": "/static/media/Outskill_Certificate.6a5574f13ff28a72fc83.jpg",
+    "static/media/yip_certificate.png": "/static/media/yip_certificate.6e9d04498eb4edff23c9.png",
     "static/media/project-img2.png": "/static/media/project-img2.6afd0d7dd5c14ed014d2.png",
     "static/media/profile-pic.png": "/static/media/profile-pic.0044d1396b03c02092de.png",
     "static/media/InnovativeThinkerAward.jpg": "/static/media/InnovativeThinkerAward.8571814d30b10fb4c0a0.jpg",
@@ -23,12 +28,12 @@
     "static/media/school.svg": "/static/media/school.a41655f6d5350015803153c7410cef6a.svg",
     "static/media/work.svg": "/static/media/work.3710b62484ed638074240e99317c6c60.svg",
     "index.html": "/index.html",
-    "main.242d815d.css.map": "/static/css/main.242d815d.css.map",
-    "main.e625a3f4.js.map": "/static/js/main.e625a3f4.js.map",
+    "main.5b37e761.css.map": "/static/css/main.5b37e761.css.map",
+    "main.ea2009e5.js.map": "/static/js/main.ea2009e5.js.map",
     "787.fb771931.chunk.js.map": "/static/js/787.fb771931.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.242d815d.css",
-    "static/js/main.e625a3f4.js"
+    "static/css/main.5b37e761.css",
+    "static/js/main.ea2009e5.js"
   ]
 }
