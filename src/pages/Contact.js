@@ -67,8 +67,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="starry-background">
-      <div className="contact-page" style={{ position: "relative", zIndex: 2 }}>
+    <div className="contact-page">
       <Container className="contact-container">
         {/* Header Section */}
         <div className="contact-header">
@@ -143,14 +142,17 @@ export const Contact = () => {
       </Container>
 
       <style jsx>{`
-        .starry-background {
+        .contact-page {
           position: relative;
           background: #000;
           overflow: hidden;
           min-height: 100vh;
+          color: #fff;
+          padding: 120px 0 80px 0;
+          font-family: 'Inter', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
-        .starry-background::before {
+        .contact-page::before {
           content: '';
           position: absolute;
           top: 0;
@@ -169,7 +171,7 @@ export const Contact = () => {
           z-index: 1;
         }
         
-        .starry-background::after {
+        .contact-page::after {
           content: '';
           position: absolute;
           top: 0;
@@ -187,16 +189,11 @@ export const Contact = () => {
           100% { transform: translateY(-100px); }
         }
         
-        .contact-page {
-          background-color: #000;
-          color: #fff;
-          min-height: 100vh;
-          padding: 120px 0 80px 0;
-          font-family: 'Inter', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
 
         .contact-container {
           max-width: 1200px;
+          position: relative;
+          z-index: 2;
         }
 
         /* Header Styles */
