@@ -20,12 +20,34 @@ const skills = [
   { name: "Postman", levelLabel: "Advanced", category: "tools" },
   { name: "Burp Suite", levelLabel: "Intermediate", category: "tools" },
   { name: "Nmap", levelLabel: "Intermediate", category: "tools" },
-  { name: "Cyber Security Expert", levelLabel: "Expert", category: "tools" },
-  { name: "AI Expert", levelLabel: "Expert", category: "tools" },
-  { name: "Entrepreneur", levelLabel: "Expert", category: "tools" },
+
+  { name: "Penetration Testing", levelLabel: "Expert", category: "cybersecurity" },
+  { name: "Vulnerability Assessment", levelLabel: "Advanced", category: "cybersecurity" },
+  { name: "Network Security", levelLabel: "Advanced", category: "cybersecurity" },
+  { name: "Ethical Hacking", levelLabel: "Expert", category: "cybersecurity" },
+  { name: "Security Auditing", levelLabel: "Advanced", category: "cybersecurity" },
+  { name: "Incident Response", levelLabel: "Intermediate", category: "cybersecurity" },
+  { name: "Risk Assessment", levelLabel: "Advanced", category: "cybersecurity" },
+
+  { name: "Machine Learning", levelLabel: "Expert", category: "ai" },
+  { name: "Deep Learning", levelLabel: "Advanced", category: "ai" },
+  { name: "Natural Language Processing", levelLabel: "Advanced", category: "ai" },
+  { name: "Computer Vision", levelLabel: "Intermediate", category: "ai" },
+  { name: "TensorFlow", levelLabel: "Advanced", category: "ai" },
+  { name: "PyTorch", levelLabel: "Intermediate", category: "ai" },
+  { name: "Data Analysis", levelLabel: "Expert", category: "ai" },
+  { name: "AI Model Development", levelLabel: "Expert", category: "ai" },
+
+  { name: "Business Strategy", levelLabel: "Expert", category: "entrepreneurship" },
+  { name: "Product Development", levelLabel: "Advanced", category: "entrepreneurship" },
+  { name: "Market Research", levelLabel: "Advanced", category: "entrepreneurship" },
+  { name: "Financial Planning", levelLabel: "Intermediate", category: "entrepreneurship" },
+  { name: "Team Leadership", levelLabel: "Expert", category: "entrepreneurship" },
+  { name: "Project Management", levelLabel: "Advanced", category: "entrepreneurship" },
+  { name: "Innovation Management", levelLabel: "Expert", category: "entrepreneurship" },
 ];
 
-const categories = ["frontend", "backend", "tools"];
+const categories = ["frontend", "backend", "tools", "cybersecurity", "ai", "entrepreneurship"];
 
 const levelColors = {
   Expert: "bg-success",
