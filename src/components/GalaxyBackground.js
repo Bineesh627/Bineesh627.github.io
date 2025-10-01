@@ -23,7 +23,7 @@ export const GalaxyBackground = () => {
   };
 
   return (
-    <div className="galaxy-background position-fixed w-100 h-100 overflow-hidden">
+    <div className="galaxy-background position-fixed w-100 h-100 overflow-hidden" style={{ zIndex: -1 }}>
       {/* Galaxy cloud layers */}
       <div className="galaxy-layer galaxy-layer-1 position-absolute w-100 h-100"></div>
       <div className="galaxy-layer galaxy-layer-2 position-absolute w-100 h-100"></div>

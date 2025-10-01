@@ -2,8 +2,8 @@
 .galaxy-background {
   top: 0;
   left: 0;
-  z-index: -1;
   background: #000;
+  pointer-events: none;
 }
 
 /* Galaxy cloud layers with radial gradients */
@@ -72,12 +72,14 @@
   border-radius: 50%;
   background: white;
   animation: starTwinkle 3s ease-in-out infinite alternate;
+  position: absolute;
 }
 
 .star-small {
   width: 1px;
   height: 1px;
   box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.8);
+  animation-duration: 2s;
 }
 
 .star-medium {
@@ -86,6 +88,7 @@
   box-shadow: 
     0 0 8px 2px rgba(255, 255, 255, 0.9),
     0 0 12px 3px rgba(173, 216, 230, 0.5);
+  animation-duration: 3s;
 }
 
 .star-large {
@@ -95,12 +98,17 @@
     0 0 10px 2px rgba(255, 255, 255, 1),
     0 0 20px 4px rgba(173, 216, 230, 0.7),
     0 0 30px 6px rgba(135, 206, 250, 0.4);
+  animation-duration: 4s;
 }
 
 @keyframes starTwinkle {
   0% {
     opacity: 0.3;
     transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1);
   }
   100% {
     opacity: 1;
@@ -226,6 +234,11 @@
   .galaxy-layer {
     opacity: 0.6;
   }
+  
+  /* Reduce star count on mobile for better performance */
+  .stars-container {
+    opacity: 0.8;
+  }
 }
 
 /* Reduce motion for users who prefer it */
@@ -238,5 +251,9 @@
   
   .star {
     opacity: 0.8;
+  }
+  
+  .shooting-star {
+    display: none;
   }
 }
