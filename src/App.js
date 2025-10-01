@@ -2,7 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
-import { GalaxyBackground } from "./components/GalaxyBackground";
 import { Footer } from "./components/Footer";
 
 // Import page components
@@ -21,7 +20,6 @@ function App() {
       }}
     >
       <div className="App bg-black text-white">
-        <GalaxyBackground />
         <NavBar />
         
         <Routes>

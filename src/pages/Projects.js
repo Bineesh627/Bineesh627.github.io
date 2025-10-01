@@ -46,8 +46,9 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <div className="bg-black text-white pt-5">
-      <section className="py-5 pt-5" data-bs-theme="dark">
+    <div className="starry-background">
+      <div className="text-white pt-5" style={{ position: "relative", zIndex: 2 }}>
+        <section className="py-5 pt-5" data-bs-theme="dark">
         <div className="container">
           <h2 className="display-5 fw-bold text-center mb-4">
             Featured <span className="text-primary">Projects</span>
@@ -134,7 +135,54 @@ export const Projects = () => {
             transform: scale(1.05);
           }
         `}</style>
-      </section>
+        </section>
+      </div>
+      
+      <style jsx>{`
+        .starry-background {
+          position: relative;
+          background: #000;
+          overflow: hidden;
+          min-height: 100vh;
+        }
+        
+        .starry-background::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: 
+            radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+            radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+            radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+            radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+            radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+          background-repeat: repeat;
+          background-size: 200px 100px;
+          animation: sparkle 20s linear infinite;
+          z-index: 1;
+        }
+        
+        .starry-background::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: 
+            radial-gradient(ellipse at 30% 20%, rgba(138, 43, 226, 0.2) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 80%, rgba(75, 0, 130, 0.15) 0%, transparent 50%);
+          z-index: 1;
+        }
+        
+        @keyframes sparkle {
+          0% { transform: translateY(0px); }
+          100% { transform: translateY(-100px); }
+        }
+      `}</style>
     </div>
   );
 };
