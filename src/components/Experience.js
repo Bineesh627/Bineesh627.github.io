@@ -16,7 +16,7 @@ const timelineElements = [
     title: "Cyber Security • Intern",
     location: "RedTeam Hacker Academy, Trivandrum",
     description:
-      "Completed an internship on Essentials of Ethical Hacking at RedTeam Hacker Academy, Trivandrum, where I gained hands-on knowledge of basic hacking methods, security concepts, and defensive techniques used in cybersecurity.",
+      "Completed an internship on Cyber Security at RedTeam Hacker Academy, Trivandrum, where I gained hands-on knowledge of basic hacking methods, security concepts, and defensive techniques used in cybersecurity.",
     date: "October 2024 - November 2024",
     icon: "work",
   },

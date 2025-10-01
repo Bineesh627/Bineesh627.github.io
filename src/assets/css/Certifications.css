@@ -1,15 +1,17 @@
+/* Certifications.css - corrected and complete */
+
 /* Section shell with responsive top spacing for the title */
 .certifications-section {
   position: relative;
+  z-index: 0; /* base stacking context for pseudo backgrounds */
   background: #000;
   overflow: hidden;
   min-height: 100vh;
   color: #fff;
-  /* top | left/right | bottom — top scales with viewport via clamp() */
   padding: clamp(96px, 12vh, 160px) 0 80px;
 }
 
-/* Starry Background */
+/* Starry Background - placed behind content */
 .certifications-section::before {
   content: '';
   position: absolute;
@@ -17,7 +19,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(2px 2px at 20px 30px, #eee, transparent),
     radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
     radial-gradient(1px 1px at 90px 40px, #fff, transparent),
@@ -26,7 +28,8 @@
   background-repeat: repeat;
   background-size: 200px 100px;
   animation: sparkle 20s linear infinite;
-  z-index: 1;
+  z-index: 0; /* behind the cards */
+  pointer-events: none; /* never intercept clicks */
 }
 
 .certifications-section::after {
@@ -36,10 +39,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(ellipse at 30% 20%, rgba(138, 43, 226, 0.2) 0%, transparent 50%),
     radial-gradient(ellipse at 70% 80%, rgba(75, 0, 130, 0.15) 0%, transparent 50%);
-  z-index: 1;
+  z-index: 0;
+  pointer-events: none;
 }
 
 @keyframes sparkle {
@@ -50,8 +54,6 @@
 /* Section Header */
 .certifications-header {
   text-align: center;
-  /* extra gap above the title block; uses clamp for fluid spacing */
-  /* margin-top: clamp(16px, 4vh, 48px); */
   margin-bottom: 60px;
 }
 
@@ -83,12 +85,14 @@
   border-radius: 2px;
 }
 
-/* Grid — rely on Bootstrap gutters (g-*) for uniform gaps */
+/* Grid */
 .certifications-grid { margin-bottom: 0; }
 .certification-col { margin-bottom: 0; }
 
-/* Certification Card */
+/* Certification Card - bring card above pseudo backgrounds */
 .certification-card {
+  position: relative; /* create its own stacking context for children */
+  z-index: 2; /* above pseudo backgrounds */
   background-color: #222;
   border-radius: 16px;
   overflow: hidden;
@@ -97,64 +101,87 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  /* entrance animation */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.6s ease-out forwards;
-
-  /* fill the grid column; no arbitrary cap so it can shrink responsively */
   width: 100%;
   max-width: none;
+  will-change: transform, box-shadow;
+  cursor: default;
 }
 
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Hover lift and blue glow */
 .certification-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(13, 110, 253, 0.6);
+  box-shadow: 0 24px 48px rgba(13, 110, 253, 0.28);
 }
 
-/* Certificate Image: maintain ratio and avoid distortion */
+/* Certificate Image */
 .cert-image-container {
   position: relative;
+  z-index: 2; /* ensure image container is above section background */
   width: 100%;
-  aspect-ratio: 16 / 9; /* consistent frame on larger screens */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
 .cert-image {
-  display: block;   /* remove inline-gap */
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;         /* fill the frame without stretching */
-  object-position: center;   /* center crop */
+  object-fit: cover;
+  object-position: center;
   transition: transform 0.4s ease;
+  will-change: transform;
 }
 
-.certification-card:hover .cert-image { transform: scale(1.05); }
+/* subtle image pop on hover */
+.certification-card:hover .cert-image {
+  transform: scale(1.05);
+}
 
 /* Overlay */
 .cert-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgb(13 110 253) 0%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 3; /* always above the image */
+  background: linear-gradient(135deg, rgba(13,110,253,0.9) 0%, rgba(0, 0, 0, 0.6) 100%);
   display: flex;
   align-items: flex-end;
   padding: 20px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  pointer-events: none; /* let interactions pass through when hidden */
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
-.certification-card:hover .cert-overlay { opacity: 1; }
+/* enable overlay only on hover */
+.certification-card:hover .cert-overlay {
+  opacity: 1;
+  pointer-events: auto; /* allow clicks or hover interactions inside overlay */
+}
 
+/* issuer name animates up into view */
 .cert-issuer {
   color: #fff;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  user-select: text; /* allow copying issuer name if desired */
+}
+
+/* reveal issuer after overlay appears */
+.certification-card:hover .cert-issuer {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Details */
@@ -163,6 +190,8 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  z-index: 4; /* in front of image and overlay for text selection */
+  user-select: text; /* ensure text can be selected and copied */
 }
 
 .cert-title {
@@ -207,19 +236,19 @@
 }
 
 @media (max-width: 992px) {
-  .certifications-section { padding-bottom: 60px; } /* keep bottom padding comfy */
+  .certifications-section { padding-bottom: 60px; }
   .certifications-title { font-size: 2.5rem; }
   .certifications-header { margin-bottom: 40px; }
 }
 
 @media (max-width: 768px) {
-  .certifications-section { padding-bottom: 40px; } /* top stays fluid via clamp() */
+  .certifications-section { padding-bottom: 40px; }
   .certifications-title { font-size: 2rem; }
   .certifications-subtitle { font-size: 1rem; }
   .cert-details { padding: 20px; }
   .cert-title { font-size: 1.2rem; }
   .cert-description { font-size: 0.9rem; }
-  .cert-image-container { aspect-ratio: 4 / 3; } /* a bit taller on phones */
+  .cert-image-container { aspect-ratio: 4 / 3; }
 }
 
 @media (max-width: 576px) {

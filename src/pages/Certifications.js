@@ -8,6 +8,11 @@ import InternetSecurity from "../assets/img/certifications/Internet_Security.jpg
 import IntroductionCloudComputing from "../assets/img/certifications/Introduction_Cloud_Computing.jpg";
 import IntroductionMachineLearning from "../assets/img/certifications/Introduction_Machine_Learning.jpg";
 import IntroductionUiUx from "../assets/img/certifications/Introduction_UI-UX.png";
+import CommunicatingWithImpact from "../assets/img/certifications/Communicating_with_impact.png";
+import CriticalSoftSkillsForProjectManagers from "../assets/img/certifications/Critical_soft_skills_for_project_managers.png";
+import SkillsBuildOrientation from "../assets/img/certifications/Edunet_skillsBuild_orientation.png";
+import YipCertificate from "../assets/img/certifications/yip_certificate.png";
+import NxtwaveCompletion from "../assets/img/certifications/Nxtwave_completion.png";
 
 const certifications = [
   {
@@ -22,7 +27,7 @@ const certifications = [
   },
   {
     id: 2,
-    title: "Ethical Hacking Essentials",
+    title: "Essentials of Ethical Hacking",
     certificateId: "RTXSTU1318012510",
     description:
       "Core training in penetration testing, system vulnerabilities, and defensive cybersecurity techniques.",
@@ -79,6 +84,56 @@ const certifications = [
     completionDate: "September 2024",
     image: IntroductionUiUx,
     issuer: "Faith Academy",
+  },
+  {
+    id: 8,
+    title: "Communicating with Impact",
+    certificateId: "URL-FFD82E8D28EB",
+    description:
+      "Focused on improving communication skills, persuasive speaking, and effective presentation techniques.",
+    completionDate: "June 2024",
+    image: CommunicatingWithImpact,
+    issuer: "IBM SkillsBuild",
+  },
+  {
+    id: 9,
+    title: "Critical Soft Skills for Project Managers",
+    certificateId: "URL-G-YOH0ZY0C8",
+    description:
+      "Covers leadership, teamwork, problem-solving, and decision-making skills essential for project managers.",
+    completionDate: "June 2024",
+    image: CriticalSoftSkillsForProjectManagers,
+    issuer: "IBM SkillsBuild",
+  },
+  {
+    id: 10,
+    title: "Edunet - SkillsBuild Orientation",
+    certificateId: "PLAN-04138CD348A7",
+    description:
+      "Introduction to IBM SkillsBuild platform, resources, and learning pathways for career development.",
+    completionDate: "June 2024",
+    image: SkillsBuildOrientation,
+    issuer: "IBM SkillsBuild",
+  },
+  {
+    id: 11,
+    title: "Young Innovators Programme (YIP)",
+    certificateId: "22YIP074762",
+    description:
+      "Encourages creative thinking and innovation through real-world problem-solving and project development.",
+    completionDate: "October 2022",
+    image: YipCertificate,
+    issuer: "K-DISC",
+  },
+  {
+    id: 12,
+    title: "AI for Students: Build Your Own Generative AI Model",
+    certificateId: "",
+    description:
+      "Hands-on course on understanding generative AI concepts and building a simple AI model.",
+    completionDate: "June 2024",
+    image: NxtwaveCompletion,
+    issuer: "NxtWave",
   },
 ];
 
