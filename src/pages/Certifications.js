@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "../components/Certifications.css";
+import "../assets/css/Certifications.css";
 import EEHCertificate from "../assets/img/certifications/EEH_Certificate.jpg";
 import OutskillCertificate from "../assets/img/certifications/Outskill_Certificate.jpg";
 import InterCertificate from "../assets/img/certifications/Internship_Certificate.jpg";
@@ -120,7 +120,7 @@ export const Certifications = () => {
 
                   <div className="cert-details">
                     <h3 className="cert-title">{cert.title}</h3>
-                    <p className="cert-id">ID: {cert.certificateId}</p>
+                    {cert.certificateId && <p className="cert-id">ID: {cert.certificateId}</p>}
                     <p className="cert-description">{cert.description}</p>
                     <div className="cert-footer">
                       <span className="cert-date">Completed: {cert.completionDate}</span>
