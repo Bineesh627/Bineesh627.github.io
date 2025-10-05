@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5b37e761.css",
-    "main.js": "/static/js/main.ea2009e5.js",
+    "main.js": "/static/js/main.61eef174.js",
     "static/js/787.fb771931.chunk.js": "/static/js/787.fb771931.chunk.js",
     "static/media/Critical_soft_skills_for_project_managers.png": "/static/media/Critical_soft_skills_for_project_managers.13074c7e46c47ec963b7.png",
     "static/media/Communicating_with_impact.png": "/static/media/Communicating_with_impact.da2260c1f65a74689efe.png",
@@ -24,16 +24,32 @@
     "static/media/CentraNo2-Medium.ttf": "/static/media/CentraNo2-Medium.f94be5b326d78bb32b95.ttf",
     "static/media/project-img3.png": "/static/media/project-img3.5ead6bd9c33955ca19d9.png",
     "static/media/CentraNo2-Book.ttf": "/static/media/CentraNo2-Book.2b143fa4b734a3584043.ttf",
+    "static/media/linux.png": "/static/media/linux.efbd69901c0ffb6d2456.png",
     "static/media/project-img4.png": "/static/media/project-img4.e339a80f68ceb93c8896.png",
+    "static/media/burpsuite.png": "/static/media/burpsuite.4b950d7abea73acf6a0e.png",
+    "static/media/react.png": "/static/media/react.809fed23bcdd686de66e.png",
+    "static/media/ui-ux.png": "/static/media/ui-ux.85f17326ff456f17de26.png",
+    "static/media/docker.png": "/static/media/docker.df70d352d41f4f8ef6f4.png",
+    "static/media/mongodb.png": "/static/media/mongodb.b5aed9283d796e40d066.png",
+    "static/media/html.png": "/static/media/html.6e930594286d8afe4c79.png",
+    "static/media/nmap.png": "/static/media/nmap.8cd08a10700db882bb0a.png",
+    "static/media/vs-code.png": "/static/media/vs-code.cba5ada890393ac700e8.png",
+    "static/media/mysql.png": "/static/media/mysql.01162dfffec0deca6121.png",
+    "static/media/css-3.png": "/static/media/css-3.463e319bad8e0edf1ef7.png",
+    "static/media/bootstrap.png": "/static/media/bootstrap.268c4375260420e8d982.png",
+    "static/media/figma.png": "/static/media/figma.9d02d12e144fc6abe44e.png",
+    "static/media/js.png": "/static/media/js.3dfb665e058d08c99f28.png",
+    "static/media/python.png": "/static/media/python.97f356308d5a8c455b85.png",
+    "static/media/postman.png": "/static/media/postman.61c4d357fb4129858e00.png",
     "static/media/school.svg": "/static/media/school.a41655f6d5350015803153c7410cef6a.svg",
     "static/media/work.svg": "/static/media/work.3710b62484ed638074240e99317c6c60.svg",
     "index.html": "/index.html",
     "main.5b37e761.css.map": "/static/css/main.5b37e761.css.map",
-    "main.ea2009e5.js.map": "/static/js/main.ea2009e5.js.map",
+    "main.61eef174.js.map": "/static/js/main.61eef174.js.map",
     "787.fb771931.chunk.js.map": "/static/js/787.fb771931.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5b37e761.css",
-    "static/js/main.ea2009e5.js"
+    "static/js/main.61eef174.js"
   ]
 }
