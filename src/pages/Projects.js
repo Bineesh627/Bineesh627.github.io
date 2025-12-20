@@ -6,7 +6,7 @@ import projImg1 from "../assets/img/projects/project-img1.png";
 import projImg2 from "../assets/img/projects/project-img2.png";
 import projImg3 from "../assets/img/projects/project-img3.png";
 import projImg4 from "../assets/img/projects/project-img4.png";
-import { SpaceBackground } from '../components/SpaceBackground';
+
 
 const projects = [
   {

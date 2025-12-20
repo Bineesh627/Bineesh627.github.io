@@ -13,7 +13,7 @@ import CriticalSoftSkillsForProjectManagers from "../assets/img/certifications/C
 import SkillsBuildOrientation from "../assets/img/certifications/Edunet_skillsBuild_orientation.png";
 import YipCertificate from "../assets/img/certifications/yip_certificate.png";
 import NxtwaveCompletion from "../assets/img/certifications/Nxtwave_completion.png";
-import { SpaceBackground } from '../components/SpaceBackground';
+
 
 const certifications = [
   {

@@ -3,7 +3,7 @@ import '../assets/css/Blogs.css';
 import { ArrowRight } from "react-bootstrap-icons";
 import { Tag, Calendar, User, Share2 } from "lucide-react";
 import InnovativeThinkerAward from "../assets/img/blogs/InnovativeThinkerAward.jpg";
-import { SpaceBackground } from '../components/SpaceBackground';
+
 
 const projects = [
   {

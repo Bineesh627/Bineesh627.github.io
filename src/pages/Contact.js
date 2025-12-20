@@ -13,7 +13,7 @@ import {
   FaWhatsapp,
   FaGithub
 } from "react-icons/fa";
-import { SpaceBackground } from '../components/SpaceBackground';
+
 
 // Renaming the original Contact component to ContactContent for internal use
 export const Contact = () => {
@@ -101,7 +101,7 @@ export const Contact = () => {
                       href={item.link}
                       className="contact-value"
                       target={item.label === "Location" ? "_blank" : "_self"}
-                      rel={item.label === "Location" ? "noopener noreferrer" : ""}
+                      rel={item.label === "Location" ? "noopener noreferrer" : undefined}
                     >
                       {item.value}
                     </a>
