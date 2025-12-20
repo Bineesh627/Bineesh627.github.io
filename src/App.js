@@ -11,6 +11,8 @@ import { Certifications } from "./pages/Certifications";
 import { Blogs } from "./pages/Blogs";
 import { Contact } from "./pages/Contact";
 
+import { SpaceBackground } from "./components/SpaceBackground";
+
 function App() {
   return (
     <Router
@@ -19,7 +21,8 @@ function App() {
         v7_relativeSplatPath: true      // ✅ Fixes relative splat path warning
       }}
     >
-      <div className="App bg-black text-white">
+      <div className="App text-white">
+        <SpaceBackground />
         <NavBar />
         
         <Routes>

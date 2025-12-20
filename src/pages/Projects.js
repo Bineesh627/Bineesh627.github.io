@@ -6,6 +6,7 @@ import projImg1 from "../assets/img/projects/project-img1.png";
 import projImg2 from "../assets/img/projects/project-img2.png";
 import projImg3 from "../assets/img/projects/project-img3.png";
 import projImg4 from "../assets/img/projects/project-img4.png";
+import { SpaceBackground } from '../components/SpaceBackground';
 
 const projects = [
   {
@@ -48,7 +49,7 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <div className="starry-background">
+    <>
       <div className="text-white pt-5" style={{ position: "relative", zIndex: 2 }}>
         <section className="py-5 pt-5" data-bs-theme="dark">
         <div className="container">
@@ -71,14 +72,6 @@ export const Projects = () => {
                     />
                     {/* Overlay */}
                     <div className="overlay d-flex justify-content-center align-items-center">
-                      {/* <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary btn-sm mx-2"
-                      >
-                        Demo <ExternalLink size={16} />
-                      </a> */}
                       <a
                         href={project.githubUrl}
                         target="_blank"
@@ -117,6 +110,6 @@ export const Projects = () => {
         </div>
         </section>
       </div>
-    </div>
+    </>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
-import '../assets/css/Experience.css'
 import { ReactComponent as WorkIcon } from "../assets/img/work.svg";
-import { ReactComponent as SchoolIcon } from "../assets/img/school.svg";
+
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -13,6 +12,15 @@ import "react-vertical-timeline-component/style.min.css";
 const timelineElements = [
   {
     id: 1,
+    title: "Founder & CEO",
+    location: "Fusintech",
+    description:
+      "Founded fusintech, an innovative EdTech platform leveraging AI for personalized learning experiences.",
+    date: "December 2025 - Present",
+    icon: "work",
+  },
+  {
+    id: 2,
     title: "Cyber Security • Intern",
     location: "RedTeam Hacker Academy, Trivandrum",
     description:
@@ -20,47 +28,19 @@ const timelineElements = [
     date: "October 2024 - November 2024",
     icon: "work",
   },
-  {
-    id: 2,
-    title: "Bachelor of Computer Applications (BCA)",
-    location: "IHRD CAS Karthikapally",
-    description:
-      "Currently pursuing a BCA degree, specializing in computer applications, software development, and information technology principles.",
-    date: "September 2022 - May 2025",
-    icon: "school",
-  },
-  {
-    id: 3,
-    title: "HSC (Biology Science)",
-    location: "G.H.S.S Mangalam School, Aratupuzha",
-    description:
-      "Completed higher secondary education with a focus on biology science, gaining in-depth knowledge of biological concepts alongside foundational sciences.",
-    date: "July 2022",
-    icon: "school",
-  },
-  {
-    id: 4,
-    title: "SSLC Examination",
-    location: "St. Thomas Higher Secondary School, Karthikapally",
-    description:
-      "Successfully completed secondary education, laying a strong foundation in core academic subjects and developing essential skills.",
-    date: "March 2020",
-    icon: "school",
-  },
 ];
 
 export const Experience = () => {
   const workIconStyles = { background: "#06D6A0", color: "black" };
-  const schoolIconStyles = { background: "#f9c74f", color: "black" };
+
   const branchColor = "rgb(13 110 253)";
 
   return (
-    <div className="starry-background">
-      <div 
-        className="text-white py-5" 
-        style={{ minHeight: "100vh", position: "relative", zIndex: 2 }}
-      >
-        <div className="container" id="experience">
+    <div 
+      className="text-white py-5" 
+      style={{ position: "relative", zIndex: 2 }}
+    >
+      <div className="container" id="experience">
         <h1 className="text-center mb-4 fw-bold">
           <span>Professional </span>
           <span style={{ color: branchColor }}>Experience</span>
@@ -73,16 +53,13 @@ export const Experience = () => {
           lineColor="#222"  // dark gray for vertical line
         >
           {timelineElements.map((element) => {
-            const isWorkIcon = element.icon === "work";
-            // const showButton = !!element.buttonText;
-
             return (
               <VerticalTimelineElement
                 key={element.id}
                 date={element.date}
                 dateClassName="text-white fw-semibold"
-                iconStyle={isWorkIcon ? workIconStyles : schoolIconStyles}
-                icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
+                iconStyle={workIconStyles}
+                icon={<WorkIcon />}
                 contentStyle={{ 
                   background: "#111",  // dark card background using inline style 
                   color: "white",
@@ -114,6 +91,5 @@ export const Experience = () => {
         </VerticalTimeline>
         </div>
       </div>
-    </div>
   );
 };

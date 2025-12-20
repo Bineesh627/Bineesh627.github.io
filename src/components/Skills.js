@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import '../assets/css/Skills.css';
 
 // Import logos
 import jsLogo from "../assets/img/skills/js.png";
@@ -79,7 +78,9 @@ const levelColors = {
 };
 
 const cardStyle = {
-  backgroundColor: "#2c2c2c",
+  backgroundColor: "rgba(44, 44, 44, 0.3)",
+  backdropFilter: "blur(10px)",
+  border: "1px solid rgba(255, 255, 255, 0.1)",
   color: "#f8f9fa",
   transition: "transform 0.3s ease, box-shadow 0.3s ease",
   cursor: "pointer",

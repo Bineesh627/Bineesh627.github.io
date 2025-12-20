@@ -1,0 +1,145 @@
+.qualifications-section {
+  padding: 60px 0;
+  position: relative;
+  /* background is handled by starry-background wrapper now */
+}
+
+/* Background ambient glows - slightly adjusted */
+.qual-bg-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.qual-bg-glow.top-left {
+  top: -100px;
+  left: -200px;
+  background: rgba(13, 202, 240, 0.08); /* Cyan-ish */
+}
+
+.qual-bg-glow.bottom-right {
+  bottom: -100px;
+  right: -200px;
+  background: rgba(74, 47, 189, 0.08); /* Purple-ish */
+}
+
+.qualifications-section .section-title {
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #0dcaf0; /* Cyan Title as per screenshot/request usually */
+}
+
+/* Card Styling */
+.qual-card {
+  height: 100%;
+  border-radius: 20px;
+  background: #1a1a1a; /* Darker, solid background closer to the image */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 35px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.qual-card:hover {
+  background: #222;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border-color: #0dcaf0; /* Cyan border on hover */
+}
+
+/* Icon Box */
+.qual-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(13, 202, 240, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.qual-icon-box svg {
+  color: #0dcaf0; /* Cyan */
+}
+
+/* Typography */
+.qual-degree {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0dcaf0; /* Cyan */
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.qual-field {
+  color: #b8b8b8;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.qual-institution {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.9;
+}
+
+.qual-institution svg {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.qual-description {
+  color: #b8b8b8;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+/* Info Grid */
+.qual-info-grid {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 25px;
+  margin-top: auto; 
+}
+
+.qual-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.qual-value {
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Highlights */
+.qual-highlight-item {
+  display: flex;
+  gap: 10px;
+  color: #b8b8b8;
+  font-size: 14px;
+  margin-bottom: 6px;
+  align-items: center;
+}
+
+.qual-highlight-item svg {
+  color: #0dcaf0;
+  flex-shrink: 0;
+}

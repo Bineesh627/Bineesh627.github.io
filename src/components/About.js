@@ -1,5 +1,4 @@
 import React from "react";
-import '../assets/css/About.css';
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import profile from "../assets/img/profile-pic.png";
 
@@ -31,7 +30,7 @@ export const About = () => {
       <Row className="align-items-center">
         {/* Profile Image */}
         <Col xs={12} md={4} className="mb-4 mb-md-0 d-flex justify-content-center">
-          <Card style={{ width: "20rem", border: "none" }}>
+          <Card style={{ width: "20rem", border: "none", backgroundColor: "transparent" }}>
             {/* Replace src with your actual image path */}
             <Card.Img
               variant="top"

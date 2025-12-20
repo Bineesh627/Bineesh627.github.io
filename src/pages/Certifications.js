@@ -13,6 +13,7 @@ import CriticalSoftSkillsForProjectManagers from "../assets/img/certifications/C
 import SkillsBuildOrientation from "../assets/img/certifications/Edunet_skillsBuild_orientation.png";
 import YipCertificate from "../assets/img/certifications/yip_certificate.png";
 import NxtwaveCompletion from "../assets/img/certifications/Nxtwave_completion.png";
+import { SpaceBackground } from '../components/SpaceBackground';
 
 const certifications = [
   {
@@ -139,6 +140,7 @@ const certifications = [
 
 export const Certifications = () => {
   return (
+    <>
     <div className="text-white min-vh-100" style={{ position: "relative", zIndex: 2 }}>
       <section className="certifications-section">
         <Container>
@@ -188,5 +190,6 @@ export const Certifications = () => {
         </Container>
       </section>
     </div>
+    </>
   );
 };

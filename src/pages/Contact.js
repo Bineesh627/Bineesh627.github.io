@@ -1,10 +1,11 @@
 import React from "react";
 import "../assets/css/Contact.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import { 
-  FaEnvelope, 
-  FaPhone, 
-  FaMapMarkerAlt, 
+
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
   FaMap,
   FaLinkedin,
   FaTwitter,
@@ -12,7 +13,9 @@ import {
   FaWhatsapp,
   FaGithub
 } from "react-icons/fa";
+import { SpaceBackground } from '../components/SpaceBackground';
 
+// Renaming the original Contact component to ContactContent for internal use
 export const Contact = () => {
   const contactInfo = [
     {
@@ -68,7 +71,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="starry-background">
+    <>
       <div className="contact-page" style={{ position: "relative", zIndex: 2 }}>
       <Container className="contact-container" id="connect">
         {/* Header Section */}
@@ -143,7 +146,7 @@ export const Contact = () => {
         </div>
       </Container>
       </div>
-    </div>
+    </>
   );
 };
 
