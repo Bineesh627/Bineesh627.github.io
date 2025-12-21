@@ -2,7 +2,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
+  height: 100%;
   width: 100%;
   /* Deep space gradient with a "galaxy" feel */
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
