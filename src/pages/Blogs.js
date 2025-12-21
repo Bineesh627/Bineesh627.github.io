@@ -51,6 +51,23 @@ export const Blogs = () => {
     setIsExpanded(!isExpanded);
   };
 
+  const handleShare = async (blog) => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: blog.title,
+          text: blog.description,
+          url: blog.url,
+        });
+      } catch (error) {
+        console.error('Error sharing:', error);
+      }
+    } else {
+      navigator.clipboard.writeText(blog.url);
+      alert("Link copied to clipboard!");
+    }
+  };
+
   const visibleProjects = projects.slice(0, visibleCount);
 
   return (
@@ -105,7 +122,7 @@ export const Blogs = () => {
                             <span className="author-name">{blog.author}</span>
                         </div>
                         <div className="action-buttons">
-                            <button className="share-btn">
+                            <button className="share-btn" onClick={() => handleShare(blog)}>
                                 <Share2 size={16} />
                             </button>
                             <a href={blog.url} className="continue-btn" target="_blank" rel="noopener noreferrer">

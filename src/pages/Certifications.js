@@ -15,6 +15,7 @@ import YipCertificate from "../assets/img/certifications/yip_certificate.png";
 import NxtwaveCompletion from "../assets/img/certifications/Nxtwave_completion.png";
 
 
+
 const certifications = [
   {
     id: 1,

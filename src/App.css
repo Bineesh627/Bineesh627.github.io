@@ -640,6 +640,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 6px 14px;
   transition: all 0.3s ease;
   box-shadow: 0 3px 8px rgba(255, 65, 108, 0.4);
+  text-decoration: none !important;
 }
 
 .continue-btn:hover {

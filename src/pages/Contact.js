@@ -97,14 +97,23 @@ export const Contact = () => {
                   </div>
                   <div className="contact-details">
                     <span className="contact-label">{item.label}</span>
-                    <a 
-                      href={item.link}
-                      className="contact-value"
-                      target={item.label === "Location" ? "_blank" : "_self"}
-                      rel={item.label === "Location" ? "noopener noreferrer" : undefined}
-                    >
-                      {item.value}
-                    </a>
+                    {item.label === "Location" ? (
+                      <a 
+                        href={item.link}
+                        className="contact-value"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <a 
+                        href={item.link}
+                        className="contact-value"
+                      >
+                        {item.value}
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
