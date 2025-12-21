@@ -11,6 +11,7 @@
   background: linear-gradient(to bottom, #000000 0%, #0b1021 50%, #1b2735 100%);
   z-index: -10;
   pointer-events: none; /* Allow clicks to pass through */
+  overflow: hidden; /* Prevent stars/animations from causing scroll */
 }
 
 /* Galaxy/Nebula Overlay */
