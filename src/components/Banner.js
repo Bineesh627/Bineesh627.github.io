@@ -4,7 +4,7 @@ import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
-export const Banner = () => {
+export const Banner = ({ setActiveTab }) => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
@@ -44,9 +44,9 @@ export const Banner = () => {
   }, [delta, tick]);
 
   const handleConnect = () => {
-    const connectSection = document.getElementById('connect');
-    if (connectSection) {
-      connectSection.scrollIntoView({ behavior: 'smooth' });
+    if (setActiveTab) {
+      setActiveTab('contact');
+      window.scrollTo(0, 0);
     }
   };
 

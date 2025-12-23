@@ -1,7 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "../assets/css/Footer.css";
 
-export const Footer = () => {
+export const Footer = ({ onUpdateActiveTab }) => {
+  const handleNavClick = (tab) => {
+    onUpdateActiveTab(tab);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="modern-footer">
       <Container>
@@ -23,29 +28,29 @@ export const Footer = () => {
             <h2 className="links-heading">Quick Links</h2>
             <ul className="footer-links">
               <li>
-                <a href="/" className="footer-link">
+                <button className="footer-link btn-link" onClick={() => handleNavClick('home')}>
                   Home
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/projects" className="footer-link">
+                <button className="footer-link btn-link" onClick={() => handleNavClick('projects')}>
                   Projects
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/certifications" className="footer-link">
+                <button className="footer-link btn-link" onClick={() => handleNavClick('certifications')}>
                   Certifications
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/blogs" className="footer-link">
+                <button className="footer-link btn-link" onClick={() => handleNavClick('blogs')}>
                   Blogs
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/contact" className="footer-link">
+                <button className="footer-link btn-link" onClick={() => handleNavClick('contact')}>
                   Contact
-                </a>
+                </button>
               </li>
             </ul>
           </Col>

@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 
@@ -14,28 +14,34 @@ import { Contact } from "./pages/Contact";
 import { SpaceBackground } from "./components/SpaceBackground";
 
 function App() {
+  const [activeTab, setActiveTab] = React.useState('home');
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'home':
+        return <Home setActiveTab={setActiveTab} />;
+      case 'projects':
+        return <Projects />;
+      case 'certifications':
+        return <Certifications />;
+      case 'blogs':
+        return <Blogs />;
+      case 'contact':
+        return <Contact />;
+      default:
+        return <Home setActiveTab={setActiveTab} />;
+    }
+  };
+
   return (
-    <Router
-      future={{ 
-        v7_startTransition: true,       // ✅ Fixes startTransition warning
-        v7_relativeSplatPath: true      // ✅ Fixes relative splat path warning
-      }}
-    >
-      <div className="App text-white">
-        <SpaceBackground />
-        <NavBar />
-        
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        
-        <Footer />
-      </div>
-    </Router>
+    <div className="App text-white">
+      <SpaceBackground />
+      <NavBar activeTab={activeTab} onUpdateActiveTab={setActiveTab} />
+      
+      {renderContent()}
+      
+      <Footer onUpdateActiveTab={setActiveTab} />
+    </div>
   );
 }
 

@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import '../assets/css/NavBar.css';
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
 import { X, Menu } from "lucide-react";
 // import logo from '../assets/img/logo.svg';
 
-export const NavBar = () => {
+export const NavBar = ({ activeTab, onUpdateActiveTab }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => {
@@ -24,12 +22,6 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [])
 
-  const isActive = (path) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
-  }
-
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -37,11 +29,6 @@ export const NavBar = () => {
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
   };
-
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -56,6 +43,12 @@ export const NavBar = () => {
       document.body.style.overflow = 'unset';
     };
   }, [mobileMenuOpen]);
+
+  const handleNavClick = (tab) => {
+    onUpdateActiveTab(tab);
+    closeMobileMenu();
+    window.scrollTo(0, 0); // Scroll to top when switching tabs
+  };
 
   return (
     <>
@@ -78,15 +71,13 @@ export const NavBar = () => {
           {/* Desktop Navigation */}
           <Navbar.Collapse id="basic-navbar-nav" className="d-none d-md-flex">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/" className={isActive('/') ? 'active navbar-link' : 'navbar-link'}>Home</Nav.Link>
-              <Nav.Link as={Link} to="/projects" className={isActive('/projects') ? 'active navbar-link' : 'navbar-link'}>Projects</Nav.Link>
-              <Nav.Link as={Link} to="/certifications" className={isActive('/certifications') ? 'active navbar-link' : 'navbar-link'}>Certifications</Nav.Link>
-              <Nav.Link as={Link} to="/blogs" className={isActive('/blogs') ? 'active navbar-link' : 'navbar-link'}>Blogs</Nav.Link>
+              <Nav.Link className={activeTab === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => handleNavClick('home')}>Home</Nav.Link>
+              <Nav.Link className={activeTab === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => handleNavClick('projects')}>Projects</Nav.Link>
+              <Nav.Link className={activeTab === 'certifications' ? 'active navbar-link' : 'navbar-link'} onClick={() => handleNavClick('certifications')}>Certifications</Nav.Link>
+              <Nav.Link className={activeTab === 'blogs' ? 'active navbar-link' : 'navbar-link'} onClick={() => handleNavClick('blogs')}>Blogs</Nav.Link>
             </Nav>
             <span className="navbar-text">
-              <Link to='/contact'>
-                <button className="vvd"><span>Let’s Connect</span></button>
-              </Link>
+              <button className="vvd" onClick={() => handleNavClick('contact')}><span>Let’s Connect</span></button>
             </span>
           </Navbar.Collapse>
         </Container>
@@ -112,52 +103,47 @@ export const NavBar = () => {
         <nav className="mobile-menu-nav">
           <ul className="mobile-menu-list">
             <li className="mobile-menu-item" style={{ animationDelay: '0.1s' }}>
-              <Link 
-                to="/" 
-                className={`mobile-menu-link ${isActive('/') ? 'active' : ''}`}
-                onClick={closeMobileMenu}
+              <button 
+                className={`mobile-menu-link ${activeTab === 'home' ? 'active' : ''}`}
+                onClick={() => handleNavClick('home')}
               >
                 Home
-              </Link>
+              </button>
             </li>
             <li className="mobile-menu-item" style={{ animationDelay: '0.2s' }}>
-              <Link 
-                to="/projects" 
-                className={`mobile-menu-link ${isActive('/projects') ? 'active' : ''}`}
-                onClick={closeMobileMenu}
+              <button 
+                className={`mobile-menu-link ${activeTab === 'projects' ? 'active' : ''}`}
+                onClick={() => handleNavClick('projects')}
               >
                 Projects
-              </Link>
+              </button>
             </li>
             <li className="mobile-menu-item" style={{ animationDelay: '0.3s' }}>
-              <Link 
-                to="/certifications" 
-                className={`mobile-menu-link ${isActive('/certifications') ? 'active' : ''}`}
-                onClick={closeMobileMenu}
+              <button 
+                className={`mobile-menu-link ${activeTab === 'certifications' ? 'active' : ''}`}
+                onClick={() => handleNavClick('certifications')}
               >
                 Certifications
-              </Link>
+              </button>
             </li>
             <li className="mobile-menu-item" style={{ animationDelay: '0.4s' }}>
-              <Link 
-                to="/blogs" 
-                className={`mobile-menu-link ${isActive('/blogs') ? 'active' : ''}`}
-                onClick={closeMobileMenu}
+              <button 
+                className={`mobile-menu-link ${activeTab === 'blogs' ? 'active' : ''}`}
+                onClick={() => handleNavClick('blogs')}
               >
                 Blogs
-              </Link>
+              </button>
             </li>
           </ul>
 
           {/* Mobile CTA Button */}
           <div className="mobile-cta-container" style={{ animationDelay: '0.5s' }}>
-            <Link 
-              to="/contact" 
+            <button 
               className="mobile-cta-button"
-              onClick={closeMobileMenu}
+              onClick={() => handleNavClick('contact')}
             >
               Let's Connect
-            </Link>
+            </button>
           </div>
         </nav>
       </div>

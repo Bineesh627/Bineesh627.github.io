@@ -12,7 +12,7 @@ const qualificationsData = [
     description:
       'Currently pursuing a BCA degree, specializing in computer applications, software development, and information technology principles.',
     graduation_date: '2025-05-25',
-    score: '3.8/4.0',
+    score: '6.8/10.0',
     highlights: [],
   },
   {

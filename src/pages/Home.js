@@ -7,10 +7,10 @@ import { Skills } from '../components/Skills';
 import { Contact } from './Contact';
 
 
-export const Home = () => {
+export const Home = ({ setActiveTab }) => {
   return (
     <>
-      <Banner />
+      <Banner setActiveTab={setActiveTab} />
       <About />
       <Experience />
       <Qualifications />
