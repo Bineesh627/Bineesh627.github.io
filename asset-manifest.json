@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.f9ae1e29.css",
-    "main.js": "/static/js/main.dc49108f.js",
-    "static/js/787.fb771931.chunk.js": "/static/js/787.fb771931.chunk.js",
+    "main.css": "/static/css/main.03d4df79.css",
+    "main.js": "/static/js/main.68850385.js",
+    "static/js/27.fe725432.chunk.js": "/static/js/27.fe725432.chunk.js",
     "static/media/Critical_soft_skills_for_project_managers.png": "/static/media/Critical_soft_skills_for_project_managers.13074c7e46c47ec963b7.png",
     "static/media/Communicating_with_impact.png": "/static/media/Communicating_with_impact.da2260c1f65a74689efe.png",
     "static/media/Edunet_skillsBuild_orientation.png": "/static/media/Edunet_skillsBuild_orientation.1bcaa5f1b1dc9884f20d.png",
@@ -41,13 +41,10 @@
     "static/media/python.png": "/static/media/python.97f356308d5a8c455b85.png",
     "static/media/postman.png": "/static/media/postman.61c4d357fb4129858e00.png",
     "static/media/work.svg": "/static/media/work.3710b62484ed638074240e99317c6c60.svg",
-    "index.html": "/index.html",
-    "main.f9ae1e29.css.map": "/static/css/main.f9ae1e29.css.map",
-    "main.dc49108f.js.map": "/static/js/main.dc49108f.js.map",
-    "787.fb771931.chunk.js.map": "/static/js/787.fb771931.chunk.js.map"
+    "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.f9ae1e29.css",
-    "static/js/main.dc49108f.js"
+    "static/css/main.03d4df79.css",
+    "static/js/main.68850385.js"
   ]
 }
