@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import '../assets/css/NavBar.css';
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { X, Menu } from "lucide-react";
+import { Home, Briefcase, Award, BookOpen, MessageSquare } from "lucide-react";
 // import logo from '../assets/img/logo.svg';
 
 export const NavBar = ({ activeTab, onUpdateActiveTab }) => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -22,52 +21,20 @@ export const NavBar = ({ activeTab, onUpdateActiveTab }) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [])
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-  };
-
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
-    // Cleanup on unmount
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [mobileMenuOpen]);
-
   const handleNavClick = (tab) => {
     onUpdateActiveTab(tab);
-    closeMobileMenu();
     window.scrollTo(0, 0); // Scroll to top when switching tabs
   };
 
   return (
     <>
+      {/* Desktop Navbar */}
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           {/* <Navbar.Brand href="/">
             <img src={logo} alt="Logo" />
           </Navbar.Brand> */}
           
-          {/* Custom Mobile Menu Toggle */}
-          <button 
-            className="mobile-menu-toggle d-md-none"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            <Menu size={28} />
-          </button>
-
           {/* Desktop Navigation */}
           <Navbar.Collapse id="basic-navbar-nav" className="d-none d-md-flex">
             <Nav className="ms-auto">
@@ -83,69 +50,45 @@ export const NavBar = ({ activeTab, onUpdateActiveTab }) => {
         </Container>
       </Navbar>
 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="mobile-menu-overlay" onClick={closeMobileMenu} />
-      )}
-
-      {/* Mobile Menu Drawer */}
-      <div className={`mobile-menu-drawer ${mobileMenuOpen ? 'open' : ''}`}>
-        {/* Close Button */}
-        <button 
-          className="mobile-menu-close"
-          onClick={closeMobileMenu}
-          aria-label="Close mobile menu"
-        >
-          <X size={28} />
-        </button>
-
-        {/* Mobile Menu Items */}
-        <nav className="mobile-menu-nav">
-          <ul className="mobile-menu-list">
-            <li className="mobile-menu-item" style={{ animationDelay: '0.1s' }}>
-              <button 
-                className={`mobile-menu-link ${activeTab === 'home' ? 'active' : ''}`}
-                onClick={() => handleNavClick('home')}
-              >
-                Home
-              </button>
-            </li>
-            <li className="mobile-menu-item" style={{ animationDelay: '0.2s' }}>
-              <button 
-                className={`mobile-menu-link ${activeTab === 'projects' ? 'active' : ''}`}
-                onClick={() => handleNavClick('projects')}
-              >
-                Projects
-              </button>
-            </li>
-            <li className="mobile-menu-item" style={{ animationDelay: '0.3s' }}>
-              <button 
-                className={`mobile-menu-link ${activeTab === 'certifications' ? 'active' : ''}`}
-                onClick={() => handleNavClick('certifications')}
-              >
-                Certifications
-              </button>
-            </li>
-            <li className="mobile-menu-item" style={{ animationDelay: '0.4s' }}>
-              <button 
-                className={`mobile-menu-link ${activeTab === 'blogs' ? 'active' : ''}`}
-                onClick={() => handleNavClick('blogs')}
-              >
-                Blogs
-              </button>
-            </li>
-          </ul>
-
-          {/* Mobile CTA Button */}
-          <div className="mobile-cta-container" style={{ animationDelay: '0.5s' }}>
+      {/* Modern Mobile Bottom Navigation */}
+      <div className="mobile-bottom-nav d-md-none">
+        <div className="mobile-nav-container">
             <button 
-              className="mobile-cta-button"
-              onClick={() => handleNavClick('contact')}
+                className={`mobile-nav-item ${activeTab === 'home' ? 'active' : ''}`}
+                onClick={() => handleNavClick('home')}
             >
-              Let's Connect
+                <div className="icon-wrapper"><Home size={20} /></div>
+                <span>Home</span>
             </button>
-          </div>
-        </nav>
+            <button 
+                className={`mobile-nav-item ${activeTab === 'projects' ? 'active' : ''}`}
+                onClick={() => handleNavClick('projects')}
+            >
+                <div className="icon-wrapper"><Briefcase size={20} /></div>
+                <span>Work</span>
+            </button>
+            <button 
+                className={`mobile-nav-item ${activeTab === 'certifications' ? 'active' : ''}`}
+                onClick={() => handleNavClick('certifications')}
+            >
+                <div className="icon-wrapper"><Award size={20} /></div>
+                <span>Awards</span>
+            </button>
+            <button 
+                className={`mobile-nav-item ${activeTab === 'blogs' ? 'active' : ''}`}
+                onClick={() => handleNavClick('blogs')}
+            >
+                <div className="icon-wrapper"><BookOpen size={20} /></div>
+                <span>Blogs</span>
+            </button>
+            <button 
+                className={`mobile-nav-item ${activeTab === 'contact' ? 'active' : ''}`}
+                onClick={() => handleNavClick('contact')}
+            >
+                <div className="icon-wrapper"><MessageSquare size={20} /></div>
+                <span>Contact</span>
+            </button>
+        </div>
       </div>
     </>
   )

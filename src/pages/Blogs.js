@@ -1,155 +1,358 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Calendar, Clock, X, Tag, ChevronLeft, ChevronRight } from 'lucide-react';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import '../assets/css/Blogs.css';
-import { ArrowRight } from "react-bootstrap-icons";
-import { Tag, Calendar, User, Share2 } from "lucide-react";
-import InnovativeThinkerAward from "../assets/img/blogs/InnovativeThinkerAward.jpg";
+import { blogsData } from '../data/blogsData';
 
-
-const projects = [
-  {
-    id: 1,
-    title: "Innovative Thinker Award",
-    date: "January 29, 2025",
-    readingTime: "2 min",
-    category: "Innovative thinker",
-    description:
-      "Honored to receive the Dr. C.V. Raman Foundation Award as an Innovative Thinker and Person. This recognition inspires me to continue exploring research, innovation, and problem-solving, while pursuing my ambition to become an entrepreneur in the field of Artificial Intelligence.",
-    image: InnovativeThinkerAward,
-    url: "https://medium.com/@bineeshs/honored-innovative-thinker-award-654af179e124",
-    author: "Bineesh",
-    link: "https://medium.com/@bineeshs/honored-innovative-thinker-award-654af179e124"
-  },
-];
+gsap.registerPlugin(ScrollTrigger);
 
 export const Blogs = () => {
-  const [visibleCount, setVisibleCount] = useState(6);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [defaultCount, setDefaultCount] = useState(6);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Lightbox State
+  const [lightboxImage, setLightboxImage] = useState(null);
+
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const updateVisibleCount = () => {
-      if (window.innerWidth < 992) {
-        setVisibleCount(3);
-        setDefaultCount(3);
-      } else {
-        setVisibleCount(6);
-        setDefaultCount(6);
-      }
-      setIsExpanded(false);
-    };
-    updateVisibleCount();
-    window.addEventListener("resize", updateVisibleCount);
-    return () => window.removeEventListener("resize", updateVisibleCount);
+    // Simulating loading data
+    setPosts(blogsData);
+    setLoading(false);
   }, []);
 
-  const toggleShowMore = () => {
-    if (isExpanded) {
-      setVisibleCount(defaultCount); // Show less
-    } else {
-      setVisibleCount(projects.length); // Show all
-    }
-    setIsExpanded(!isExpanded);
+  useEffect(() => {
+    if (posts.length === 0) return;
+
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+        const ctx = gsap.context(() => {
+            gsap.from('.blog-card', {
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top 80%',
+              },
+              opacity: 0,
+              y: 50,
+              stagger: 0.1,
+              duration: 0.6,
+              ease: "power2.out"
+            });
+          }, containerRef);
+      
+          return () => ctx.revert();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [posts]);
+
+  // Lock body scroll when modal OR lightbox is open
+    useEffect(() => {
+        if (selectedPost || lightboxImage) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+            if (selectedPost && !lightboxImage) setCurrentImageIndex(0); // Reset index only on modal open
+        } else {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+        return () => {
+             document.body.style.overflow = '';
+             document.documentElement.style.overflow = '';
+        }
+    }, [selectedPost, lightboxImage]);
+
+  const handleNextImage = () => {
+      if (!selectedPost || !selectedPost.images) return;
+      setCurrentImageIndex((prev) => (prev + 1) % selectedPost.images.length);
   };
 
-  const handleShare = async (blog) => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: blog.title,
-          text: blog.description,
-          url: blog.url,
-        });
-      } catch (error) {
-        console.error('Error sharing:', error);
-      }
-    } else {
-      navigator.clipboard.writeText(blog.url);
-      alert("Link copied to clipboard!");
-    }
+  const handlePrevImage = () => {
+      if (!selectedPost || !selectedPost.images) return;
+      setCurrentImageIndex((prev) => (prev - 1 + selectedPost.images.length) % selectedPost.images.length);
   };
 
-  const visibleProjects = projects.slice(0, visibleCount);
+  // Lightbox Handlers
+  const openLightbox = (imgUrl) => {
+      setLightboxImage(imgUrl);
+  };
+
+  const closeLightbox = () => {
+      setLightboxImage(null);
+  };
+
+
+  const categories = Array.from(new Set(posts.map((p) => p.category)));
+  const filteredPosts = selectedCategory
+    ? posts.filter((p) => p.category === selectedCategory)
+    : posts;
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
+  if (loading) {
+    return (
+      <section className="section">
+        <div className="container-custom">
+          <h2 className="section-title">Blog & Insights</h2>
+          <div className="text-center text-white-50">Loading posts...</div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <>
-      <div className="text-white min-vh-100 pt-2" style={{ position: "relative", zIndex: 2 }}>
-        <section className="py-5 mt-5" data-bs-theme="dark">
-          <div className="container">
-            <h2 className="display-5 fw-bold text-center mb-4">
-              Insights & <span className="text-primary">Blogs</span>
-            </h2>
-            <p
-              className="text-center text-secondary mb-5 mx-auto"
-              style={{ maxWidth: 600 }}
+    <section
+      id="blog"
+      ref={containerRef}
+      className="section"
+    >
+      {/* Background Decor */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute-bg-orb bg-neon-purple-blur blur-3xl" style={{ top: '20%', left: '-10%' }} />
+        <div className="absolute-bg-orb bg-neon-cyan-blur blur-3xl" style={{ bottom: '10%', right: '-10%' }} />
+      </div>
+
+      <div className="container-custom">
+        <h2 className="section-title">Insights & <span className="text-primary">Blogs</span></h2>
+
+        {/* Categories */}
+        <div className="d-flex flex-wrap gap-2 mb-5 justify-content-center">
+          <button
+            onClick={() => setSelectedCategory(null)}
+            className={`category-btn ${selectedCategory === null ? 'active' : 'inactive'}`}
+          >
+            All Posts
+          </button>
+
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`category-btn ${selectedCategory === cat ? 'active' : 'inactive'}`}
             >
-              Where innovation is imagined, refined, and shared
-            </p>
+              {cat}
+            </button>
+          ))}
+        </div>
 
-            <div className="row g-4 justify-content-center">
-              {visibleProjects.map((blog) => (
-                <div key={blog.id} className="col-12 col-md-6 col-lg-4">
-                  <div className="blog-card h-100">
-                    <div className="blog-img-wrapper">
-                      <img 
-                        src={blog.image} 
-                        alt={blog.title}
-                        className="blog-img"
-                      />
-                      <span className="category-badge">
-                        <Tag size={12} className="me-1" />
-                        {blog.category}
-                      </span>
+        {/* Posts Grid */}
+        <div className="row g-4 justify-content-center">
+          {filteredPosts.map((post) => (
+            <div key={post.id} className="col-12 col-md-6 col-lg-4">
+                <article
+                className="blog-card"
+                onClick={() => setSelectedPost(post)}
+                style={{ cursor: 'pointer' }}
+                >
+                <div className="glass-card">
+                    {post.cover_image_url && (
+                    <div className="card-img-wrapper">
+                        <img
+                        src={post.cover_image_url}
+                        alt={post.title}
+                        className="card-img"
+                        />
+                        <div className="card-overlay" />
+                        <div className="card-category-badge">
+                            {post.category}
+                        </div>
                     </div>
-                    
-                    <div className="blog-content">
-                      <div className="blog-meta mb-3">
-                        <span className="meta-item">
-                          <Calendar size={14} className="me-1" />
-                          {blog.date}
-                        </span>
-                        <span className="meta-dot">•</span>
-                        <span className="meta-item">
-                          {blog.readingTime}
-                        </span>
-                      </div>
+                    )}
 
-                      <h3 className="blog-title">{blog.title}</h3>
-                      <p className="blog-excerpt">{blog.description}</p>
+                    <div className="card-content">
+                    <h3 className="card-title">
+                        {post.title}
+                    </h3>
 
-                      <div className="blog-footer mt-auto">
-                        <div className="author-info">
-                            <User size={14} className="me-1 text-secondary-custom" />
-                            <span className="author-name">{blog.author}</span>
+                    <p className="card-excerpt">
+                        {post.excerpt}
+                    </p>
+
+                    <div className="card-meta">
+                        <div className="meta-item">
+                        <Calendar size={14} />
+                        <span>{formatDate(post.published_at)}</span>
                         </div>
-                        <div className="action-buttons">
-                            <button className="share-btn" onClick={() => handleShare(blog)}>
-                                <Share2 size={16} />
-                            </button>
-                            <a href={blog.url} className="continue-btn" target="_blank" rel="noopener noreferrer">
-                                Read More <ArrowRight size={16} className="ms-1" />
-                            </a>
+                        <div className="meta-item">
+                        <Clock size={14} />
+                        <span>{post.read_time} min</span>
                         </div>
-                      </div>
+                    </div>
+
+                    {post.tags && post.tags.length > 0 && (
+                        <div className="card-tags">
+                        {post.tags.slice(0, 3).map((tag, i) => (
+                            <span
+                            key={i}
+                            className="tag-badge"
+                            >
+                            #{tag}
+                            </span>
+                        ))}
+                        </div>
+                    )}
+                    </div>
+                </div>
+                </article>
+            </div>
+          ))}
+        </div>
+
+        {/* Modal */}
+        {selectedPost &&
+          createPortal(
+            <div
+              className="modal-overlay"
+              onClick={() => setSelectedPost(null)}
+            >
+              <div
+                className="modal-content-custom"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Modal Header Image / Carousel */}
+                {selectedPost.images && selectedPost.images.length > 0 ? (
+                    <div className="modal-header-img">
+                        <div className="carousel-container">
+                             <img
+                                src={selectedPost.images[currentImageIndex]}
+                                alt={`${selectedPost.title} slide ${currentImageIndex + 1}`}
+                                className="modal-img carousel-img cursor-zoom-in"
+                                onClick={() => openLightbox(selectedPost.images[currentImageIndex])}
+                            />
+                            {selectedPost.images.length > 1 && (
+                                <>
+                                    <button className="carousel-btn prev" onClick={(e) => { e.stopPropagation(); handlePrevImage(); }}>
+                                        <ChevronLeft size={24} />
+                                    </button>
+                                    <button className="carousel-btn next" onClick={(e) => { e.stopPropagation(); handleNextImage(); }}>
+                                        <ChevronRight size={24} />
+                                    </button>
+                                     <div className="carousel-indicators">
+                                        {selectedPost.images.map((_, idx) => (
+                                            <span 
+                                                key={idx} 
+                                                className={`carousel-dot ${idx === currentImageIndex ? 'active' : ''}`}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setCurrentImageIndex(idx);
+                                                }}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                        <div className="modal-img-overlay pointer-events-none" /> 
+                         {/* pointer-events-none so click goes to image */}
+                    </div>
+                ) : (
+                    selectedPost.cover_image_url && (
+                        <div className="modal-header-img">
+                            <img
+                            src={selectedPost.cover_image_url}
+                            alt={selectedPost.title}
+                            className="modal-img cursor-zoom-in"
+                            onClick={() => openLightbox(selectedPost.cover_image_url)}
+                            />
+                            <div className="modal-img-overlay pointer-events-none" />
+                        </div>
+                    )
+                )}
+
+                <div className="modal-body">
+                  <div className="modal-top-bar">
+                    <div className="flex-grow-1">
+                      <span className="modal-category">
+                        {selectedPost.category}
+                      </span>
+                      <h2 className="modal-title">
+                        {selectedPost.title}
+                      </h2>
+                    </div>
+                    <button
+                      onClick={() => setSelectedPost(null)}
+                      className="modal-close-btn"
+                    >
+                      <X size={24} />
+                    </button>
+                  </div>
+
+                  <div className="modal-meta">
+                    <div className="meta-item">
+                      <Calendar size={16} />
+                      <span>{formatDate(selectedPost.published_at)}</span>
+                    </div>
+                    <div className="meta-item">
+                      <Clock size={16} />
+                      <span>{selectedPost.read_time} min read</span>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
 
-            {/* Show More / Show Less Button */}
-            {projects.length > defaultCount && (
-              <div className="text-center mt-4">
-                <button
-                  className="btn btn-outline-light"
-                  onClick={toggleShowMore}
-                >
-                  {isExpanded ? "Show Less" : "Show More"}
-                </button>
+                  <div className="modal-prose">
+                    <div className="prose-content">
+                      {selectedPost.content}
+                    </div>
+                  </div>
+
+                  {selectedPost.tags && selectedPost.tags.length > 0 && (
+                    <div className="modal-tags">
+                      <Tag size={16} className="tag-icon" />
+                      {selectedPost.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="modal-tag-bg"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-            )}
-          </div>
-        </section>
+            </div>,
+            document.body
+          )}
+          
+          {/* Lightbox Portal */}
+          {lightboxImage && 
+            createPortal(
+                <div className="lightbox-overlay" onClick={closeLightbox}>
+                    <button className="lightbox-close-btn" onClick={closeLightbox}>
+                        <X size={32} />
+                    </button>
+                    <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+                        <TransformWrapper
+                            initialScale={1}
+                            minScale={0.5}
+                            maxScale={4}
+                            centerOnInit={true}
+                        >
+                            <TransformComponent wrapperClass="lightbox-transform-wrapper" contentClass="lightbox-transform-content">
+                                <img 
+                                    src={lightboxImage} 
+                                    alt="Full screen view" 
+                                    className="lightbox-img"
+                                />
+                            </TransformComponent>
+                        </TransformWrapper>
+                    </div>
+                </div>,
+                document.body
+            )
+          }
       </div>
-    </>
+    </section>
   );
 };

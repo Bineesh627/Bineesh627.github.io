@@ -3,7 +3,8 @@
 /* Section shell with responsive top spacing for the title */
 .certifications-section {
   position: relative;
-  z-index: 0; /* base stacking context for pseudo backgrounds */
+  z-index: 0;
+  /* base stacking context for pseudo backgrounds */
   background: transparent;
   overflow: visible;
   min-height: 100vh;
@@ -49,13 +50,20 @@
 }
 
 /* Grid */
-.certifications-grid { margin-bottom: 0; }
-.certification-col { margin-bottom: 0; }
+.certifications-grid {
+  margin-bottom: 0;
+}
+
+.certification-col {
+  margin-bottom: 0;
+}
 
 /* Certification Card - bring card above pseudo backgrounds */
 .certification-card {
-  position: relative; /* create its own stacking context for children */
-  z-index: 2; /* above pseudo backgrounds */
+  position: relative;
+  /* create its own stacking context for children */
+  z-index: 2;
+  /* above pseudo backgrounds */
   background-color: #222;
   border-radius: 16px;
   overflow: hidden;
@@ -74,7 +82,10 @@
 }
 
 @keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Hover lift and blue glow */
@@ -86,7 +97,8 @@
 /* Certificate Image */
 .cert-image-container {
   position: relative;
-  z-index: 2; /* ensure image container is above section background */
+  z-index: 2;
+  /* ensure image container is above section background */
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -111,14 +123,16 @@
 .cert-overlay {
   position: absolute;
   inset: 0;
-  z-index: 3; /* always above the image */
-  background: linear-gradient(135deg, rgba(13,110,253,0.9) 0%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 3;
+  /* always above the image */
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%);
   display: flex;
   align-items: flex-end;
   padding: 20px;
   opacity: 0;
   transition: opacity 0.28s ease, transform 0.28s ease;
-  pointer-events: none; /* let interactions pass through when hidden */
+  pointer-events: none;
+  /* let interactions pass through when hidden */
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
@@ -126,7 +140,8 @@
 /* enable overlay only on hover */
 .certification-card:hover .cert-overlay {
   opacity: 1;
-  pointer-events: auto; /* allow clicks or hover interactions inside overlay */
+  pointer-events: auto;
+  /* allow clicks or hover interactions inside overlay */
 }
 
 /* issuer name animates up into view */
@@ -138,7 +153,8 @@
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.28s ease, transform 0.28s ease;
-  user-select: text; /* allow copying issuer name if desired */
+  user-select: text;
+  /* allow copying issuer name if desired */
 }
 
 /* reveal issuer after overlay appears */
@@ -153,8 +169,10 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  z-index: 4; /* in front of image and overlay for text selection */
-  user-select: text; /* ensure text can be selected and copied */
+  z-index: 4;
+  /* in front of image and overlay for text selection */
+  user-select: text;
+  /* ensure text can be selected and copied */
 }
 
 .cert-title {
@@ -195,42 +213,187 @@
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .certifications-title { font-size: 3rem; }
+  .certifications-title {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 992px) {
-  .certifications-section { padding-bottom: 60px; }
-  .certifications-title { font-size: 2.5rem; }
-  .certifications-header { margin-bottom: 40px; }
+  .certifications-section {
+    padding-bottom: 60px;
+  }
+
+  .certifications-title {
+    font-size: 2.5rem;
+  }
+
+  .certifications-header {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 768px) {
-  .certifications-section { padding-bottom: 40px; }
-  .certifications-title { font-size: 2rem; }
-  .certifications-subtitle { font-size: 1rem; }
-  .cert-details { padding: 20px; }
-  .cert-title { font-size: 1.2rem; }
-  .cert-description { font-size: 0.9rem; }
-  .cert-image-container { aspect-ratio: 4 / 3; }
+  .certifications-section {
+    padding-bottom: 40px;
+  }
+
+  .certifications-title {
+    font-size: 2rem;
+  }
+
+  .certifications-subtitle {
+    font-size: 1rem;
+  }
+
+  .cert-details {
+    padding: 20px;
+  }
+
+  .cert-title {
+    font-size: 1.2rem;
+  }
+
+  .cert-description {
+    font-size: 0.9rem;
+  }
+
+  .cert-image-container {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 @media (max-width: 576px) {
-  .certifications-title { font-size: 1.8rem; }
-  .cert-details { padding: 16px; }
-  .cert-title { font-size: 1.1rem; }
-  .cert-id { font-size: 0.8rem; }
-  .cert-description { font-size: 0.85rem; }
+  .certifications-title {
+    font-size: 1.8rem;
+  }
+
+  .cert-details {
+    padding: 16px;
+  }
+
+  .cert-title {
+    font-size: 1.1rem;
+  }
+
+  .cert-id {
+    font-size: 0.8rem;
+  }
+
+  .cert-description {
+    font-size: 0.85rem;
+  }
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .certification-card { animation: none; opacity: 1; transform: none; }
-  .certification-card:hover { transform: none; }
-  .cert-image { transition: none; }
+  .certification-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .certification-card:hover {
+    transform: none;
+  }
+
+  .cert-image {
+    transition: none;
+  }
 }
 
 /* Focus states for accessibility */
 .certification-card:focus-within {
   outline: 2px solid #e63946;
   outline-offset: 2px;
+}
+
+/* Lightbox Styles for Certifications */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  /* Higher than navbar (9999) */
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-transform-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.lightbox-transform-content {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: grab;
+}
+
+.lightbox-img:active {
+  cursor: grabbing;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2005;
+  transition: all 0.2s;
+}
+
+.lightbox-close-btn:hover {
+  background: rgba(255, 0, 0, 0.2);
+  border-color: #ff4d4d;
+  color: #ff4d4d;
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.click-to-zoom-hint {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cert-image-container:hover .click-to-zoom-hint {
+  opacity: 1;
 }

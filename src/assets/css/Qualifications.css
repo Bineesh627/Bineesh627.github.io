@@ -18,13 +18,15 @@
 .qual-bg-glow.top-left {
   top: -100px;
   left: -200px;
-  background: rgba(13, 202, 240, 0.08); /* Cyan-ish */
+  background: rgba(13, 202, 240, 0.08);
+  /* Cyan-ish */
 }
 
 .qual-bg-glow.bottom-right {
   bottom: -100px;
   right: -200px;
-  background: rgba(74, 47, 189, 0.08); /* Purple-ish */
+  background: rgba(74, 47, 189, 0.08);
+  /* Purple-ish */
 }
 
 .qualifications-section .section-title {
@@ -32,14 +34,16 @@
   font-size: 45px;
   font-weight: 700;
   margin-bottom: 60px;
-  color: #0dcaf0; /* Cyan Title as per screenshot/request usually */
+  color: #ffffff;
+  /* White base, with span handling color */
 }
 
 /* Card Styling */
 .qual-card {
   height: 100%;
   border-radius: 20px;
-  background: #1a1a1a; /* Darker, solid background closer to the image */
+  background: #1a1a1a;
+  /* Darker, solid background closer to the image */
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 35px;
   transition: all 0.3s ease-in-out;
@@ -51,7 +55,8 @@
   background: #222;
   transform: translateY(-5px);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  border-color: #0dcaf0; /* Cyan border on hover */
+  border-color: #0d6efd;
+  /* Cyan border on hover */
 }
 
 /* Icon Box */
@@ -68,14 +73,16 @@
 }
 
 .qual-icon-box svg {
-  color: #0dcaf0; /* Cyan */
+  color: #0d6efd;
+  /* Cyan */
 }
 
 /* Typography */
 .qual-degree {
   font-size: 24px;
   font-weight: 700;
-  color: #0dcaf0; /* Cyan */
+  color: #0d6efd;
+  /* Cyan */
   margin-bottom: 6px;
   letter-spacing: 0.5px;
 }
@@ -112,7 +119,7 @@
 .qual-info-grid {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 25px;
-  margin-top: auto; 
+  margin-top: auto;
 }
 
 .qual-label {
@@ -140,6 +147,6 @@
 }
 
 .qual-highlight-item svg {
-  color: #0dcaf0;
+  color: #0d6efd;
   flex-shrink: 0;
 }

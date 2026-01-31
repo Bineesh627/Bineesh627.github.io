@@ -1,5 +1,3 @@
-
-
 .contact-page {
     background-color: transparent;
     /* FIXED: let stars show */
@@ -48,12 +46,13 @@
     padding-right: 2rem;
 }
 
-.section-title {
+.contact-page .section-title {
     color: rgb(13, 110, 253);
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 40px;
     letter-spacing: -0.01em;
+    text-align: left;
 }
 
 .contact-items {
@@ -198,7 +197,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.social-title {
+.contact-page .social-title {
     color: #ffffff;
     font-size: 1.8rem;
     font-weight: 700;
