@@ -19,10 +19,10 @@ function AppContent() {
 
   const getActiveTab = () => {
     const path = location.pathname;
-    if (path === '/' || path === '/home') return 'home';
-    if (path.startsWith('/projects') || path.startsWith('/project')) return 'projects';
-    if (path.startsWith('/certifications') || path.startsWith('/certification')) return 'certifications';
-    if (path.startsWith('/blogs') || path.startsWith('/blog')) return 'blogs';
+    if (path === '/') return 'home';
+    if (path.startsWith('/projects')) return 'projects';
+    if (path.startsWith('/certifications')) return 'certifications';
+    if (path.startsWith('/blogs')) return 'blogs';
     if (path.startsWith('/contact')) return 'contact';
     return 'home';
   };
@@ -36,13 +36,9 @@ function AppContent() {
       
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/project" element={<Projects />} />
         <Route path="/certifications" element={<Certifications />} />
-        <Route path="/certification" element={<Certifications />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/blog" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Home />} />
       </Routes>
