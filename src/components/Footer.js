@@ -1,9 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "../assets/css/Footer.css";
+import { useNavigate } from "react-router-dom";
 
-export const Footer = ({ onUpdateActiveTab }) => {
+export const Footer = () => {
+  const navigate = useNavigate();
   const handleNavClick = (tab) => {
-    onUpdateActiveTab(tab);
+    const path = tab === 'home' ? '/' : `/${tab}`;
+    navigate(path);
     window.scrollTo(0, 0);
   };
 
@@ -19,7 +22,7 @@ export const Footer = ({ onUpdateActiveTab }) => {
               <span className="brand-accent"> S</span>
             </div>
             <p className="brand-tagline">
-              Tech-Driven Innovator | Building Future-Ready Vision
+              Founder of Fusintech | Tech-Driven Innovator
             </p>
           </Col>
 

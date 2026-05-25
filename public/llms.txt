@@ -1,0 +1,107 @@
+# Bineesh S
+
+Developer portfolio of Bineesh S: Tech-Driven Innovator, AI Expert, Python Developer, and Cybersecurity professional.
+
+## About
+* **Bio**: Founder of Fusintech. Aspiring Full-Stack Developer specializing in 4.0 technologies (AI, Full Stack, Cybersecurity). Proactive, self-taught, and passionate about creating modern, robust applications and solving complex technical challenges.
+* **Location**: Alappuzha, Kerala, India
+* **Resume/Portfolio**: https://bineeshs.vercel.app/
+* **Email**: sbineesh172@gmail.com
+* **Phone**: +91 95673 14355
+* **LinkedIn**: https://www.linkedin.com/in/bineesh627
+* **GitHub**: https://github.com/Bineesh627
+* **Twitter/X**: https://twitter.com/bineesh627
+* **Instagram**: https://www.instagram.com/dream_boy_.627
+* **WhatsApp**: https://wa.me/+919567314355
+
+---
+
+## Core Technical Skills
+
+### Artificial Intelligence & ML
+* Machine Learning, Deep Learning, Natural Language Processing, Computer Vision
+* TensorFlow, PyTorch, AI Model Development, Data Analysis
+
+### Backend Development
+* Python, Django, MySQL, MongoDB
+
+### Frontend Development
+* HTML, CSS, JavaScript, React, Bootstrap, UI/UX Design
+
+### Cybersecurity
+* Penetration Testing, Ethical Hacking, Network Security, Vulnerability Assessment, Security Auditing, Risk Assessment, Incident Response
+* Tools: Linux, Burp Suite, Nmap, Postman
+
+### Tools & Leadership
+* Git, Docker, VS Code, Figma
+* Team Leadership, Product Development, Business Strategy, Project Management
+
+---
+
+## Featured Projects
+
+### RAG Chatbot
+* **Description**: Developed a college chatbot leveraging Retrieval-Augmented Generation (RAG) in collaboration with the principal. Employs intelligent agents to extract info from the college website and PDFs, with an admin panel.
+* **Tech**: Python, Bootstrap, Django, Langchain, HTML, CSS, JavaScript, Numpy
+* **GitHub**: https://github.com/Bineesh627/college_chatbot
+
+### Culinary Community & Sharing Platform (RecipeRave)
+* **Description**: A culinary sharing platform where users can follow creators, explore, and share recipes.
+* **Tech**: Python, Django, HTML, CSS, JavaScript, Bootstrap
+* **GitHub**: https://github.com/Bineesh627/reciperave
+
+### MobileInfoga
+* **Description**: An OSINT tool designed to gather phone number information (country of origin, carrier details, online associations).
+* **Tech**: Python, Telethon, Phonenumbers
+* **GitHub**: https://github.com/Bineesh627/MobileInfoga
+
+### OpenSS7
+* **Description**: A structurally sound clone of the OpenSS7 website with clear technical content organization.
+* **Tech**: HTML, CSS
+* **GitHub**: https://github.com/Bineesh627/openss7
+
+---
+
+## Key Achievements
+
+### Dr. C.V. Raman Foundation Award
+* **Award**: Innovative Thinker & Innovative Person Award (Presented by Ramesh Chennithala, former Home Minister of Kerala and MLA) on January 29, 2025.
+* **Details**: Recognized for creativity, research, and technical innovation.
+
+---
+
+## Education
+
+* **Bachelor of Computer Applications (BCA)** (2022 - 2025)
+  * Institution: IHRD College of Applied Science, Karthikappally
+  * Specialization: Computer Applications, Software Development
+* **Higher Secondary Certificate (HSC) Biology Science** (Graduated July 2022)
+  * Institution: G.H.S.S Mangalam School, Aratupuzha
+* **Secondary School School Certificate (SSLC)** (Graduated March 2020)
+  * Institution: St. Thomas Higher Secondary School, Karthikapally
+
+---
+
+## Certifications
+* **Generative AI Mastermind** - Outskill (September 2025)
+* **Essentials of Ethical Hacking** - RedTeam Hacker Academy (October 2024, ID: RTXSTU1318012510)
+* **Cyber Security Internship** - RedTeam Hacker Academy (November 2024)
+* **Internet and Security** - Edapt (April 2023, ID: EDPT1681140384408L)
+* **Introduction to Cloud Computing** - Edapt (April 2023, ID: EDPT1680971415613F)
+* **Introduction to Machine Learning** - Edapt (April 2023, ID: EDPT1682006280907N)
+* **Introduction to UI/UX Design** - Faith Academy (September 2024)
+* **Communicating with Impact** - IBM SkillsBuild (June 2024, ID: URL-FFD82E8D28EB)
+* **Critical Soft Skills for Project Managers** - IBM SkillsBuild (June 2024, ID: URL-G-YOH0ZY0C8)
+* **Edunet - SkillsBuild Orientation** - IBM SkillsBuild (June 2024, ID: PLAN-04138CD348A7)
+* **Young Innovators Programme (YIP)** - K-DISC (October 2022, ID: 22YIP074762)
+* **AI for Students: Build Your Own Generative AI Model** - NxtWave (June 2024)
+
+---
+
+## Directory
+
+* [Home](https://bineeshs.vercel.app/)
+* [Projects](https://bineeshs.vercel.app/)
+* [Certifications](https://bineeshs.vercel.app/)
+* [Blogs](https://bineeshs.vercel.app/)
+* [Let’s Connect](https://bineeshs.vercel.app/)

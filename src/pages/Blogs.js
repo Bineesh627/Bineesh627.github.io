@@ -44,7 +44,7 @@ export const Blogs = () => {
               duration: 0.6,
               ease: "power2.out"
             });
-          }, containerRef);
+          }, containerRef.current);
       
           return () => ctx.revert();
     }, 100);

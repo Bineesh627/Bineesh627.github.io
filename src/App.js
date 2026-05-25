@@ -1,6 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 
@@ -13,35 +14,49 @@ import { Contact } from "./pages/Contact";
 
 import { SpaceBackground } from "./components/SpaceBackground";
 
-function App() {
-  const [activeTab, setActiveTab] = React.useState('home');
+function AppContent() {
+  const location = useLocation();
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'home':
-        return <Home setActiveTab={setActiveTab} />;
-      case 'projects':
-        return <Projects />;
-      case 'certifications':
-        return <Certifications />;
-      case 'blogs':
-        return <Blogs />;
-      case 'contact':
-        return <Contact />;
-      default:
-        return <Home setActiveTab={setActiveTab} />;
-    }
+  const getActiveTab = () => {
+    const path = location.pathname;
+    if (path === '/' || path === '/home') return 'home';
+    if (path.startsWith('/projects') || path.startsWith('/project')) return 'projects';
+    if (path.startsWith('/certifications') || path.startsWith('/certification')) return 'certifications';
+    if (path.startsWith('/blogs') || path.startsWith('/blog')) return 'blogs';
+    if (path.startsWith('/contact')) return 'contact';
+    return 'home';
   };
+
+  const activeTab = getActiveTab();
 
   return (
     <div className="App text-white">
       <SpaceBackground />
-      <NavBar activeTab={activeTab} onUpdateActiveTab={setActiveTab} />
+      <NavBar activeTab={activeTab} />
       
-      {renderContent()}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/project" element={<Projects />} />
+        <Route path="/certifications" element={<Certifications />} />
+        <Route path="/certification" element={<Certifications />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blog" element={<Blogs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
       
-      <Footer onUpdateActiveTab={setActiveTab} />
+      <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <AppContent />
+    </Router>
   );
 }
 

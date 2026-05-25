@@ -7,7 +7,6 @@ export const qualificationsData = [
     description:
       'Currently pursuing a BCA degree, specializing in computer applications, software development, and information technology principles.',
     graduation_date: '2025-05-25',
-    score: '6.8/10.0',
     highlights: [],
   },
   {
@@ -17,7 +16,6 @@ export const qualificationsData = [
     institution: 'G.H.S.S Mangalam School, Aratupuzha',
     description: 'Completed higher secondary education with a focus on biology science, gaining in-depth knowledge of biological concepts alongside foundational sciences.',
     graduation_date: 'July 2022',
-    score: '73%',
     highlights: [],
   },
   {
@@ -27,7 +25,6 @@ export const qualificationsData = [
     institution: 'St. Thomas Higher Secondary School, Karthikapally',
     description: 'Successfully completed secondary education, laying a strong foundation in core academic subjects and developing essential skills.',
     graduation_date: 'March 2020',
-    score: '87%',
     highlights: [],
   },
 ];

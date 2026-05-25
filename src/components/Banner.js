@@ -3,8 +3,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { useNavigate } from "react-router-dom";
 
-export const Banner = ({ setActiveTab }) => {
+export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
@@ -43,11 +44,11 @@ export const Banner = ({ setActiveTab }) => {
     return () => { clearInterval(ticker) };
   }, [delta, tick]);
 
+  const navigate = useNavigate();
+
   const handleConnect = () => {
-    if (setActiveTab) {
-      setActiveTab('contact');
-      window.scrollTo(0, 0);
-    }
+    navigate('/contact');
+    window.scrollTo(0, 0);
   };
 
   return (

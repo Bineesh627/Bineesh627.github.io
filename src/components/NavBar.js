@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import '../assets/css/NavBar.css';
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Home, Briefcase, Award, BookOpen, MessageSquare } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 // import logo from '../assets/img/logo.svg';
 
-export const NavBar = ({ activeTab, onUpdateActiveTab }) => {
+export const NavBar = ({ activeTab }) => {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => {
@@ -22,7 +24,8 @@ export const NavBar = ({ activeTab, onUpdateActiveTab }) => {
   }, [])
 
   const handleNavClick = (tab) => {
-    onUpdateActiveTab(tab);
+    const path = tab === 'home' ? '/' : `/${tab}`;
+    navigate(path);
     window.scrollTo(0, 0); // Scroll to top when switching tabs
   };
 
