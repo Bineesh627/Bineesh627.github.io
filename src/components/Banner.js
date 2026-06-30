@@ -1,19 +1,23 @@
 import { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { ArrowRightCircle } from 'react-bootstrap-icons';
+import { ArrowRight, Cpu, HardDrive, Compass } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import { useNavigate } from "react-router-dom";
+import { InteractiveTerminal } from "./InteractiveTerminal";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
+  const [cpuLoad, setCpuLoad] = useState(32);
+  const [ramLoad, setRamLoad] = useState(48);
   const period = 2000;
+  const navigate = useNavigate();
 
   const tick = useCallback(() => {
-    const toRotate = [ "AI Expert", "Python Developer", "Cyber Security" ];
+    const toRotate = [ "AI_Expert", "Python_Developer", "Cyber_Security" ];
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting 
@@ -34,7 +38,7 @@ export const Banner = () => {
       setLoopNum(loopNum + 1);
       setDelta(500);
     }
-  }, [isDeleting, loopNum, period, text]);
+  }, [isDeleting, loopNum, text]);
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -44,32 +48,103 @@ export const Banner = () => {
     return () => { clearInterval(ticker) };
   }, [delta, tick]);
 
-  const navigate = useNavigate();
+  // Simulate changing CPU and RAM values for diagnostics look
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCpuLoad(Math.floor(Math.random() * 25) + 20);
+      setRamLoad(Math.floor(Math.random() * 5) + 45);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleConnect = () => {
     navigate('/contact');
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <section className="banner" id="home">
+    <section className="banner-os" id="home">
+      <div className="os-scanline"></div>
+      
       <Container>
-        <Row className="aligh-items-center">
-          <Col xs={12} md={12} xl={12}>
+        <Row className="align-items-stretch g-5">
+          {/* Left Column: Diagnostics Kernel & Telemetry */}
+          <Col xs={12} lg={6} className="d-flex flex-column justify-content-center">
             <TrackVisibility>
               {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Bineesh S`} <span className="txt-rotate" data-period="1000" data-rotate='[ "Cyber Security", "Python Developer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                <p>Your website is the center of your digital eco-system, like a brick and mortar location, the experience matters once a customer enters, just as much as the perception they have of you before they walk through the door.</p>
-                <div className="banner-btns">
-                  <button onClick={handleConnect}>Let's Connect <ArrowRightCircle size={25} /></button>
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  
+                  {/* System Load Telemetry */}
+                  <div className="d-flex flex-wrap gap-2 mb-4">
+                    <div className="os-widget-badge">
+                      <span className="os-active-dot green animate-pulse"></span>
+                      <span>SYSTEM: ACTIVE</span>
+                    </div>
+                    <div className="os-widget-badge">
+                      <span>SEC_STATUS: SECURE</span>
+                    </div>
+                  </div>
+
+                  {/* Display Identity */}
+                  <h1 className="os-hero-title font-display">
+                    KERNEL_ID: <br />
+                    <span className="text-gradient-blue">BINEESH S</span>
+                  </h1>
+
+                  {/* Typing OS Prompt Role */}
+                  <h2 className="os-hero-prompt font-mono">
+                    root@bineesh:~$ <span className="wrap text-gradient-green">{text}</span>
+                  </h2>
+
+                  {/* Detailed Description */}
+                  <p className="os-hero-description">
+                    Cybersecurity practitioner, AI engineering developer, and full-stack software engineer. Specializing in deploying intelligent network agents, executing penetration assessments, and building EdTech systems at Fusintech.
+                  </p>
+
+                  {/* Simulated telemetry diagnostic gauges */}
+                  <div className="os-telemetry-grid mt-4 mb-4 font-mono">
+                    <div className="telemetry-bar-row">
+                      <Cpu size={14} className="me-2 text-primary" />
+                      <span className="telemetry-label">CPU_LOAD:</span>
+                      <div className="telemetry-progress-track">
+                        <div className="telemetry-progress-bar blue" style={{ width: `${cpuLoad}%` }}></div>
+                      </div>
+                      <span className="telemetry-percentage">{cpuLoad}%</span>
+                    </div>
+
+                    <div className="telemetry-bar-row">
+                      <HardDrive size={14} className="me-2 text-primary" />
+                      <span className="telemetry-label">MEM_LOAD:</span>
+                      <div className="telemetry-progress-track">
+                        <div className="telemetry-progress-bar purple" style={{ width: `${ramLoad}%` }}></div>
+                      </div>
+                      <span className="telemetry-percentage">{ramLoad}%</span>
+                    </div>
+
+                    <div className="telemetry-bar-row">
+                      <Compass size={14} className="me-2 text-primary" />
+                      <span className="telemetry-label">GEOLOC_INDEX:</span>
+                      <span className="telemetry-val text-white">09.39N 76.45E</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-4">
+                    <button className="btn-cyber-os" onClick={handleConnect}>
+                      INIT_COMMS_LINK <ArrowRight size={16} />
+                    </button>
+                  </div>
                 </div>
-              </div>}
+              }
             </TrackVisibility>
+          </Col>
+
+          {/* Right Column: Embedded Interactive OS Terminal */}
+          <Col xs={12} lg={6} className="d-flex align-items-center">
+            <InteractiveTerminal />
           </Col>
         </Row>
       </Container>
     </section>
-  )
-}
+  );
+};
+export default Banner;

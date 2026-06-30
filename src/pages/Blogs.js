@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, Clock, X, Tag, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Clock, X, Tag, ChevronLeft, ChevronRight, HardDrive, FileText } from 'lucide-react';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import '../assets/css/Blogs.css';
 import { blogsData } from '../data/blogsData';
@@ -15,14 +15,11 @@ export const Blogs = () => {
   const [selectedPost, setSelectedPost] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // Lightbox State
   const [lightboxImage, setLightboxImage] = useState(null);
 
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Simulating loading data
     setPosts(blogsData);
     setLoading(false);
   }, []);
@@ -30,63 +27,79 @@ export const Blogs = () => {
   useEffect(() => {
     if (posts.length === 0) return;
 
-    // Small delay to ensure DOM is ready
     const timer = setTimeout(() => {
-        const ctx = gsap.context(() => {
-            gsap.from('.blog-card', {
-              scrollTrigger: {
-                trigger: containerRef.current,
-                start: 'top 80%',
-              },
-              opacity: 0,
-              y: 50,
-              stagger: 0.1,
-              duration: 0.6,
-              ease: "power2.out"
-            });
-          }, containerRef.current);
+      const ctx = gsap.context(() => {
+        gsap.from('.blog-card-wrapper', {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 80%',
+          },
+          opacity: 0,
+          y: 40,
+          stagger: 0.08,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }, containerRef.current);
       
-          return () => ctx.revert();
+      return () => ctx.revert();
     }, 100);
 
     return () => clearTimeout(timer);
   }, [posts]);
 
-  // Lock body scroll when modal OR lightbox is open
-    useEffect(() => {
-        if (selectedPost || lightboxImage) {
-            document.body.style.overflow = 'hidden';
-            document.documentElement.style.overflow = 'hidden';
-            if (selectedPost && !lightboxImage) setCurrentImageIndex(0); // Reset index only on modal open
-        } else {
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-        }
-        return () => {
-             document.body.style.overflow = '';
-             document.documentElement.style.overflow = '';
-        }
-    }, [selectedPost, lightboxImage]);
+  useEffect(() => {
+    if (selectedPost || lightboxImage) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      if (selectedPost && !lightboxImage) setCurrentImageIndex(0);
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+  }, [selectedPost, lightboxImage]);
 
   const handleNextImage = () => {
-      if (!selectedPost || !selectedPost.images) return;
-      setCurrentImageIndex((prev) => (prev + 1) % selectedPost.images.length);
+    if (!selectedPost || !selectedPost.images) return;
+    setCurrentImageIndex((prev) => (prev + 1) % selectedPost.images.length);
   };
 
   const handlePrevImage = () => {
-      if (!selectedPost || !selectedPost.images) return;
-      setCurrentImageIndex((prev) => (prev - 1 + selectedPost.images.length) % selectedPost.images.length);
+    if (!selectedPost || !selectedPost.images) return;
+    setCurrentImageIndex((prev) => (prev - 1 + selectedPost.images.length) % selectedPost.images.length);
   };
 
-  // Lightbox Handlers
   const openLightbox = (imgUrl) => {
-      setLightboxImage(imgUrl);
+    setLightboxImage(imgUrl);
   };
 
   const closeLightbox = () => {
-      setLightboxImage(null);
+    setLightboxImage(null);
   };
 
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = -(y - centerY) / 12;
+    const rotateY = (x - centerX) / 12;
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+  };
+
+  const handleMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+  };
 
   const categories = Array.from(new Set(posts.map((p) => p.category)));
   const filteredPosts = selectedCategory
@@ -103,256 +116,259 @@ export const Blogs = () => {
 
   if (loading) {
     return (
-      <section className="section">
-        <div className="container-custom">
-          <h2 className="section-title">Blog & Insights</h2>
-          <div className="text-center text-white-50">Loading posts...</div>
-        </div>
+      <section className="blogs-page min-vh-100 d-flex align-items-center justify-content-center">
+        <div className="text-center text-white-50 font-mono">LOADING_INSIGHTS_DB...</div>
       </section>
     );
   }
 
   return (
-    <section
-      id="blog"
-      ref={containerRef}
-      className="section"
-    >
-      {/* Background Decor */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute-bg-orb bg-neon-purple-blur blur-3xl" style={{ top: '20%', left: '-10%' }} />
-        <div className="absolute-bg-orb bg-neon-cyan-blur blur-3xl" style={{ bottom: '10%', right: '-10%' }} />
-      </div>
+    <div className="blogs-page min-vh-100" style={{ position: "relative", zIndex: 2 }}>
+      <div className="blogs-glow blur-3xl"></div>
 
-      <div className="container-custom">
-        <h2 className="section-title">Insights & <span className="text-primary">Blogs</span></h2>
+      <section id="blog" ref={containerRef} className="py-5 mt-5">
+        <div className="container mt-5">
+          {/* Section Header */}
+          <div className="os-section-header">
+            <h2 className="os-section-title">
+              Insights & Technical <span className="text-gradient-blue">Blogs</span>
+            </h2>
+            <p className="os-section-subtitle">Articles on tech architecture, software engineering, and business models</p>
+            <div className="os-separator"></div>
+          </div>
 
-        {/* Categories */}
-        <div className="d-flex flex-wrap gap-2 mb-5 justify-content-center">
-          <button
-            onClick={() => setSelectedCategory(null)}
-            className={`category-btn ${selectedCategory === null ? 'active' : 'inactive'}`}
-          >
-            All Posts
-          </button>
-
-          {categories.map((cat) => (
+          {/* Category tabs */}
+          <div className="skills-os-tabs d-flex justify-content-center flex-wrap mb-5 gap-2">
             <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`category-btn ${selectedCategory === cat ? 'active' : 'inactive'}`}
+              onClick={() => setSelectedCategory(null)}
+              className={`skills-os-tab-btn font-mono ${selectedCategory === null ? 'active' : ''}`}
             >
-              {cat}
+              ALL_POSTS
             </button>
-          ))}
-        </div>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`skills-os-tab-btn font-mono ${selectedCategory === cat ? 'active' : ''}`}
+              >
+                {cat.toUpperCase()}
+              </button>
+            ))}
+          </div>
 
-        {/* Posts Grid */}
-        <div className="row g-4 justify-content-center">
-          {filteredPosts.map((post) => (
-            <div key={post.id} className="col-12 col-md-6 col-lg-4">
+          {/* Cards Grid */}
+          <div className="row g-4 justify-content-center">
+            {filteredPosts.map((post) => (
+              <div key={post.id} className="col-12 col-md-6 col-lg-4 blog-card-wrapper">
                 <article
-                className="blog-card"
-                onClick={() => setSelectedPost(post)}
-                style={{ cursor: 'pointer' }}
+                  className="blog-os-card spotlight-card h-100"
+                  onClick={() => setSelectedPost(post)}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ cursor: 'pointer' }}
                 >
-                <div className="glass-card">
-                    {post.cover_image_url && (
-                    <div className="card-img-wrapper">
-                        <img
+                  {/* Tab header */}
+                  <div className="blog-os-header font-mono text-xs d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary border-opacity-25 pb-2">
+                    <span className="d-flex align-items-center"><FileText size={12} className="me-1 text-primary" /> ARTICLE_LOG</span>
+                    <span className="text-gradient-green">{post.category.toUpperCase()}</span>
+                  </div>
+
+                  {post.cover_image_url && (
+                    <div className="blog-os-img-wrapper">
+                      <img
                         src={post.cover_image_url}
                         alt={post.title}
-                        className="card-img"
-                        />
-                        <div className="card-overlay" />
-                        <div className="card-category-badge">
-                            {post.category}
-                        </div>
+                        className="blog-os-img"
+                        onError={(e) => {
+                          e.target.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800";
+                        }}
+                      />
+                      <div className="blog-os-overlay" />
                     </div>
-                    )}
+                  )}
 
-                    <div className="card-content">
-                    <h3 className="card-title">
-                        {post.title}
+                  <div className="blog-os-content mt-3">
+                    <h3 className="blog-os-title font-display text-gradient-blue">
+                      {post.title}
                     </h3>
-
-                    <p className="card-excerpt">
-                        {post.excerpt}
+                    <p className="blog-os-excerpt">
+                      {post.excerpt}
                     </p>
 
-                    <div className="card-meta">
-                        <div className="meta-item">
-                        <Calendar size={14} />
+                    <div className="blog-os-meta font-mono text-xs mt-auto pt-3 border-top border-secondary border-opacity-25 d-flex align-items-center justify-content-between">
+                      <div className="d-flex align-items-center">
+                        <Calendar size={12} className="text-primary me-2" />
                         <span>{formatDate(post.published_at)}</span>
-                        </div>
-                        <div className="meta-item">
-                        <Clock size={14} />
-                        <span>{post.read_time} min</span>
-                        </div>
+                      </div>
+                      <div className="d-flex align-items-center">
+                        <Clock size={12} className="text-primary me-2" />
+                        <span>{post.read_time} MIN</span>
+                      </div>
                     </div>
-
-                    {post.tags && post.tags.length > 0 && (
-                        <div className="card-tags">
-                        {post.tags.slice(0, 3).map((tag, i) => (
-                            <span
-                            key={i}
-                            className="tag-badge"
-                            >
-                            #{tag}
-                            </span>
-                        ))}
-                        </div>
-                    )}
-                    </div>
-                </div>
+                  </div>
                 </article>
-            </div>
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
 
-        {/* Modal */}
-        {selectedPost &&
-          createPortal(
-            <div
-              className="modal-overlay"
-              onClick={() => setSelectedPost(null)}
-            >
-              <div
-                className="modal-content-custom"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Modal Header Image / Carousel */}
-                {selectedPost.images && selectedPost.images.length > 0 ? (
-                    <div className="modal-header-img">
+          {/* Details Dialog Popup */}
+          {selectedPost &&
+            createPortal(
+              <div className="modal-overlay" onClick={() => setSelectedPost(null)}>
+                <div className="modal-os-content os-window-frame" onClick={(e) => e.stopPropagation()}>
+                  <div className="os-window-header">
+                    <div className="os-control-dots">
+                      <span className="os-dot red" onClick={() => setSelectedPost(null)}></span>
+                      <span className="os-dot yellow"></span>
+                      <span className="os-dot green"></span>
+                    </div>
+                    <div className="os-window-title">DATABASE_VIEWER // {selectedPost.title.substring(0, 20)}...</div>
+                    <HardDrive size={14} className="text-secondary" />
+                  </div>
+
+                  <div className="os-window-body p-0">
+                    {/* Header Image cover */}
+                    {selectedPost.images && selectedPost.images.length > 0 ? (
+                      <div className="modal-header-img">
                         <div className="carousel-container">
-                             <img
-                                src={selectedPost.images[currentImageIndex]}
-                                alt={`${selectedPost.title} slide ${currentImageIndex + 1}`}
-                                className="modal-img carousel-img cursor-zoom-in"
-                                onClick={() => openLightbox(selectedPost.images[currentImageIndex])}
-                            />
-                            {selectedPost.images.length > 1 && (
-                                <>
-                                    <button className="carousel-btn prev" onClick={(e) => { e.stopPropagation(); handlePrevImage(); }}>
-                                        <ChevronLeft size={24} />
-                                    </button>
-                                    <button className="carousel-btn next" onClick={(e) => { e.stopPropagation(); handleNextImage(); }}>
-                                        <ChevronRight size={24} />
-                                    </button>
-                                     <div className="carousel-indicators">
-                                        {selectedPost.images.map((_, idx) => (
-                                            <span 
-                                                key={idx} 
-                                                className={`carousel-dot ${idx === currentImageIndex ? 'active' : ''}`}
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    setCurrentImageIndex(idx);
-                                                }}
-                                            />
-                                        ))}
-                                    </div>
-                                </>
-                            )}
+                          <img
+                            src={selectedPost.images[currentImageIndex]}
+                            alt={`${selectedPost.title} slide ${currentImageIndex + 1}`}
+                            className="modal-img carousel-img cursor-zoom-in"
+                            onClick={() => openLightbox(selectedPost.images[currentImageIndex])}
+                            onError={(e) => {
+                              e.target.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800";
+                            }}
+                          />
+                          {selectedPost.images.length > 1 && (
+                            <>
+                              <button className="carousel-btn prev" onClick={(e) => { e.stopPropagation(); handlePrevImage(); }} aria-label="Previous image">
+                                <ChevronLeft size={20} />
+                              </button>
+                              <button className="carousel-btn next" onClick={(e) => { e.stopPropagation(); handleNextImage(); }} aria-label="Next image">
+                                <ChevronRight size={20} />
+                              </button>
+                              <div className="carousel-indicators">
+                                {selectedPost.images.map((_, idx) => (
+                                  <span 
+                                    key={idx} 
+                                    className={`carousel-dot ${idx === currentImageIndex ? 'active' : ''}`}
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setCurrentImageIndex(idx);
+                                    }}
+                                  />
+                                ))}
+                              </div>
+                            </>
+                          )}
                         </div>
                         <div className="modal-img-overlay pointer-events-none" /> 
-                         {/* pointer-events-none so click goes to image */}
-                    </div>
-                ) : (
-                    selectedPost.cover_image_url && (
+                      </div>
+                    ) : (
+                      selectedPost.cover_image_url && (
                         <div className="modal-header-img">
-                            <img
+                          <img
                             src={selectedPost.cover_image_url}
                             alt={selectedPost.title}
                             className="modal-img cursor-zoom-in"
                             onClick={() => openLightbox(selectedPost.cover_image_url)}
-                            />
-                            <div className="modal-img-overlay pointer-events-none" />
+                            onError={(e) => {
+                              e.target.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800";
+                            }}
+                          />
+                          <div className="modal-img-overlay pointer-events-none" />
                         </div>
-                    )
-                )}
+                      )
+                    )}
 
-                <div className="modal-body">
-                  <div className="modal-top-bar">
-                    <div className="flex-grow-1">
-                      <span className="modal-category">
-                        {selectedPost.category}
-                      </span>
-                      <h2 className="modal-title">
-                        {selectedPost.title}
-                      </h2>
-                    </div>
-                    <button
-                      onClick={() => setSelectedPost(null)}
-                      className="modal-close-btn"
-                    >
-                      <X size={24} />
-                    </button>
-                  </div>
-
-                  <div className="modal-meta">
-                    <div className="meta-item">
-                      <Calendar size={16} />
-                      <span>{formatDate(selectedPost.published_at)}</span>
-                    </div>
-                    <div className="meta-item">
-                      <Clock size={16} />
-                      <span>{selectedPost.read_time} min read</span>
-                    </div>
-                  </div>
-
-                  <div className="modal-prose">
-                    <div className="prose-content">
-                      {selectedPost.content}
-                    </div>
-                  </div>
-
-                  {selectedPost.tags && selectedPost.tags.length > 0 && (
-                    <div className="modal-tags">
-                      <Tag size={16} className="tag-icon" />
-                      {selectedPost.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="modal-tag-bg"
+                    {/* Content Detail Body */}
+                    <div className="modal-body-content p-4">
+                      <div className="modal-top-bar d-flex justify-content-between align-items-start border-bottom border-secondary border-opacity-25 pb-3 mb-4">
+                        <div>
+                          <span className="modal-category font-mono text-xs text-gradient-green">
+                            {selectedPost.category.toUpperCase()}
+                          </span>
+                          <h2 className="modal-title font-display text-gradient-blue mt-2 mb-0">
+                            {selectedPost.title}
+                          </h2>
+                        </div>
+                        <button
+                          onClick={() => setSelectedPost(null)}
+                          className="modal-close-btn"
+                          aria-label="Close modal"
                         >
-                          #{tag}
-                        </span>
-                      ))}
+                          <X size={20} />
+                        </button>
+                      </div>
+
+                      <div className="modal-meta-details font-mono text-xs d-flex align-items-center mb-4">
+                        <div className="meta-item-detail">
+                          <Calendar size={14} className="text-primary me-2" />
+                          <span>DATE: {formatDate(selectedPost.published_at)}</span>
+                        </div>
+                        <div className="meta-item-detail ms-4">
+                          <Clock size={14} className="text-primary me-2" />
+                          <span>LOAD_TIME: {selectedPost.read_time} MIN</span>
+                        </div>
+                      </div>
+
+                      <div className="modal-prose-content">
+                        <p className="prose-body-text">
+                          {selectedPost.content}
+                        </p>
+                      </div>
+
+                      {selectedPost.tags && selectedPost.tags.length > 0 && (
+                        <div className="modal-tags-list mt-4 pt-3 border-top border-secondary border-opacity-25 d-flex align-items-center flex-wrap gap-2">
+                          <Tag size={14} className="tag-icon me-2 text-primary" />
+                          {selectedPost.tags.map((tag, i) => (
+                            <span key={i} className="modal-tag-pill font-mono text-xs">
+                              #{tag.toUpperCase()}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
-              </div>
-            </div>,
-            document.body
-          )}
+              </div>,
+              document.body
+            )}
           
-          {/* Lightbox Portal */}
+          {/* Lightbox modal overlay */}
           {lightboxImage && 
             createPortal(
-                <div className="lightbox-overlay" onClick={closeLightbox}>
-                    <button className="lightbox-close-btn" onClick={closeLightbox}>
-                        <X size={32} />
-                    </button>
-                    <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-                        <TransformWrapper
-                            initialScale={1}
-                            minScale={0.5}
-                            maxScale={4}
-                            centerOnInit={true}
-                        >
-                            <TransformComponent wrapperClass="lightbox-transform-wrapper" contentClass="lightbox-transform-content">
-                                <img 
-                                    src={lightboxImage} 
-                                    alt="Full screen view" 
-                                    className="lightbox-img"
-                                />
-                            </TransformComponent>
-                        </TransformWrapper>
-                    </div>
-                </div>,
-                document.body
+              <div className="lightbox-overlay" onClick={closeLightbox}>
+                <button className="lightbox-close-btn" onClick={closeLightbox} aria-label="Close lightbox">
+                  <X size={24} />
+                </button>
+                <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+                  <TransformWrapper
+                    initialScale={1}
+                    minScale={0.5}
+                    maxScale={4}
+                    centerOnInit={true}
+                  >
+                    <TransformComponent wrapperClass="lightbox-transform-wrapper" contentClass="lightbox-transform-content">
+                      <img 
+                        src={lightboxImage} 
+                        alt="Zoomed full screen article asset" 
+                        className="lightbox-img"
+                        onError={(e) => {
+                          e.target.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800";
+                        }}
+                      />
+                    </TransformComponent>
+                  </TransformWrapper>
+                </div>
+              </div>,
+              document.body
             )
           }
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 };
+export default Blogs;

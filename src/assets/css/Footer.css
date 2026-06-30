@@ -1,249 +1,184 @@
-/* Modern Footer Styles */
+/* Modern Cyber OS Footer Styles */
 .modern-footer {
   background-color: transparent;
-  color: #fff;
-  padding: 60px 0 30px 0;
-  font-family: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #ffffff;
+  padding: 60px 0 40px 0;
+  position: relative;
+  z-index: 10;
 }
 
-/* Main Footer Content */
-.footer-main {
-  margin-bottom: 40px;
+.footer-panel {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
 }
 
-/* Brand Section */
-.brand-section {
-  margin-bottom: 30px;
+.footer-panel:hover {
+  border-color: rgba(59, 163, 255, 0.15);
+  box-shadow: var(--neon-glow);
 }
 
+.footer-content {
+  position: relative;
+}
+
+/* Brand styling */
 .brand-name {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   line-height: 1.2;
 }
 
-.brand-primary {
-  color: #f8f9fa;
-  transition: color 0.3s ease;
-}
-
-.brand-accent {
-  color: rgb(13 110 253);
-  transition: color 0.3s ease;
-}
-
-.brand-name:hover .brand-primary {
-  color: #fff;
-}
-
-.brand-name:hover .brand-accent {
-  color: rgb(13 110 253);
-}
-
 .brand-tagline {
-  color: #bbb;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  color: #a0aec0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.6;
   margin: 0;
-  max-width: 400px;
 }
 
-/* Links Section */
+/* Pulse indicator online */
+.pulse-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.taskbar-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.taskbar-status-dot.green {
+  background-color: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+}
+
+.status-label {
+  letter-spacing: 0.1em;
+}
+
+/* Quick Links formatting - Resets button background styles */
 .links-section {
   text-align: left;
 }
 
 .links-heading {
-  color: rgb(13 110 253);
-  font-size: 1.25rem;
-  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
   margin-bottom: 20px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
 }
 
 .footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.footer-links li {
-  margin-bottom: 12px;
+.footer-link.btn-link {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #a0aec0 !important;
+  font-family: 'Fira Code', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none !important;
 }
 
-.footer-link {
-  color: #bbb;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 400;
-  transition: all 0.3s ease;
-  display: inline-block;
-  position: relative;
+.link-arrow {
+  color: #a0aec0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 700;
 }
 
-.footer-link:hover,
-.footer-link:focus {
-  color: #fff;
-  text-decoration: none;
-  transform: translateX(5px);
+.footer-link.btn-link:hover {
+  color: var(--accent-blue) !important;
 }
 
-.footer-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: rgb(13 110 253);
-  transition: width 0.3s ease;
+.footer-link.btn-link:hover .link-arrow {
+  color: var(--accent-blue);
+  transform: translateX(3px);
 }
 
-.footer-link:hover::after,
-.footer-link:focus::after {
-  width: 100%;
+/* Telemetry box styles */
+.telemetry-section {
+  text-align: left;
+}
+
+.telemetry-box {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+.telemetry-item .lbl {
+  font-weight: 600;
+}
+
+.telemetry-item .val {
+  font-weight: 700;
 }
 
 /* Separator Line */
 .footer-separator {
   width: 100%;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 40px 0 30px 0;
+  background-color: rgba(255, 255, 255, 0.06);
+  margin: 20px 0;
 }
 
-/* Bottom Section */
+/* Bottom elements */
 .footer-bottom {
-  text-align: center;
+  font-size: 0.75rem;
 }
 
 .copyright-text {
-  color: #bbb;
-  font-size: 0.9rem;
-  font-weight: 400;
   margin: 0;
-  line-height: 1.5;
 }
 
-.company-link {
-  color: rgb(13 110 253);
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
+.dev-text {
+  margin: 0;
 }
 
-.company-link:hover,
-.company-link:focus {
-  color: rgb(13 110 253);
-  text-decoration: none;
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
 }
 
-/* Responsive Design */
-@media (max-width: 991.98px) {
-  .modern-footer {
-    padding: 50px 0 25px 0;
-  }
-  
-  .brand-section {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .links-section {
-    text-align: center;
-  }
-  
-  .brand-name {
-    font-size: 2.2rem;
-  }
-  
-  .brand-tagline {
-    max-width: none;
-  }
-  
-  .footer-main {
-    margin-bottom: 35px;
-  }
-  
-  .footer-separator {
-    margin: 35px 0 25px 0;
-  }
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 992px) {
   .modern-footer {
     padding: 40px 0 20px 0;
   }
   
-  .brand-name {
-    font-size: 2rem;
+  .brand-section, .links-section, .telemetry-section {
+    margin-bottom: 20px;
   }
   
   .brand-tagline {
-    font-size: 0.95rem;
-  }
-  
-  .links-heading {
-    font-size: 1.1rem;
-  }
-  
-  .footer-link {
-    font-size: 0.95rem;
-  }
-  
-  .copyright-text {
-    font-size: 0.85rem;
-  }
-  
-  .footer-main {
-    margin-bottom: 30px;
-  }
-  
-  .footer-separator {
-    margin: 30px 0 20px 0;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .brand-name {
-    font-size: 1.8rem;
-  }
-  
-  .brand-tagline {
-    font-size: 0.9rem;
-    padding: 0 10px;
-  }
-  
-  .copyright-text {
-    font-size: 0.8rem;
-    padding: 0 10px;
-  }
-}
-
-/* Focus States for Accessibility */
-.footer-link:focus,
-.company-link:focus {
-  outline: 2px solid rgb(13 110 253);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  .footer-link,
-  .company-link,
-  .brand-primary,
-  .brand-accent {
-    transition: none;
-  }
-  
-  .footer-link:hover {
-    transform: none;
-  }
-  
-  .footer-link::after {
-    transition: none;
+    max-width: 100%;
   }
 }

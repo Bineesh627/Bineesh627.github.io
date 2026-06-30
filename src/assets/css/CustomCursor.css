@@ -1,0 +1,61 @@
+/* Custom Cursor Styling */
+.custom-cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.custom-cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-blue);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  box-shadow: 0 0 10px var(--accent-blue);
+}
+
+.custom-cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(59, 163, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: 
+    width 0.2s, 
+    height 0.2s, 
+    border-color 0.3s, 
+    background-color 0.3s, 
+    box-shadow 0.3s;
+}
+
+/* Hover active state scales ring up */
+.custom-cursor-ring.cursor-expand {
+  width: 48px;
+  height: 48px;
+  border-color: var(--accent-green);
+  background-color: rgba(0, 255, 102, 0.05);
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+}
+
+.cursor-hidden {
+  opacity: 0;
+}
+
+/* Hide standard cursor on desktop only */
+@media (min-width: 992px) {
+  html, body, a, button, input, textarea, select, [role="button"], .spotlight-card, .voxel-card {
+    cursor: none !important;
+  }
+}

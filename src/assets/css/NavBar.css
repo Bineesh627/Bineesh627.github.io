@@ -1,128 +1,284 @@
-/* Mobile Bottom Navigation (Modern Floating Style) */
+/* Cyber OS System Dock / Taskbar */
+.os-taskbar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 95%;
+  max-width: 1400px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.os-taskbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 6px 12px 6px 20px;
+  background: rgba(4, 4, 8, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+/* Status Indicator Dot */
+.taskbar-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.taskbar-status-dot.green {
+  background-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+/* Branding */
+.os-taskbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.taskbar-brand {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  letter-spacing: 0.08em;
+}
+
+/* Navigation Links */
+.os-taskbar-center {
+  display: flex;
+  gap: 4px;
+}
+
+.taskbar-link {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #a0aec0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+}
+
+.taskbar-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.taskbar-link.active {
+  color: var(--accent-blue);
+  background: rgba(59, 163, 255, 0.06);
+  border-color: rgba(59, 163, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Telemetry Stats & Clock */
+.os-taskbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.72rem;
+  color: #a0aec0;
+}
+
+.taskbar-divider {
+  opacity: 0.3;
+}
+
+.taskbar-clock {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Connect button */
+.taskbar-connect-btn {
+  background: rgba(0, 255, 102, 0.06);
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  color: var(--accent-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 255, 102, 0.05);
+}
+
+.taskbar-connect-btn:hover {
+  background: var(--accent-green);
+  color: #000000;
+  border-color: var(--accent-green);
+  box-shadow: var(--neon-glow-green);
+  transform: translateY(-1px);
+}
+
+/* Mobile Bottom Navigation */
 .mobile-bottom-nav {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    /* Responsive width */
-    max-width: 400px;
-    /* Cap width for larger phones/tablets */
-    z-index: 9999;
-    animation: slideUp 0.5s ease-out;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 480px;
+  z-index: 9999;
 }
 
 .mobile-nav-container {
-    display: flex;
-    justify-content: space-around;
-    /* Even spacing */
-    align-items: center;
-    background: rgba(18, 18, 18, 0.7);
-    /* Dark semi-transparent */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    /* Pill shape */
-    padding: 10px 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-
-@keyframes slideUp {
-    from {
-        transform: translate(-50%, 100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate(-50%, 0);
-        opacity: 1;
-    }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(5, 5, 10, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 8px 12px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(59, 163, 255, 0.05);
+  position: relative;
 }
 
 .mobile-nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    color: #b8b8b8;
-    /* Muted color */
-    padding: 5px;
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    flex: 1;
-    /* Distribute space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #a0aec0;
+  padding: 6px 4px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: 1;
+  position: relative;
 }
 
 .mobile-nav-item .icon-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-bottom: 2px;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  color: #a0aec0;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-nav-item span {
-    font-size: 10px;
-    font-weight: 500;
-    opacity: 0.7;
-    transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #a0aec0;
+  opacity: 0.7;
+  transition: all 0.3s ease;
 }
 
-/* Hover State */
 .mobile-nav-item:hover {
-    color: #fff;
+  color: #ffffff;
 }
 
-/* Active State */
+.mobile-nav-item:hover .icon-wrapper {
+  color: #ffffff;
+}
+
 .mobile-nav-item.active {
-    color: #00ffff;
-    /* Neon Cyan */
-    transform: translateY(-5px);
+  color: #ffffff;
+  background: rgba(59, 163, 255, 0.06);
+  border-color: rgba(59, 163, 255, 0.2);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 15px rgba(59, 163, 255, 0.08);
 }
 
 .mobile-nav-item.active .icon-wrapper {
-    background: rgba(0, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+/* Green connect/comms button active state */
+.mobile-nav-item.active.comms-active {
+  background: rgba(0, 255, 102, 0.06);
+  border-color: rgba(0, 255, 102, 0.2);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 15px rgba(0, 255, 102, 0.08);
+}
+
+.mobile-nav-item.active.comms-active .icon-wrapper {
+  color: var(--accent-green);
+  transform: translateY(-2px);
 }
 
 .mobile-nav-item.active span {
-    font-weight: 600;
-    opacity: 1;
+  opacity: 1;
+  color: #ffffff;
 }
 
-/* Glow Effect for Icons on Active */
-.mobile-nav-item.active svg {
-    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+/* Active indicator dot under items */
+.mobile-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-blue);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hide toggle if it exists on desktop (double safeguard) */
-@media (min-width: 768px) {
-    .mobile-bottom-nav {
-        display: none !important;
-    }
+.mobile-nav-item.active::after {
+  opacity: 1;
+  transform: scale(1);
+  bottom: 4px;
 }
 
-/* Adjustments for very small screens */
-@media (max-width: 350px) {
-    .mobile-nav-container {
-        padding: 10px;
-    }
+.mobile-nav-item.active.comms-active::after {
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+}
 
-    .mobile-nav-item span {
-        display: none;
-        /* Hide labels if too cramped */
-    }
+/* Mobile Top Taskbar Header */
+.mobile-top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(5, 5, 10, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 12px 20px;
+}
 
-    .mobile-nav-item .icon-wrapper {
-        margin-bottom: 0;
-    }
+.mobile-header-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

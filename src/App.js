@@ -12,7 +12,8 @@ import { Certifications } from "./pages/Certifications";
 import { Blogs } from "./pages/Blogs";
 import { Contact } from "./pages/Contact";
 
-import { SpaceBackground } from "./components/SpaceBackground";
+import { CyberCanvasBackground } from "./components/CyberCanvasBackground";
+import { CustomCursor } from "./components/CustomCursor";
 
 function AppContent() {
   const location = useLocation();
@@ -31,7 +32,8 @@ function AppContent() {
 
   return (
     <div className="App text-white">
-      <SpaceBackground />
+      <CyberCanvasBackground />
+      <CustomCursor />
       <NavBar activeTab={activeTab} />
       
       <Routes>

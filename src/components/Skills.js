@@ -1,128 +1,117 @@
 import React, { useState } from "react";
 import { skillsData, skillCategories as categories } from "../data/skillsData";
-
-const skills = skillsData;
+import '../assets/css/Skills.css';
+import { Cpu } from "lucide-react";
 
 const levelColors = {
-  Expert: "bg-success",
-  Advanced: "bg-primary",
-  Intermediate: "bg-warning text-dark",
-  Basic: "bg-secondary",
-};
-
-const cardStyle = {
-  backgroundColor: "rgba(44, 44, 44, 0.3)",
-  backdropFilter: "blur(10px)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
-  color: "#f8f9fa",
-  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-  cursor: "pointer",
-};
-
-const cardHoverStyle = {
-  transform: "scale(1.05)",
-  boxShadow: "0 8px 16px rgba(255, 255, 255, 0.2)",
+  Expert: "voxel-expert",
+  Advanced: "voxel-advanced",
+  Intermediate: "voxel-intermediate",
+  Basic: "voxel-basic",
 };
 
 export const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("frontend");
-  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const filteredSkills = skills.filter(
+  const filteredSkills = skillsData.filter(
     (skill) => skill.category === activeCategory
   );
 
-  return React.createElement(
-    "section",
-    { id: "skills", className: "starry-background" },
-    React.createElement(
-      "div",
-      { className: "py-5", style: { position: "relative", zIndex: 2 } },
-      React.createElement(
-        "div",
-        { className: "container" },
-        React.createElement(
-          "h2",
-          { className: "text-center mb-4", style: { color: "#f8f9fa" } },
-          "My ",
-          React.createElement("span", { className: "text-primary" }, "Skills")
-        ),
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
 
-        // Category buttons
-        React.createElement(
-          "div",
-          { className: "d-flex justify-content-center flex-wrap mb-4 gap-2" },
-          categories.map((category, index) =>
-            React.createElement(
-              "button",
-              {
-                key: index,
-                type: "button",
-                className:
-                  activeCategory === category
-                    ? "btn btn-primary text-capitalize"
-                    : "btn btn-outline-light text-capitalize",
-                onClick: () => setActiveCategory(category),
-              },
-              category
-            )
-          )
-        ),
+    // Voxel tilt elevator effect
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = -(y - centerY) / 8;
+    const rotateY = (x - centerX) / 8;
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+  };
 
-        // Skill cards
-        React.createElement(
-          "div",
-          { className: "row g-3" },
-          filteredSkills.map((skill, index) =>
-            React.createElement(
-              "div",
-              { key: index, className: "col-12 col-sm-6 col-lg-4" },
-              React.createElement(
-                "div",
-                {
-                  className: "card h-100",
-                  style: hoveredIndex === index
-                    ? { ...cardStyle, ...cardHoverStyle }
-                    : cardStyle,
-                  onMouseEnter: () => setHoveredIndex(index),
-                  onMouseLeave: () => setHoveredIndex(null),
-                  tabIndex: 0,
-                  onFocus: () => setHoveredIndex(index),
-                  onBlur: () => setHoveredIndex(null),
-                },
-                React.createElement(
-                  "div",
-                  { className: "card-body d-flex align-items-center gap-3" },
+  const handleMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0px)";
+  };
 
-                  // Left-side icon (fixed small)
-                  skill.icon &&
-                    React.createElement("img", {
-                      src: skill.icon,
-                      alt: `${skill.name} logo`,
-                      style: { width: "50px", height: "50px", objectFit: "contain", flexShrink: 0 }
-                    }),
+  return (
+    <section id="skills" className="skills-os">
+      <div className="skills-os-glow blur-3xl"></div>
 
-                  // Right-side content (fills remaining space)
-                  React.createElement(
-                    "div",
-                    { className: "flex-grow-1" },
-                    React.createElement(
-                      "h5",
-                      { className: "card-title mb-2" },
-                      skill.name
-                    ),
-                    React.createElement(
-                      "span",
-                      { className: `badge ${levelColors[skill.levelLabel] || "bg-secondary"}` },
-                      skill.levelLabel
-                    )
-                  )
-                )
-              )
-            )
-          )
-        )
-      )
-    )
+      <div className="container py-5" style={{ position: "relative", zIndex: 2 }}>
+        
+        {/* Section Header */}
+        <div className="os-section-header">
+          <h2 className="os-section-title">
+            Technical <span className="text-gradient-blue">Skills</span>
+          </h2>
+          <p className="os-section-subtitle">Core capabilities and programming proficiencies</p>
+          <div className="os-separator"></div>
+        </div>
+
+        {/* Toggles */}
+        <div className="skills-os-tabs d-flex justify-content-center flex-wrap mb-5 gap-2">
+          {categories.map((category, index) => (
+            <button
+              key={index}
+              type="button"
+              className={`skills-os-tab-btn font-mono ${activeCategory === category ? 'active' : ''}`}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category.toUpperCase()}
+            </button>
+          ))}
+        </div>
+
+        {/* Voxel Matrix Grid */}
+        <div className="row g-4 justify-content-center">
+          {filteredSkills.map((skill, index) => (
+            <div key={index} className="col-6 col-sm-6 col-md-4 col-lg-3 voxel-cell-perspective">
+              <div
+                className="voxel-card glass-panel spotlight-card"
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="voxel-card-header font-mono">
+                  <Cpu size={12} className="text-secondary" />
+                  <span className="voxel-id">CELL_0{index + 1}</span>
+                </div>
+                
+                <div className="voxel-card-body d-flex flex-column align-items-center text-center mt-3">
+                  {/* Icon or placeholder */}
+                  {skill.icon ? (
+                    <div className="voxel-icon-wrapper mb-3">
+                      <img
+                        src={skill.icon}
+                        alt={`${skill.name} logo`}
+                        className="voxel-logo"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="voxel-icon-placeholder font-mono mb-3">
+                      {skill.name.substring(0, 2).toUpperCase()}
+                    </div>
+                  )}
+
+                  {/* Context info */}
+                  <h5 className="voxel-name font-display">{skill.name}</h5>
+                  <span className={`voxel-badge font-mono ${levelColors[skill.levelLabel] || "voxel-basic"}`}>
+                    {skill.levelLabel}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
+export default Skills;

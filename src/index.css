@@ -1,13 +1,172 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-deep: #020205;
+  --bg-darker: #06060c;
+  --text-primary: #cbd5e0;
+  --text-white: #ffffff;
+  --accent-blue: #3BA3FF;
+  --accent-green: #00ff66;
+  --accent-purple: #9d4edd;
+  --accent-orange: #ff9f1c;
+  --glass-bg: rgba(5, 5, 10, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --neon-glow: 0 0 15px rgba(59, 163, 255, 0.3);
+  --neon-glow-green: 0 0 15px rgba(0, 255, 102, 0.3);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-deep) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+code, .font-mono {
+  font-family: 'Fira Code', 'Courier New', Courier, monospace !important;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+  box-shadow: var(--neon-glow);
+}
+
+/* Custom Highlight */
+::selection {
+  background: rgba(59, 163, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Gradients */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #ffffff 30%, #b8dfff 70%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, #ffffff 30%, #b3ffd9 70%, var(--accent-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Global OS Window Styles */
+.os-window-frame {
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.os-window-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.os-control-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.os-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.os-dot.red { background: #ff5f56; }
+.os-dot.yellow { background: #ffbd2e; }
+.os-dot.green { background: #27c93f; }
+
+.os-window-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.os-window-body {
+  padding: 20px;
+}
+
+/* 3D Tilt perspective wrapper */
+.tilt-perspective {
+  perspective: 1000px;
+}
+
+/* Global text-muted override for dark modes */
+.text-muted {
+  color: #a0aec0 !important;
+}
+
+/* Responsive mobile layout enhancements */
+@media (max-width: 768px) {
+  body {
+    padding-top: 46px !important; /* Offset for fixed mobile-top-header */
+  }
+
+  /* Reduce empty spacing at the top of page sections in mobile view */
+  section.py-5.mt-5, div.py-5.mt-5 {
+    margin-top: 1.5rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  .container.mt-5 {
+    margin-top: 1rem !important;
+  }
+
+  .os-section-header {
+    margin-bottom: 28px !important;
+  }
+
+  .os-section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .os-section-subtitle {
+    font-size: 0.8rem !important;
+  }
 }

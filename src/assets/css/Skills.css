@@ -1,0 +1,163 @@
+.skills-os {
+  padding: 100px 0;
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.skills-os-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 163, 255, 0.04) 0%, transparent 70%);
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Tab Toggles */
+.skills-os-tabs {
+  position: relative;
+  z-index: 10;
+}
+
+.skills-os-tab-btn {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #a0aec0;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skills-os-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.skills-os-tab-btn.active {
+  color: var(--accent-blue);
+  background: rgba(59, 163, 255, 0.05);
+  border-color: rgba(59, 163, 255, 0.2);
+  box-shadow: var(--neon-glow);
+}
+
+/* Voxel Matrix Cards */
+.voxel-cell-perspective {
+  perspective: 1000px;
+}
+
+.voxel-card {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: transform 0.15s ease-out, border-color 0.3s, box-shadow 0.3s;
+  z-index: 10;
+  transform-style: preserve-3d;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.voxel-card:hover {
+  border-color: rgba(59, 163, 255, 0.2);
+  box-shadow: var(--neon-glow);
+}
+
+.voxel-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: #a0aec0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding-bottom: 8px;
+}
+
+.voxel-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 8px;
+  transition: transform 0.3s;
+  transform: translateZ(15px);
+}
+
+.voxel-card:hover .voxel-icon-wrapper {
+  transform: translateZ(25px) scale(1.05);
+  border-color: rgba(59, 163, 255, 0.2);
+}
+
+.voxel-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.voxel-icon-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: rgba(59, 163, 255, 0.08);
+  color: var(--accent-blue);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid rgba(59, 163, 255, 0.15);
+  transform: translateZ(15px);
+}
+
+.voxel-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+  transform: translateZ(10px);
+}
+
+.voxel-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: translateZ(10px);
+}
+
+.voxel-expert {
+  background: rgba(0, 255, 102, 0.06);
+  color: var(--accent-green);
+  border: 1px solid rgba(0, 255, 102, 0.15);
+}
+
+.voxel-advanced {
+  background: rgba(59, 163, 255, 0.06);
+  color: var(--accent-blue);
+  border: 1px solid rgba(59, 163, 255, 0.15);
+}
+
+.voxel-intermediate {
+  background: rgba(255, 159, 28, 0.06);
+  color: var(--accent-orange);
+  border: 1px solid rgba(255, 159, 28, 0.15);
+}
+
+.voxel-basic {
+  background: rgba(113, 128, 150, 0.06);
+  color: #a0aec0;
+  border: 1px solid rgba(113, 128, 150, 0.15);
+}
