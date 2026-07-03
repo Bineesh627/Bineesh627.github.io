@@ -5,29 +5,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-
-const timelineElements = [
-  {
-    id: 1,
-    pid: "PID_8829",
-    status: "ACTIVE",
-    title: "Founder & CEO",
-    location: "Fusintech [EdTech Platform]",
-    description:
-      "Founded fusintech, an innovative EdTech platform leveraging AI for personalized learning experiences.",
-    date: "December 2025 - Present",
-  },
-  {
-    id: 2,
-    pid: "PID_4193",
-    status: "SUCCESS",
-    title: "Cyber Security • Intern",
-    location: "RedTeam Hacker Academy, Trivandrum",
-    description:
-      "Completed an internship on Cyber Security at RedTeam Hacker Academy, Trivandrum, where I gained hands-on knowledge of basic hacking methods, security concepts, and defensive techniques used in cybersecurity.",
-    date: "October 2024 - November 2024",
-  },
-];
+import { experienceData } from "../data/experienceData";
 
 export const Experience = () => {
   const iconStyles = (status) => ({
@@ -50,7 +28,7 @@ export const Experience = () => {
         </div>
 
         <VerticalTimeline lineColor="rgba(255, 255, 255, 0.05)">
-          {timelineElements.map((element) => {
+          {experienceData.map((element) => {
             const isActive = element.status === "ACTIVE";
             return (
               <VerticalTimelineElement

@@ -10,6 +10,7 @@ import CriticalSoftSkillsForProjectManagers from "../assets/img/certifications/C
 import SkillsBuildOrientation from "../assets/img/certifications/Edunet_skillsBuild_orientation.png";
 import YipCertificate from "../assets/img/certifications/yip_certificate.png";
 import NxtwaveCompletion from "../assets/img/certifications/Nxtwave_completion.png";
+import Be10xCertificate from "../assets/img/certifications/Be10x_certificate.jpg";
 
 export const certificationsData = [
   {
@@ -131,5 +132,15 @@ export const certificationsData = [
     completionDate: "June 2024",
     image: NxtwaveCompletion,
     issuer: "NxtWave",
+  },
+  {
+    id: 13,
+    title: "AI Tools and ChatGPT Workshop",
+    certificateId: "",
+    description:
+      "Comprehensive training on leveraging AI tools and ChatGPT to build presentations, analyze data, and accelerate coding and debugging workflows.",
+    completionDate: "October 2025",
+    image: Be10xCertificate,
+    issuer: "be10x",
   },
 ];

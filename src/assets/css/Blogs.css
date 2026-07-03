@@ -166,6 +166,44 @@
   text-align: justify;
 }
 
+.modal-prose-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.modal-prose-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.modal-prose-content p {
+  margin-bottom: 16px;
+}
+
+.modal-prose-content blockquote {
+  border-left: 3px solid var(--accent-blue);
+  background: rgba(59, 163, 255, 0.03);
+  padding: 12px 20px;
+  margin: 20px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #a0aec0;
+}
+
+.instagram-embed-container {
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
 .modal-tag-pill {
   font-size: 0.72rem;
   font-weight: 600;

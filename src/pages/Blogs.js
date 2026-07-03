@@ -313,10 +313,10 @@ export const Blogs = () => {
                         </div>
                       </div>
 
-                      <div className="modal-prose-content">
-                        <p className="prose-body-text">
+                      <div className="modal-prose-content font-sans">
+                        <div className="prose-body-text text-secondary">
                           {selectedPost.content}
-                        </p>
+                        </div>
                       </div>
 
                       {selectedPost.tags && selectedPost.tags.length > 0 && (

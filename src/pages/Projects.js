@@ -74,7 +74,7 @@ export const Projects = () => {
               <div className="directory-path-bar p-3 border-bottom border-secondary border-opacity-25 d-flex d-md-none align-items-center justify-content-between">
                 <div className="d-flex align-items-center font-mono text-xs">
                   <span className="text-secondary me-2">PATH:</span>
-                  <span className="text-muted">guest@fusintech_os:~/projects/</span>
+                  <span className="text-muted"><span className="d-none d-sm-inline">guest@fusintech_os:</span>~/projects/</span>
                   <div className="custom-dir-dropdown-container">
                     <button 
                       className="custom-dir-dropdown-btn font-mono" 
