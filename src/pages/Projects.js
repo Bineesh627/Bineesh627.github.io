@@ -11,7 +11,10 @@ export const Projects = () => {
     { id: "all", name: "root_directory", count: projectsData.length },
     { id: "Python", name: "bin_python", count: projectsData.filter(p => p.tags.includes("Python")).length },
     { id: "Django", name: "lib_django", count: projectsData.filter(p => p.tags.includes("Django")).length },
-    { id: "HTML", name: "var_frontend", count: projectsData.filter(p => p.tags.includes("HTML")).length }
+    { id: "TypeScript", name: "usr_typescript", count: projectsData.filter(p => p.tags.includes("TypeScript")).length },
+    { id: "React", name: "dev_react", count: projectsData.filter(p => p.tags.includes("React")).length },
+    { id: "AI", name: "etc_ai", count: projectsData.filter(p => p.tags.includes("AI")).length },
+    { id: "CSS", name: "var_styles", count: projectsData.filter(p => p.tags.includes("CSS")).length }
   ];
 
   const filteredProjects = selectedFolder === "all" 
