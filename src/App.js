@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 
-// Import page components
 import { Home } from "./pages/Home";
 import { Projects } from "./pages/Projects";
 import { Certifications } from "./pages/Certifications";
 import { Blogs } from "./pages/Blogs";
+import { BlogPost } from "./pages/BlogPost";
 import { Contact } from "./pages/Contact";
 
 import { CyberCanvasBackground } from "./components/CyberCanvasBackground";
@@ -41,6 +41,7 @@ function AppContent() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/certifications" element={<Certifications />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:slug" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Home />} />
       </Routes>

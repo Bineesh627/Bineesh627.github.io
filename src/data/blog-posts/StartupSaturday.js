@@ -12,7 +12,7 @@ export const StartupSaturdayContent = (
       <div 
         style={{ maxWidth: "540px", width: "100%" }}
         dangerouslySetInnerHTML={{
-          __html: `<iframe src="https://www.instagram.com/reel/DUqAA6CkScK/embed" width="100%" height="720px" frameBorder="0" scrolling="no" allowtransparency="true"></iframe>`
+          __html: `<iframe src="https://www.instagram.com/reel/DUqAA6CkScK/embed" width="100%" height="320px" frameBorder="0" scrolling="no" allowtransparency="true"></iframe>`
         }} 
       />
     </div>
