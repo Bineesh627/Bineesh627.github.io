@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Calendar, Clock, ArrowLeft, Share2, Tag, Check, Terminal } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Share2, Tag, Check, Terminal, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { blogsData } from '../data/blogsData';
 import '../assets/css/BlogPost.css';
@@ -110,6 +110,26 @@ export const BlogPost = () => {
       .catch((err) => {
         console.error('Failed to copy text: ', err);
       });
+  };
+
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = -(y - centerY) / 12;
+    const rotateY = (x - centerX) / 12;
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+  };
+
+  const handleMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
   };
 
   // Find related articles (excluding the current one)
@@ -229,8 +249,14 @@ export const BlogPost = () => {
             </h3>
             <div className="related-grid row g-4 justify-content-center">
               {relatedPosts.map((rPost) => (
-                <div key={rPost.id} className="col-12 col-md-6 col-lg-5">
-                  <article className="blog-os-card h-100">
+                <div key={rPost.id} className="col-12 col-md-6 col-lg-4">
+                  <article
+                    className="blog-os-card spotlight-card h-100"
+                    onClick={() => navigate(`/blogs/${rPost.slug}`)}
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <div className="blog-os-header font-mono text-xs d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary border-opacity-25 pb-2">
                       <span className="d-flex align-items-center">
                         <Terminal size={12} className="me-1 text-primary" /> RELATED_LOG
@@ -238,19 +264,34 @@ export const BlogPost = () => {
                       <span className="text-gradient-green">{rPost.category.toUpperCase()}</span>
                     </div>
 
-                    <div className="blog-os-content d-flex flex-column h-100">
-                      <h4 className="blog-os-title font-display text-gradient-blue mb-2">
+                    {rPost.cover_image_url && (
+                      <div className="blog-os-img-wrapper">
+                        <img
+                          src={rPost.cover_image_url}
+                          alt={rPost.title}
+                          className="blog-os-img"
+                          onError={(e) => {
+                            e.target.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800";
+                          }}
+                        />
+                        <div className="blog-os-overlay" />
+                      </div>
+                    )}
+
+                    <div className="blog-os-content d-flex flex-column">
+                      <h4 className="blog-os-title font-display text-gradient-blue">
                         {rPost.title}
                       </h4>
-                      <p className="blog-os-excerpt mb-4">
-                        {rPost.excerpt}
-                      </p>
-                      
-                      <div className="mt-auto d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+
+                      {rPost.excerpt && (
+                        <p className="blog-os-excerpt">{rPost.excerpt}</p>
+                      )}
+
+                      <div className="related-card-footer mt-auto d-flex justify-content-between align-items-center">
                         <span className="font-mono text-xs text-secondary">{formatDate(rPost.published_at)}</span>
-                        <Link to={`/blogs/${rPost.slug}`} className="blog-back-btn py-1 px-3 text-xs font-mono">
-                          READ_POST
-                        </Link>
+                        <div className="read-more-action-btn font-mono text-xs d-flex align-items-center gap-1 text-primary">
+                          READ_POST <ArrowRight size={14} className="arrow-icon" />
+                        </div>
                       </div>
                     </div>
                   </article>

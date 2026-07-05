@@ -1,9 +1,29 @@
 import InnovativeThinkerAward from '../assets/img/blogs/InnovativeThinkerAward.jpg';
 import StartupSaturdaySS3 from '../assets/img/blogs/StartupSaturdaySS3.png';
+import karateBlackbelt from '../assets/img/blogs/karate_blackbelt.png';
 import { DrCVRamanAwardContent } from './blog-posts/DrCVRamanAward';
 import { StartupSaturdayContent } from './blog-posts/StartupSaturday';
+import { KarateBlackBeltContent } from './blog-posts/KarateBlackBelt';
 
 export const blogsData = [
+    {
+        id: '3',
+        title: 'A Milestone in My Karate Journey: Achieving Sho Dan Black Belt',
+        slug: 'karate-blackbelt-milestone',
+        excerpt:
+          'Earning the Sho Dan (1st Dan) Black Belt from Focus Sports Karate Club represents years of dedication, disciplined training, and a commitment to continuous self-improvement.',
+        content: KarateBlackBeltContent,
+        cover_image_url: karateBlackbelt,
+        images: [
+            karateBlackbelt
+        ],
+        category: 'Achievements',
+        tags: ['Karate', 'Black Belt', 'Sho Dan', 'Martial Arts', 'Milestone'],
+        published: true,
+        published_at: '2019-12-29T10:00:00Z',
+        read_time: 3,
+        created_at: '2019-12-29T10:00:00Z',
+    },
     {
         id: '1',
         title: 'Honored with Dr. C.V. Raman Foundation Award',
@@ -40,4 +60,4 @@ export const blogsData = [
         read_time: 4,
         created_at: '2025-12-27T10:00:00Z',
     }
-];
+].sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
