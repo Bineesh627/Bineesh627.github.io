@@ -4,6 +4,7 @@ import { About } from '../components/About';
 import { Experience } from '../components/Experience';
 import { Qualifications } from '../components/Qualifications';
 import { Skills } from '../components/Skills';
+import { Awards } from '../components/Awards';
 import { Contact } from './Contact';
 
 
@@ -13,8 +14,9 @@ export const Home = () => {
       <Banner />
       <About />
       <Experience />
-      <Qualifications />
+      <Awards />
       <Skills />
+      <Qualifications />
       <Contact />
     </>
   );

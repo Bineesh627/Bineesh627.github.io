@@ -62,9 +62,51 @@ export const Experience = () => {
                   {element.title}
                 </h3>
                 
-                <h5 className="vertical-timeline-element-subtitle font-display mt-1 mb-3 text-secondary" style={{ fontSize: "0.9rem" }}>
+                <h5 className="vertical-timeline-element-subtitle font-display mt-1 mb-2 text-secondary" style={{ fontSize: "0.9rem" }}>
                   {element.location}
                 </h5>
+
+                {/* Info Badges */}
+                {(element.employmentType || element.workMode) && (
+                  <div className="d-flex gap-2 mb-3 align-items-center">
+                    {element.employmentType && (
+                      <span 
+                        className="font-mono text-xs" 
+                        style={{
+                          background: "rgba(95, 163, 255, 0.08)",
+                          color: "var(--accent-blue)",
+                          border: "1px solid rgba(95, 163, 255, 0.2)",
+                          padding: "2px 8px",
+                          borderRadius: "4px",
+                          fontSize: "0.7rem",
+                          fontWeight: "600",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em"
+                        }}
+                      >
+                        {element.employmentType}
+                      </span>
+                    )}
+                    {element.workMode && (
+                      <span 
+                        className="font-mono text-xs" 
+                        style={{
+                          background: "rgba(157, 78, 221, 0.08)",
+                          color: "var(--accent-purple)",
+                          border: "1px solid rgba(157, 78, 221, 0.2)",
+                          padding: "2px 8px",
+                          borderRadius: "4px",
+                          fontSize: "0.7rem",
+                          fontWeight: "600",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em"
+                        }}
+                      >
+                        {element.workMode}
+                      </span>
+                    )}
+                  </div>
+                )}
 
                 <div className="process-console-log font-mono">
                   <span className="log-prompt text-primary"><Terminal size={12} className="me-1" /> log_output:</span>

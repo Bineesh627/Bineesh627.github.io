@@ -11,6 +11,7 @@ import { Certifications } from "./pages/Certifications";
 import { Blogs } from "./pages/Blogs";
 import { BlogPost } from "./pages/BlogPost";
 import { Contact } from "./pages/Contact";
+import { ProjectCaseStudy } from "./pages/ProjectCaseStudy";
 
 import { CyberCanvasBackground } from "./components/CyberCanvasBackground";
 import { CustomCursor } from "./components/CustomCursor";
@@ -39,6 +40,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectCaseStudy />} />
         <Route path="/certifications" element={<Certifications />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:slug" element={<BlogPost />} />

@@ -1,25 +1,11 @@
-import React, { useState } from "react";
-import { ArrowRight, Github, Folder, HardDrive, FileCode, ChevronDown } from "lucide-react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight, HardDrive, FileCode } from "lucide-react";
 import '../assets/css/Projects.css';
 import { projectsData } from "../data/projectsData";
 
 export const Projects = () => {
-  const [selectedFolder, setSelectedFolder] = useState("all");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const folders = [
-    { id: "all", name: "root_directory", count: projectsData.length },
-    { id: "Python", name: "bin_python", count: projectsData.filter(p => p.tags.includes("Python")).length },
-    { id: "Django", name: "lib_django", count: projectsData.filter(p => p.tags.includes("Django")).length },
-    { id: "TypeScript", name: "usr_typescript", count: projectsData.filter(p => p.tags.includes("TypeScript")).length },
-    { id: "React", name: "dev_react", count: projectsData.filter(p => p.tags.includes("React")).length },
-    { id: "AI", name: "etc_ai", count: projectsData.filter(p => p.tags.includes("AI")).length },
-    { id: "CSS", name: "var_styles", count: projectsData.filter(p => p.tags.includes("CSS")).length }
-  ];
-
-  const filteredProjects = selectedFolder === "all" 
-    ? projectsData 
-    : projectsData.filter(p => p.tags.includes(selectedFolder));
+  const navigate = useNavigate();
 
   const handleMouseMove = (e) => {
     const card = e.currentTarget;
@@ -70,68 +56,17 @@ export const Projects = () => {
             </div>
 
             <div className="os-window-body p-0">
-              {/* Directory Path Bar (Futuristic OS Address Bar - Mobile ONLY) */}
-              <div className="directory-path-bar p-3 border-bottom border-secondary border-opacity-25 d-flex d-md-none align-items-center justify-content-between">
-                <div className="d-flex align-items-center font-mono text-xs">
-                  <span className="text-secondary me-2">PATH:</span>
-                  <span className="text-muted"><span className="d-none d-sm-inline">guest@fusintech_os:</span>~/projects/</span>
-                  <div className="custom-dir-dropdown-container">
-                    <button 
-                      className="custom-dir-dropdown-btn font-mono" 
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    >
-                      <Folder size={12} className="text-primary me-1" />
-                      {folders.find(f => f.id === selectedFolder)?.name}
-                      <span className="folder-count ms-1">[{folders.find(f => f.id === selectedFolder)?.count}]</span>
-                      <ChevronDown size={12} className="ms-2 text-secondary" />
-                    </button>
-                    {isDropdownOpen && (
-                      <div className="custom-dir-dropdown-menu">
-                        {folders.map(folder => (
-                          <button 
-                            key={folder.id}
-                            onClick={() => { setSelectedFolder(folder.id); setIsDropdownOpen(false); }}
-                            className={`custom-dir-dropdown-item ${selectedFolder === folder.id ? 'active' : ''}`}
-                          >
-                            <Folder size={12} className="me-2 text-primary" />
-                            <span>{folder.name}</span>
-                            <span className="ms-auto text-secondary text-xs">[{folder.count}]</span>
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
               <div className="row g-0">
-                {/* Directory Sidebar - Desktop ONLY */}
-                <div className="col-12 col-md-3 border-end border-secondary border-opacity-25 p-3 d-none d-md-block">
-                  <div className="sidebar-title font-mono text-muted text-xs mb-3">SYSTEM_NODES</div>
-                  <div className="sidebar-folder-list d-flex flex-column gap-2">
-                    {folders.map(folder => (
-                      <button
-                        key={folder.id}
-                        onClick={() => setSelectedFolder(folder.id)}
-                        className={`sidebar-folder-btn font-mono ${selectedFolder === folder.id ? 'active' : ''}`}
-                      >
-                        <Folder size={14} className="me-2 text-primary" />
-                        <span className="folder-name">{folder.name}</span>
-                        <span className="folder-count ms-auto">[{folder.count}]</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Directory Content explorer Grid - 9 cols on desktop, 12 cols on mobile */}
-                <div className="col-12 col-md-9 p-4" style={{ minHeight: "500px", background: "transparent" }}>
+                {/* Directory Content explorer Grid - Full Width */}
+                <div className="col-12 p-4" style={{ minHeight: "500px", background: "transparent" }}>
                   <div className="row g-4">
-                    {filteredProjects.map((project) => (
-                      <div key={project.id} className="col-12 col-lg-6 voxel-cell-perspective">
+                    {projectsData.map((project) => (
+                      <div key={project.id} className="col-12 col-md-6 col-lg-4 voxel-cell-perspective d-flex justify-content-center">
                         <div 
                           className="project-os-card spotlight-card h-100"
                           onMouseMove={handleMouseMove}
                           onMouseLeave={handleMouseLeave}
+                          onClick={() => navigate(`/projects/${project.id}`)}
                         >
                           {/* Folder Tab Header */}
                           <div className="project-folder-tab font-mono text-xs d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary border-opacity-25 pb-2">
@@ -149,18 +84,6 @@ export const Projects = () => {
                                 e.target.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800";
                               }}
                             />
-                            {/* Actions on hover */}
-                            <div className="project-os-overlay d-flex justify-content-center align-items-center">
-                              <a
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-cyber-icon"
-                                aria-label="View repository on Github"
-                              >
-                                <Github size={20} />
-                              </a>
-                            </div>
                           </div>
 
                           {/* Details content */}
@@ -201,4 +124,5 @@ export const Projects = () => {
     </div>
   );
 };
+
 export default Projects;
