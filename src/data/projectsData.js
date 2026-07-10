@@ -151,17 +151,17 @@ export const projectsData = [
   },
   {
     id: 7,
-    title: "fakenewsdetector",
-    description: "A machine learning based verification dashboard that checks article headers and text blocks against trained sentiment datasets to flag deceptive claims.",
+    title: "TruthGuard",
+    description: "A Django-based web application that uses a TensorFlow/Keras LSTM neural network to detect fake news from text or URLs in real-time.",
     image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
-    tags: ["Python", "AI", "HTML", "CSS"],
+    tags: ["Django", "TensorFlow", "Python", "Bootstrap", "Tailwind CSS"],
     githubUrl: "https://github.com/Bineesh627/fakenewsdetector",
     caseStudyContent: FakeNewsCaseStudy,
     specs: [
-      { label: 'RELEASE_MODULE', value: 'FAKENEWS_DETECTOR' },
-      { label: 'CLASSIFICATION', value: 'SENTIMENT_CLASSIFIER' },
-      { label: 'ALGORITHM', value: 'TF-IDF Classifier' },
-      { label: 'API_SERVICE', value: 'Flask Python Router' }
+      { label: 'FRAMEWORK', value: 'Django 4.2' },
+      { label: 'ALGORITHM', value: 'LSTM Neural Network' },
+      { label: 'DATABASE', value: 'SQLite 3' },
+      { label: 'FRONTEND', value: 'Bootstrap 5 & Tailwind' }
     ],
     gallery: [
       "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=600",
