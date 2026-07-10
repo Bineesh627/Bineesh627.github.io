@@ -24,7 +24,7 @@ export const experienceData = [
     date: "December 2025 - Present",
   },
   {
-    id: 3-,
+    id: 3,
     pid: "PID_4193",
     status: "SUCCESS",
     title: "Cyber Security • Intern",
