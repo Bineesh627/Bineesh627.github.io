@@ -13,6 +13,18 @@ export const experienceData = [
   },
   {
     id: 2,
+    pid: "PID_9104",
+    status: "ACTIVE",
+    title: "Co-founder & COO",
+    location: "Corepro Techno LLP",
+    employmentType: "Part-time",
+    workMode: "Remote",
+    description:
+      "Co-founded Corepro Techno LLP, direct operational and technical strategy to build software products and services. Official website: www.coreprotechno.com",
+    date: "March 2026 - Present",
+  },
+  {
+    id: 3,
     pid: "PID_8829",
     status: "ACTIVE",
     title: "Founder & CEO",
@@ -24,7 +36,7 @@ export const experienceData = [
     date: "December 2025 - Present",
   },
   {
-    id: 3,
+    id: 4,
     pid: "PID_4193",
     status: "SUCCESS",
     title: "Cyber Security • Intern",

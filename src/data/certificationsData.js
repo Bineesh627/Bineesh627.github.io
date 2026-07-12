@@ -11,8 +11,21 @@ import SkillsBuildOrientation from "../assets/img/certifications/Edunet_skillsBu
 import YipCertificate from "../assets/img/certifications/yip_certificate.png";
 import NxtwaveCompletion from "../assets/img/certifications/Nxtwave_completion.png";
 import Be10xCertificate from "../assets/img/certifications/Be10x_certificate.jpg";
+import VashconCertificate from "../assets/img/certifications/vashcon_certificate.png";
+import MacfiestaCertificate from "../assets/img/certifications/macfiesta_certificate.jpg";
+import AiQuizCertificate from "../assets/img/certifications/AI_Quiz_certificate.jpg";
 
 export const certificationsData = [
+  {
+    id: 16,
+    title: "edu@ai 24: AI Quiz for Learners",
+    certificateId: "",
+    description:
+      "Participated in the district-level AI Quiz for Learners competition for Alappuzha district, organized by the Institute of Human Resources Development (IHRD) at the International Conclave on Generative AI and the Future of Education.",
+    completionDate: "November 2024",
+    image: AiQuizCertificate,
+    issuer: "IHRD",
+  },
   {
     id: 1,
     title: "Generative AI Mastermind",
@@ -54,11 +67,21 @@ export const certificationsData = [
     issuer: "be10x",
   },
   {
+    id: 14,
+    title: "VASHCON Cyber Security Program",
+    certificateId: "",
+    description:
+      "Participated in the VASHCON cybersecurity program organized by CC Cyber Campus in association with the Kerala Startup Mission.",
+    completionDate: "October 2024",
+    image: VashconCertificate,
+    issuer: "CC Cyber Campus",
+  },
+  {
     id: 2,
     title: "Essentials of Ethical Hacking",
     certificateId: "RTXSTU1318012510",
     description:
-      "Core training in penetration testing, system vulnerabilities, and defensive cybersecurity techniques.",
+    "Core training in penetration testing, system vulnerabilities, and defensive cybersecurity techniques.",
     completionDate: "October 2024",
     image: EEHCertificate,
     issuer: "RedTeam Hacker Academy",
@@ -68,10 +91,20 @@ export const certificationsData = [
     title: "Cyber Security Internship",
     certificateId: "",
     description:
-      "Hands-on experience in cybersecurity projects covering threat analysis, testing, and security operations.",
+    "Hands-on experience in cybersecurity projects covering threat analysis, testing, and security operations.",
     completionDate: "November 2024",
     image: InterCertificate,
     issuer: "RedTeam Hacker Academy",
+  },
+  {
+    id: 15,
+    title: "MACFIESTA 2k22 - Web Designing",
+    certificateId: "",
+    description:
+      "Participated in the National Level Intercollegiate Fest 'MACFIESTA 2k22' Web Designing competition, organized by Mar Athanasios College For Advanced Studies Tiruvalla (MACFAST), Kerala.",
+    completionDate: "December 2022",
+    image: MacfiestaCertificate,
+    issuer: "MACFAST",
   },
   {
     id: 4,
