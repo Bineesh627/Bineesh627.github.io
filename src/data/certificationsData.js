@@ -24,6 +24,36 @@ export const certificationsData = [
     issuer: "Outskill",
   },
   {
+    id: 6,
+    title: "Introduction to Machine Learning",
+    certificateId: "EDPT1682006280907N",
+    description:
+      "Introductory course covering supervised and unsupervised learning, algorithms, and applications.",
+    completionDate: "April 2023",
+    image: IntroductionMachineLearning,
+    issuer: "Edapt",
+  },
+  {
+    id: 12,
+    title: "AI for Students: Build Your Own Generative AI Model",
+    certificateId: "",
+    description:
+      "Hands-on course on understanding generative AI concepts and building a simple AI model.",
+    completionDate: "June 2024",
+    image: NxtwaveCompletion,
+    issuer: "NxtWave",
+  },
+  {
+    id: 13,
+    title: "AI Tools and ChatGPT Workshop",
+    certificateId: "",
+    description:
+      "Comprehensive training on leveraging AI tools and ChatGPT to build presentations, analyze data, and accelerate coding and debugging workflows.",
+    completionDate: "October 2025",
+    image: Be10xCertificate,
+    issuer: "be10x",
+  },
+  {
     id: 2,
     title: "Essentials of Ethical Hacking",
     certificateId: "RTXSTU1318012510",
@@ -64,14 +94,14 @@ export const certificationsData = [
     issuer: "Edapt",
   },
   {
-    id: 6,
-    title: "Introduction to Machine Learning",
-    certificateId: "EDPT1682006280907N",
+    id: 11,
+    title: "Young Innovators Programme (YIP)",
+    certificateId: "22YIP074762",
     description:
-      "Introductory course covering supervised and unsupervised learning, algorithms, and applications.",
-    completionDate: "April 2023",
-    image: IntroductionMachineLearning,
-    issuer: "Edapt",
+      "Encourages creative thinking and innovation through real-world problem-solving and project development.",
+    completionDate: "October 2022",
+    image: YipCertificate,
+    issuer: "K-DISC",
   },
   {
     id: 7,
@@ -112,35 +142,5 @@ export const certificationsData = [
     completionDate: "June 2024",
     image: SkillsBuildOrientation,
     issuer: "IBM SkillsBuild",
-  },
-  {
-    id: 11,
-    title: "Young Innovators Programme (YIP)",
-    certificateId: "22YIP074762",
-    description:
-      "Encourages creative thinking and innovation through real-world problem-solving and project development.",
-    completionDate: "October 2022",
-    image: YipCertificate,
-    issuer: "K-DISC",
-  },
-  {
-    id: 12,
-    title: "AI for Students: Build Your Own Generative AI Model",
-    certificateId: "",
-    description:
-      "Hands-on course on understanding generative AI concepts and building a simple AI model.",
-    completionDate: "June 2024",
-    image: NxtwaveCompletion,
-    issuer: "NxtWave",
-  },
-  {
-    id: 13,
-    title: "AI Tools and ChatGPT Workshop",
-    certificateId: "",
-    description:
-      "Comprehensive training on leveraging AI tools and ChatGPT to build presentations, analyze data, and accelerate coding and debugging workflows.",
-    completionDate: "October 2025",
-    image: Be10xCertificate,
-    issuer: "be10x",
   },
 ];

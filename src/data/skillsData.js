@@ -66,4 +66,4 @@ export const skillsData = [
   { name: "Innovation Management", levelLabel: "Expert", category: "entrepreneurship" },
 ];
 
-export const skillCategories = ["frontend", "backend", "tools", "cybersecurity", "ai", "entrepreneurship"];
+export const skillCategories = ["ai", "backend", "cybersecurity", "frontend", "tools", "entrepreneurship"];

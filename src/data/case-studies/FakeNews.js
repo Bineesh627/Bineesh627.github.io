@@ -27,6 +27,35 @@ export const FakeNewsCaseStudy = (
       <li><strong>Admin Dashboard:</strong> A comprehensive diagnostic dashboard for system stats, user management, activity log tracking, feedback review, and data export.</li>
     </ul>
 
+    <h2>Hugging Face Integration</h2>
+    <p>
+      The training dataset and the serialized LSTM neural network model utilized in this project are hosted and open-sourced on Hugging Face:
+    </p>
+    <ul>
+      <li>
+        <strong>Training Dataset:</strong>{" "}
+        <a 
+          href="https://huggingface.co/datasets/bineesh627/real-vs-fake-news-text" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="active-tag text-decoration-none"
+        >
+          real-vs-fake-news-text
+        </a>
+      </li>
+      <li>
+        <strong>LSTM Classification Model:</strong>{" "}
+        <a 
+          href="https://huggingface.co/bineesh627/fake_news_lstm" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="active-tag text-decoration-none"
+        >
+          fake_news_lstm
+        </a>
+      </li>
+    </ul>
+
     <blockquote>
       <p>
         "By combining an optimized LSTM sequential model with a community validation loop, TruthGuard delivers deep learning-based credibility assessments in real-time under 200 milliseconds."

@@ -15,6 +15,28 @@ import { EShopCaseStudy } from "./case-studies/EShop";
 
 export const projectsData = [
   {
+    id: 8,
+    title: "cervical_ai",
+    description: "A privacy-preserving multimodal AI system utilizing PyTorch models and the Flower federated learning framework for early cervical cancer detection.",
+    image: "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&q=80&w=800",
+    tags: ["Python", "Django", "PyTorch", "Federated Learning", "Explainable AI"],
+    githubUrl: "https://github.com/Bineesh627/cervical_ai",
+    caseStudyContent: CervicalAICaseStudy,
+    specs: [
+      { label: 'RELEASE_MODULE', value: 'CERVICAL_BIOMEDICAL_AI' },
+      { label: 'CLASSIFICATION', value: 'PRIVACY_PRESERVING_AI' },
+      { label: 'ML_ENGINE', value: 'PyTorch & Flower (FL)' },
+      { label: 'EXPLAINER', value: 'SHAP & Grad-CAM' }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600"
+    ]
+  },
+  {
     id: 1,
     title: "Rag Chatbot",
     description: "Developed a college chatbot leveraging Retrieval-Augmented Generation (RAG) in collaboration with the principal. The system employs intelligent agents to extract information from the college website and PDF documents, all managed through a dedicated admin panel for seamless operation.",
@@ -35,6 +57,28 @@ export const projectsData = [
       "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=600",
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600",
       "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600"
+    ]
+  },
+  {
+    id: 7,
+    title: "TruthGuard",
+    description: "A Django-based web application that uses a TensorFlow/Keras LSTM neural network to detect fake news from text or URLs in real-time.",
+    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
+    tags: ["Django", "TensorFlow", "Python", "Bootstrap", "Tailwind CSS"],
+    githubUrl: "https://github.com/Bineesh627/fakenewsdetector",
+    caseStudyContent: FakeNewsCaseStudy,
+    specs: [
+      { label: 'FRAMEWORK', value: 'Django 4.2' },
+      { label: 'ALGORITHM', value: 'LSTM Neural Network' },
+      { label: 'DATABASE', value: 'SQLite 3' },
+      { label: 'FRONTEND', value: 'Bootstrap 5 & Tailwind' }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600"
     ]
   },
   {
@@ -147,50 +191,6 @@ export const projectsData = [
       "https://images.unsplash.com/photo-1558441719-ff34b0524a24?auto=format&fit=crop&q=80&w=600",
       "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600",
       "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&q=80&w=600"
-    ]
-  },
-  {
-    id: 7,
-    title: "TruthGuard",
-    description: "A Django-based web application that uses a TensorFlow/Keras LSTM neural network to detect fake news from text or URLs in real-time.",
-    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
-    tags: ["Django", "TensorFlow", "Python", "Bootstrap", "Tailwind CSS"],
-    githubUrl: "https://github.com/Bineesh627/fakenewsdetector",
-    caseStudyContent: FakeNewsCaseStudy,
-    specs: [
-      { label: 'FRAMEWORK', value: 'Django 4.2' },
-      { label: 'ALGORITHM', value: 'LSTM Neural Network' },
-      { label: 'DATABASE', value: 'SQLite 3' },
-      { label: 'FRONTEND', value: 'Bootstrap 5 & Tailwind' }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600"
-    ]
-  },
-  {
-    id: 8,
-    title: "cervical_ai",
-    description: "An advanced biomedical AI project utilizing deep convolutional networks for image classification and diagnostic recommendation supports.",
-    image: "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&q=80&w=800",
-    tags: ["Python", "AI", "Deep Learning"],
-    githubUrl: "https://github.com/Bineesh627/cervical_ai",
-    caseStudyContent: CervicalAICaseStudy,
-    specs: [
-      { label: 'RELEASE_MODULE', value: 'CERVICAL_BIOMEDICAL_AI' },
-      { label: 'CLASSIFICATION', value: 'VISION_ANOMALY_DETECTOR' },
-      { label: 'ML_ENGINE', value: 'PyTorch Neural Stack' },
-      { label: 'VISUALIZER', value: 'CAM Overlay heatmaps' }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600"
     ]
   },
   {

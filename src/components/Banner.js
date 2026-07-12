@@ -17,7 +17,7 @@ export const Banner = () => {
   const navigate = useNavigate();
 
   const tick = useCallback(() => {
-    const toRotate = [ "AI_Expert", "Python_Developer", "Cyber_Security" ];
+    const toRotate = [ "AI_Engineer", "AI_Developer", "Python_Developer", "Cybersecurity_Expert" ];
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting 
@@ -98,7 +98,7 @@ export const Banner = () => {
 
                   {/* Detailed Description */}
                   <p className="os-hero-description">
-                    Cybersecurity practitioner, AI engineering developer, and full-stack software engineer. Specializing in deploying intelligent network agents, executing penetration assessments, and building EdTech systems at Fusintech.
+                    AI Engineer and Python developer specializing in Machine Learning, Deep Learning, and Computer Vision solutions. Experienced in deploying neural networks, building intelligent agents, and integrating secure full-stack EdTech platforms at Fusintech.
                   </p>
 
                   {/* Simulated telemetry diagnostic gauges */}

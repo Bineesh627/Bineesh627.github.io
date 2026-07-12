@@ -2,6 +2,7 @@ import React from "react";
 import "../assets/css/Contact.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { Mail, Phone, MapPin, Globe, Linkedin, Twitter, Instagram, MessageSquare, Github, Terminal } from "lucide-react";
+import { SiHuggingface } from "react-icons/si";
 
 export const Contact = () => {
   const contactInfo = [
@@ -50,6 +51,11 @@ export const Contact = () => {
       icon: <Github size={18} />,
       label: "GitHub",
       url: "https://github.com/Bineesh627"
+    },
+    {
+      icon: <SiHuggingface size={18} />,
+      label: "Hugging Face",
+      url: "https://huggingface.co/bineesh627"
     }
   ];
 

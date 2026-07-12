@@ -11,7 +11,7 @@ const levelColors = {
 };
 
 export const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState("frontend");
+  const [activeCategory, setActiveCategory] = useState("ai");
 
   const filteredSkills = skillsData.filter(
     (skill) => skill.category === activeCategory

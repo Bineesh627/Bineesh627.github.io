@@ -82,18 +82,18 @@ export const About = () => {
                 <div className="logs-meta-grid font-mono mb-4">
                   <div className="meta-item"><span className="m-lbl">SUBJECT:</span> <span className="m-val text-white">BINEESH S</span></div>
                   <div className="meta-item"><span className="m-lbl">ORG_ID:</span> <span className="m-val text-gradient-green">FUSINTECH [FOUNDER]</span></div>
-                  <div className="meta-item"><span className="m-lbl">CLASS:</span> <span className="m-val text-white">CLASS_4.0_FULLSTACK</span></div>
+                  <div className="meta-item"><span className="m-lbl">CLASS:</span> <span className="m-val text-white">CLASS_AI_ENGINEER</span></div>
                   <div className="meta-item"><span className="m-lbl">STATUS:</span> <span className="m-val text-gradient-blue">ACTIVE_EXECUTION</span></div>
                 </div>
 
                 <div className="log-console-text">
                   <div className="console-title font-mono"><Cpu size={14} className="me-2 text-primary" /> SYSTEM_DECRYPT_LOG // SUMMARY</div>
                   <p className="log-paragraph mt-2">
-                    Aspiring Full-Stack Software Developer specialized in next-generation 4.0 architectures. Highly motivated practitioner with a proven capability of self-learning complex code scopes, reverse-engineering structures, and delivering reliable solutions within minimal cycle times.
+                    AI Engineer and Python developer specializing in advanced machine learning model development, computer vision, and privacy-preserving federated architectures. Highly motivated developer with a proven capability of training neural networks, designing intelligent agents, and deploying explainable AI tools.
                   </p>
                   
                   <p className="log-paragraph mt-3">
-                    Leveraging AI modeling configurations and cybersecurity penetration methodologies to architect secure web ecosystems, optimized server logic (Django/Python), and modern client user workspaces.
+                    Leveraging deep learning frameworks (PyTorch, TensorFlow) and federated learning structures (Flower) alongside cybersecurity methodologies to architect secure, intelligence-driven software ecosystems and interactive data workspaces.
                   </p>
                 </div>
 
