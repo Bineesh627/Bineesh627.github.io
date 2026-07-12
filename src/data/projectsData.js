@@ -130,16 +130,16 @@ export const projectsData = [
   {
     id: 4,
     title: "selio_marketing_co",
-    description: "A commercial marketing landing page platform developed with TypeScript, focusing on speed, visual excellence, and responsive design systems.",
+    description: "A freelance web application project built for the Selio Marketing digital agency to display their digital services and handle lead capture.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     tags: ["TypeScript", "HTML", "CSS", "Javascript"],
     githubUrl: "https://github.com/Bineesh627/selio_marketing_co",
     caseStudyContent: SelioMarketingCaseStudy,
     specs: [
       { label: 'RELEASE_MODULE', value: 'SELIO_MARKETING' },
-      { label: 'CLASSIFICATION', value: 'CLIENT_PORTAL' },
-      { label: 'LANG_STAMP', value: 'TypeScript' },
-      { label: 'PERFORMANCE', value: 'Optimized Speed' }
+      { label: 'CLASSIFICATION', value: 'FREELANCE_AGENCY_PORTAL' },
+      { label: 'LIVE_DOMAIN', value: 'selio-marketing.vercel.app' },
+      { label: 'LANG_STAMP', value: 'TypeScript Engine' }
     ],
     gallery: [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600",
@@ -152,16 +152,16 @@ export const projectsData = [
   {
     id: 5,
     title: "vehicle-rental-service",
-    description: "A full-featured TypeScript backend and frontend for rental bookings, payment flow management, and interactive inventory status checking.",
+    description: "An enterprise fleet management mobile application and Django API supporting multi-tier roles, concurrency booking locks, dynamic pricing, and KYC validation.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
-    tags: ["TypeScript", "Node.js", "Javascript"],
+    tags: ["React Native", "Expo", "Django", "Python", "TypeScript", "NativeWind"],
     githubUrl: "https://github.com/Bineesh627/vehicle-rental-service",
     caseStudyContent: VehicleRentalCaseStudy,
     specs: [
       { label: 'RELEASE_MODULE', value: 'VEHICLE_RENTAL' },
       { label: 'CLASSIFICATION', value: 'FLEET_MANAGER' },
-      { label: 'SERVER_RUNTIME', value: 'Node.js Engine' },
-      { label: 'CONFLICT_LOCK', value: 'Synchronous Locks' }
+      { label: 'MOBILE_CLIENT', value: 'Expo Router (React Native)' },
+      { label: 'BACKEND_API', value: 'Django 6.0 REST Framework' }
     ],
     gallery: [
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600",

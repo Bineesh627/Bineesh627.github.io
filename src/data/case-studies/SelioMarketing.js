@@ -2,7 +2,7 @@ import React from 'react';
 
 export const SelioMarketingCaseStudy = (
   <>
-    <h1>selio_marketing_co: High-Conversion Landing Platform</h1>
+    <h1>Selio Marketing co: High-Conversion Landing Platform</h1>
 
     <p>
       A premium marketing landing portal designed to deliver high conversion rates, ultra-low loading latencies, and modern CSS/SCSS visual components built for marketing consultants.
@@ -24,6 +24,37 @@ export const SelioMarketingCaseStudy = (
       <li><strong>Modern CSS layout grids:</strong> High-performance responsive layouts.</li>
       <li><strong>Lead capture:</strong> Interactive telemetry forms that sync client leads securely.</li>
     </ul>
+
+    <h2>Project Background & Freelance Work</h2>
+    <p>
+      This platform was engineered as a professional freelance project for the <strong>Selio Marketing</strong> team. The primary goal was to complete their official agency website to showcase their complete suite of digital marketing services, team expertise, and client portfolio.
+    </p>
+
+    <h2>Digital Marketing Services Included</h2>
+    <p>
+      The website features custom-designed sections detailing the agency's key digital marketing services:
+    </p>
+    <ul>
+      <li><strong>Search Engine Optimization (SEO):</strong> Strategic metadata structures, custom sitemaps, and optimized asset delivery to maximize organic visibility.</li>
+      <li><strong>Social Media Marketing (SMM):</strong> Frameworks for organic growth campaigns, social content strategies, and audience engagement tracking.</li>
+      <li><strong>Content & Brand Strategy:</strong> Conversion-oriented copywriting, brand guidelines, and client acquisition funnels.</li>
+      <li><strong>Performance Advertising:</strong> High-performance, lightweight landing pages built to handle ad traffic and capture leads with zero loading latency.</li>
+    </ul>
+
+    <h2>Live Deployment</h2>
+    <p>
+      The complete, functional agency website is deployed and live:
+    </p>
+    <p>
+      <a 
+        href="https://selio-marketing.vercel.app/" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="active-tag text-decoration-none"
+      >
+        🔗 Visit Live Site: selio-marketing.vercel.app
+      </a>
+    </p>
 
     <blockquote>
       <p>

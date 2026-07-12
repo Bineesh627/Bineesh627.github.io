@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { Cpu, ShieldCheck, Mail, Linkedin, Github, MessageSquare, Heart } from "lucide-react";
+import { Cpu, ShieldCheck, Mail, Linkedin, Github, MessageSquare, Heart, Twitter, Instagram } from "lucide-react";
 import { SiHuggingface } from "react-icons/si";
 import "../assets/css/Footer.css";
 
@@ -37,6 +37,8 @@ export const Footer = () => {
     { icon: <Github size={16} />, url: "https://github.com/Bineesh627", label: "GitHub" },
     { icon: <Linkedin size={16} />, url: "https://www.linkedin.com/in/bineesh627", label: "LinkedIn" },
     { icon: <SiHuggingface size={16} />, url: "https://huggingface.co/bineesh627", label: "Hugging Face" },
+    { icon: <Twitter size={16} />, url: "https://twitter.com/bineesh627", label: "Twitter" },
+    { icon: <Instagram size={16} />, url: "https://www.instagram.com/dream_boy_.627", label: "Instagram" },
     { icon: <MessageSquare size={16} />, url: "https://wa.me/+919567314355", label: "WhatsApp" },
     { icon: <Mail size={16} />, url: "mailto:sbineesh172@gmail.com", label: "Email" }
   ];

@@ -38,35 +38,7 @@ export const CervicalAICaseStudy = (
       <li><strong>Frontend Layout:</strong> Bootstrap 5, HTML5, Vanilla CSS3, Javascript</li>
     </ul>
 
-    <h2>Workflow & Deployment</h2>
-    <h3>1. Setup & Installation</h3>
-    <pre><code>{`# Clone the repository
-git clone https://github.com/Bineesh627/cervical_ai.git
-cd cervical_ai
 
-# Set up virtual environment
-python -m venv venv
-# Windows: venv\\Scripts\\activate
-# Linux/Mac: source venv/bin/activate
-
-# Install requirements
-pip install -r requirements.txt
-
-# Run migrations
-python manage.py migrate`}</code></pre>
-
-    <h3>2. Running the Federated Learning Cluster</h3>
-    <p>
-      Start the FL server to coordinate global model updates across distributed clients:
-    </p>
-    <pre><code>{`python fedrated/fed_server.py`}</code></pre>
-    <p>
-      In a separate terminal, launch the Django application:
-    </p>
-    <pre><code>{`python manage.py runserver`}</code></pre>
-    <p>
-      Patients and clinicians interact with the application at <code>http://127.0.0.1:8000/</code>. When patients upload new slide scans and medical details, the application triggers a local training process in the background, updating its parameters and participating in federated learning rounds with the FL coordinator server.
-    </p>
 
     <h2>Hugging Face Integration</h2>
     <p>
