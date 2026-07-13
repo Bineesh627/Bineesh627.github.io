@@ -118,6 +118,11 @@ export const Footer = () => {
                       <span className="link-arrow me-2">&gt;</span> {"comm_portals"}
                     </button>
                   </li>
+                  <li>
+                    <a href="/llms.txt" target="_blank" rel="noopener noreferrer" className="footer-link btn-link">
+                      <span className="link-arrow me-2">&gt;</span> {"ai_learning_agent"}
+                    </a>
+                  </li>
                 </ul>
               </Col>
 

@@ -1,9 +1,9 @@
 # Bineesh S
 
-Developer portfolio of Bineesh S: Tech-Driven Innovator, AI Expert, Python Developer, and Cybersecurity professional.
+Developer portfolio of Bineesh S: Tech-Driven Innovator, Tech Entrepreneur, AI Expert, Python Developer, and Cybersecurity professional. Founder of Fusintech and Co-founder & COO of Corepro Techno LLP.
 
 ## About
-* **Bio**: Founder of Fusintech. Aspiring Full-Stack Developer specializing in 4.0 technologies (AI, Full Stack, Cybersecurity). Proactive, self-taught, and passionate about creating modern, robust applications and solving complex technical challenges.
+* **Bio**: Founder of Fusintech and Co-founder & COO of Corepro Techno LLP. Aspiring Full-Stack Developer specializing in Industry 4.0 technologies (AI, Full Stack, Cybersecurity). Proactive, self-taught, and passionate about creating modern, robust applications, designing intelligent platforms, and solving complex technical challenges.
 * **Location**: Alappuzha, Kerala, India
 * **Resume/Portfolio**: https://bineeshs.vercel.app/
 * **Email**: sbineesh172@gmail.com
@@ -20,54 +20,110 @@ Developer portfolio of Bineesh S: Tech-Driven Innovator, AI Expert, Python Devel
 ## Core Technical Skills
 
 ### Artificial Intelligence & ML
-* Machine Learning, Deep Learning, Natural Language Processing, Computer Vision
-* TensorFlow, PyTorch, AI Model Development, Data Analysis
+* Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Federated Learning, Explainable AI (XAI)
+* PyTorch, TensorFlow, Keras, Langchain, ChromaDB, AI Model Development, Data Analysis
 
 ### Backend Development
-* Python, Django, MySQL, MongoDB
+* Python, Django, Node.js, MySQL, MongoDB, SQLite, REST APIs
 
-### Frontend Development
-* HTML, CSS, JavaScript, React, Bootstrap, UI/UX Design
+### Frontend & Mobile Development
+* HTML, CSS, JavaScript, TypeScript, React, React Native, Expo, Bootstrap, Tailwind CSS, NativeWind, UI/UX Design
 
 ### Cybersecurity
-* Penetration Testing, Ethical Hacking, Network Security, Vulnerability Assessment, Security Auditing, Risk Assessment, Incident Response
-* Tools: Linux, Burp Suite, Nmap, Postman
+* Penetration Testing, Ethical Hacking, Network Security, Vulnerability Assessment, Security Auditing, Risk Assessment, Incident Response, OSINT
+* Tools: Linux, Burp Suite, Nmap, Postman, Telethon
 
-### Tools & Leadership
-* Git, Docker, VS Code, Figma
-* Team Leadership, Product Development, Business Strategy, Project Management
+### Video & AI Media Production
+* Video Editing, Advanced Image Generation Integration, Image-Fade Animations, AI Video Generation Models
+
+---
+
+## Professional Experience
+
+### Video Editor & AI Content Creator (Part-time, Remote)
+* **Company**: Pydart Intelli Corp Pvt Ltd (March 2026 - Present)
+* **Description**: Integrating advanced AI image generation models to create dynamic video components, designing seamless image-fade transitions, and leveraging cutting-edge generative video tools for high-engagement content.
+
+### Co-founder & COO (Part-time, Remote)
+* **Company**: Corepro Techno LLP (March 2026 - Present)
+* **Description**: Directing operational and technical strategies to build custom software products and IT services. Official website: www.coreprotechno.com
+
+### Founder & CEO (Full-time, Remote)
+* **Company**: Fusintech [EdTech Platform] (December 2025 - Present)
+* **Description**: Established and leading Fusintech, an innovative EdTech platform leveraging artificial intelligence for personalized, interactive, and accessible learning experiences.
+
+### Cyber Security Intern (Remote)
+* **Company**: RedTeam Hacker Academy, Trivandrum (October 2024 - November 2024)
+* **Description**: Gained hands-on knowledge in ethical hacking, penetration testing methodology, web application security vulnerabilities, network defense, and basic security configuration standards.
 
 ---
 
 ## Featured Projects
 
-### RAG Chatbot
-* **Description**: Developed a college chatbot leveraging Retrieval-Augmented Generation (RAG) in collaboration with the principal. Employs intelligent agents to extract info from the college website and PDFs, with an admin panel.
-* **Tech**: Python, Bootstrap, Django, Langchain, HTML, CSS, JavaScript, Numpy
-* **GitHub**: https://github.com/Bineesh627/college_chatbot
+### cervical_ai (ID: 8)
+* **Description**: A privacy-preserving multimodal AI system utilizing PyTorch models and the Flower federated learning framework for early cervical cancer detection. Integrates SHAP and Grad-CAM for explainable AI.
+* **Tech**: Python, Django, PyTorch, Federated Learning, Explainable AI
+* **GitHub**: https://github.com/Bineesh627/cervical_ai
+* **Case Study**: https://bineeshs.vercel.app/projects/8
 
-### Culinary Community & Sharing Platform (RecipeRave)
+### RAG Chatbot (ID: 1)
+* **Description**: Developed a college chatbot leveraging Retrieval-Augmented Generation (RAG) in collaboration with the principal. Employs intelligent agents to extract info from the college website and PDFs, with an admin panel.
+* **Tech**: Python, Bootstrap, Django, Langchain, HTML, CSS, JavaScript, Numpy, ChromaDB
+* **GitHub**: https://github.com/Bineesh627/college_chatbot
+* **Case Study**: https://bineeshs.vercel.app/projects/1
+
+### TruthGuard Fake News Detector (ID: 7)
+* **Description**: A Django-based web application that uses a TensorFlow/Keras LSTM neural network to detect fake news from text or URLs in real-time.
+* **Tech**: Django, TensorFlow, Python, Bootstrap, Tailwind CSS
+* **GitHub**: https://github.com/Bineesh627/fakenewsdetector
+* **Case Study**: https://bineeshs.vercel.app/projects/7
+
+### Culinary Community & Sharing Platform (RecipeRave) (ID: 2)
 * **Description**: A culinary sharing platform where users can follow creators, explore, and share recipes.
 * **Tech**: Python, Django, HTML, CSS, JavaScript, Bootstrap
 * **GitHub**: https://github.com/Bineesh627/reciperave
+* **Case Study**: https://bineeshs.vercel.app/projects/2
 
-### MobileInfoga
+### MobileInfoga (ID: 3)
 * **Description**: An OSINT tool designed to gather phone number information (country of origin, carrier details, online associations).
 * **Tech**: Python, Telethon, Phonenumbers
 * **GitHub**: https://github.com/Bineesh627/MobileInfoga
+* **Case Study**: https://bineeshs.vercel.app/projects/3
 
-### OpenSS7
-* **Description**: A structurally sound clone of the OpenSS7 website with clear technical content organization.
-* **Tech**: HTML, CSS
-* **GitHub**: https://github.com/Bineesh627/openss7
+### selio_marketing_co (ID: 4)
+* **Description**: A freelance web application project built for the Selio Marketing digital agency to display their digital services and handle lead capture.
+* **Tech**: TypeScript, HTML, CSS, JavaScript
+* **GitHub**: https://github.com/Bineesh627/selio_marketing_co
+* **Case Study**: https://bineeshs.vercel.app/projects/4
+
+### vehicle-rental-service (ID: 5)
+* **Description**: An enterprise fleet management mobile application and Django API supporting multi-tier roles, concurrency booking locks, dynamic pricing, and KYC validation.
+* **Tech**: React Native, Expo, Django, Python, TypeScript, NativeWind
+* **GitHub**: https://github.com/Bineesh627/vehicle-rental-service
+* **Case Study**: https://bineeshs.vercel.app/projects/5
+
+### ev-stations-locator (ID: 6)
+* **Description**: A web utility mapping and locating nearby electric vehicle charging stations, integrating Google Maps API and routing systems.
+* **Tech**: HTML, CSS, JavaScript
+* **GitHub**: https://github.com/Bineesh627/ev-stations-locator
+* **Case Study**: https://bineeshs.vercel.app/projects/6
+
+### e_shop (ID: 9)
+* **Description**: An interactive, fully functional e-commerce storefront with cart logic, search autocompletion, checkout modals, and responsive layout rows.
+* **Tech**: JavaScript, HTML, CSS, Node.js
+* **GitHub**: https://github.com/Bineesh627/e_shop
+* **Case Study**: https://bineeshs.vercel.app/projects/9
 
 ---
 
 ## Key Achievements
 
 ### Dr. C.V. Raman Foundation Award
-* **Award**: Innovative Thinker & Innovative Person Award (Presented by Ramesh Chennithala, former Home Minister of Kerala and MLA) on January 29, 2025.
-* **Details**: Recognized for creativity, research, and technical innovation.
+* **Award**: Innovative Thinker & Innovative Person Award (Presented by Ramesh Chennithala, former Kerala Home Minister and MLA) on January 29, 2025.
+* **Details**: Recognized for creativity, research, and technical innovation in the field of AI and entrepreneurship.
+
+### Martial Arts Milestone
+* **Achievement**: Earning Sho Dan (1st Dan) Black Belt from Focus Sports Karate Club in December 2019 after years of disciplined training.
 
 ---
 
@@ -75,7 +131,7 @@ Developer portfolio of Bineesh S: Tech-Driven Innovator, AI Expert, Python Devel
 
 * **Bachelor of Computer Applications (BCA)** (2022 - 2025)
   * Institution: IHRD College of Applied Science, Karthikappally
-  * Specialization: Computer Applications, Software Development
+  * Specialization: Computer Applications & Software Development
 * **Higher Secondary Certificate (HSC) Biology Science** (Graduated July 2022)
   * Institution: G.H.S.S Mangalam School, Aratupuzha
 * **Secondary School School Certificate (SSLC)** (Graduated March 2020)
@@ -84,25 +140,55 @@ Developer portfolio of Bineesh S: Tech-Driven Innovator, AI Expert, Python Devel
 ---
 
 ## Certifications
+
+### Artificial Intelligence & Data Science
 * **Generative AI Mastermind** - Outskill (September 2025)
+* **AI Tools and ChatGPT Workshop** - be10x (October 2025)
+* **Introduction to Machine Learning** - Edapt (April 2023, ID: EDPT1682006280907N)
+* **AI for Students: Build Your Own Generative AI Model** - NxtWave (June 2024)
+* **edu@ai 24: AI Quiz for Learners** - IHRD (November 2024)
+
+### Cybersecurity & Defense
 * **Essentials of Ethical Hacking** - RedTeam Hacker Academy (October 2024, ID: RTXSTU1318012510)
 * **Cyber Security Internship** - RedTeam Hacker Academy (November 2024)
+* **VASHCON Cyber Security Program** - CC Cyber Campus & Kerala Startup Mission (October 2024)
 * **Internet and Security** - Edapt (April 2023, ID: EDPT1681140384408L)
+
+### Cloud Computing
 * **Introduction to Cloud Computing** - Edapt (April 2023, ID: EDPT1680971415613F)
-* **Introduction to Machine Learning** - Edapt (April 2023, ID: EDPT1682006280907N)
+
+### UI/UX Design & Competitions
 * **Introduction to UI/UX Design** - Faith Academy (September 2024)
+* **MACFIESTA 2k22 - Web Designing Competition** - MACFAST College (December 2022)
+
+### Innovation & Soft Skills
+* **Young Innovators Programme (YIP)** - K-DISC (October 2022, ID: 22YIP074762)
 * **Communicating with Impact** - IBM SkillsBuild (June 2024, ID: URL-FFD82E8D28EB)
 * **Critical Soft Skills for Project Managers** - IBM SkillsBuild (June 2024, ID: URL-G-YOH0ZY0C8)
 * **Edunet - SkillsBuild Orientation** - IBM SkillsBuild (June 2024, ID: PLAN-04138CD348A7)
-* **Young Innovators Programme (YIP)** - K-DISC (October 2022, ID: 22YIP074762)
-* **AI for Students: Build Your Own Generative AI Model** - NxtWave (June 2024)
 
 ---
 
 ## Directory
 
 * [Home](https://bineeshs.vercel.app/)
-* [Projects](https://bineeshs.vercel.app/)
-* [Certifications](https://bineeshs.vercel.app/)
-* [Blogs](https://bineeshs.vercel.app/)
-* [Let’s Connect](https://bineeshs.vercel.app/)
+* [Projects](https://bineeshs.vercel.app/projects)
+* [Certifications](https://bineeshs.vercel.app/certifications)
+* [Blogs](https://bineeshs.vercel.app/blogs)
+* [Let's Connect](https://bineeshs.vercel.app/contact)
+
+### Projects Case Studies
+* [cervical_ai (Biomedical AI Detection)](https://bineeshs.vercel.app/projects/8)
+* [RAG Chatbot (College AI Assistant)](https://bineeshs.vercel.app/projects/1)
+* [TruthGuard Fake News Detector (Deep Learning Classification)](https://bineeshs.vercel.app/projects/7)
+* [RecipeRave (Culinary Community Platform)](https://bineeshs.vercel.app/projects/2)
+* [MobileInfoga (OSINT Phone Tracker)](https://bineeshs.vercel.app/projects/3)
+* [Selio Marketing (Freelance Agency Website)](https://bineeshs.vercel.app/projects/4)
+* [Vehicle Rental (Fleet Manager Portal)](https://bineeshs.vercel.app/projects/5)
+* [EV Stations Locator (Mapping Utility)](https://bineeshs.vercel.app/projects/6)
+* [E-Shop Storefront (E-Commerce Client-Server)](https://bineeshs.vercel.app/projects/9)
+
+### Blog Posts
+* [A Milestone in My Karate Journey: Achieving Sho Dan Black Belt](https://bineeshs.vercel.app/blogs/karate-blackbelt-milestone)
+* [Honored with Dr. C.V. Raman Foundation Award](https://bineeshs.vercel.app/blogs/dr-cv-raman-award)
+* [Reflections on Startup Saturday: Networking, Mentorship, and Ettack AI](https://bineeshs.vercel.app/blogs/startup-saturday)
