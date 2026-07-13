@@ -8,6 +8,22 @@ import { certificationsData } from "../data/certificationsData";
 
 export const Certifications = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [selectedFilter, setSelectedFilter] = useState("all");
+
+  const filterCategories = [
+    { key: "all", label: "ALL", emoji: "📁" },
+    { key: "Featured", label: "FEATURED", emoji: "⭐" },
+    { key: "AI", label: "AI", emoji: "🤖" },
+    { key: "Security", label: "SECURITY", emoji: "🔒" },
+    { key: "Cloud", label: "CLOUD", emoji: "☁️" },
+    { key: "Design", label: "DESIGN", emoji: "🎨" },
+    { key: "Soft", label: "SOFT", emoji: "🌟" },
+    { key: "Competition", label: "COMPETITION", emoji: "🏆" }
+  ];
+
+  const filteredCertifications = selectedFilter === "all"
+    ? certificationsData
+    : certificationsData.filter((cert) => cert.categories?.includes(selectedFilter));
 
   const openLightbox = (image) => {
     setLightboxImage(image);
@@ -66,6 +82,20 @@ export const Certifications = () => {
             <div className="os-separator"></div>
           </div>
 
+          {/* Filter tabs */}
+          <div className="certs-os-tabs d-flex justify-content-center flex-wrap mb-4 gap-2">
+            {filterCategories.map((category) => (
+              <button
+                key={category.key}
+                type="button"
+                className={`certs-os-tab-btn font-mono ${selectedFilter === category.key ? 'active' : ''}`}
+                onClick={() => setSelectedFilter(category.key)}
+              >
+                <span className="me-1">{category.emoji}</span> {category.label}
+              </button>
+            ))}
+          </div>
+
           {/* OS Window Frame */}
           <div className="os-window-frame mt-5">
             <div className="os-window-header">
@@ -80,7 +110,7 @@ export const Certifications = () => {
 
             <div className="os-window-body p-4" style={{ background: "transparent" }}>
               <Row className="g-4">
-                {certificationsData.map((cert) => (
+                {filteredCertifications.map((cert) => (
                   <Col key={cert.id} xs={12} md={6} lg={4} className="voxel-cell-perspective">
                     <div
                       className="cert-os-card spotlight-card h-100"

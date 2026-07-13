@@ -25,6 +25,7 @@ export const certificationsData = [
     completionDate: "November 2024",
     image: AiQuizCertificate,
     issuer: "IHRD",
+    categories: ["AI", "Competition"],
   },
   {
     id: 1,
@@ -35,6 +36,7 @@ export const certificationsData = [
     completionDate: "September 2025",
     image: OutskillCertificate,
     issuer: "Outskill",
+    categories: ["Featured", "AI"],
   },
   {
     id: 6,
@@ -45,6 +47,7 @@ export const certificationsData = [
     completionDate: "April 2023",
     image: IntroductionMachineLearning,
     issuer: "Edapt",
+    categories: ["Featured", "AI"],
   },
   {
     id: 12,
@@ -55,6 +58,7 @@ export const certificationsData = [
     completionDate: "June 2024",
     image: NxtwaveCompletion,
     issuer: "NxtWave",
+    categories: ["Featured", "AI"],
   },
   {
     id: 13,
@@ -65,6 +69,7 @@ export const certificationsData = [
     completionDate: "October 2025",
     image: Be10xCertificate,
     issuer: "be10x",
+    categories: ["AI"],
   },
   {
     id: 14,
@@ -75,6 +80,7 @@ export const certificationsData = [
     completionDate: "October 2024",
     image: VashconCertificate,
     issuer: "CC Cyber Campus",
+    categories: ["Security"],
   },
   {
     id: 2,
@@ -85,6 +91,7 @@ export const certificationsData = [
     completionDate: "October 2024",
     image: EEHCertificate,
     issuer: "RedTeam Hacker Academy",
+    categories: ["Featured", "Security"],
   },
   {
     id: 3,
@@ -95,6 +102,7 @@ export const certificationsData = [
     completionDate: "November 2024",
     image: InterCertificate,
     issuer: "RedTeam Hacker Academy",
+    categories: ["Featured", "Security"],
   },
   {
     id: 15,
@@ -105,6 +113,7 @@ export const certificationsData = [
     completionDate: "December 2022",
     image: MacfiestaCertificate,
     issuer: "MACFAST",
+    categories: ["Competition"],
   },
   {
     id: 4,
@@ -115,6 +124,7 @@ export const certificationsData = [
     completionDate: "April 2023",
     image: InternetSecurity,
     issuer: "Edapt",
+    categories: ["Security"],
   },
   {
     id: 5,
@@ -125,6 +135,7 @@ export const certificationsData = [
     completionDate: "April 2023",
     image: IntroductionCloudComputing,
     issuer: "Edapt",
+    categories: ["Featured", "Cloud"],
   },
   {
     id: 11,
@@ -135,6 +146,7 @@ export const certificationsData = [
     completionDate: "October 2022",
     image: YipCertificate,
     issuer: "K-DISC",
+    categories: ["Soft"],
   },
   {
     id: 7,
@@ -145,6 +157,7 @@ export const certificationsData = [
     completionDate: "September 2024",
     image: IntroductionUiUx,
     issuer: "Faith Academy",
+    categories: ["Design"],
   },
   {
     id: 8,
@@ -155,6 +168,7 @@ export const certificationsData = [
     completionDate: "June 2024",
     image: CommunicatingWithImpact,
     issuer: "IBM SkillsBuild",
+    categories: ["Soft"],
   },
   {
     id: 9,
@@ -165,6 +179,7 @@ export const certificationsData = [
     completionDate: "June 2024",
     image: CriticalSoftSkillsForProjectManagers,
     issuer: "IBM SkillsBuild",
+    categories: ["Soft"],
   },
   {
     id: 10,
@@ -175,5 +190,6 @@ export const certificationsData = [
     completionDate: "June 2024",
     image: SkillsBuildOrientation,
     issuer: "IBM SkillsBuild",
+    categories: ["Soft"],
   },
 ];
