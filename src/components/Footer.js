@@ -71,7 +71,7 @@ export const Footer = () => {
                   </div>
                 </div>
                 <p className="brand-tagline text-muted">
-                  Founder of Fusintech | Tech Entrepreneur & AI Developer. Designing modern EdTech infrastructures and deploying high-performance automation scripts.
+                  Freelance AI Engineer & Python Developer. Designing high-performance automation agents, advanced machine learning workflows, and custom software architectures.
                 </p>
                 <div className="social-dock-shell mt-4 d-inline-flex gap-2">
                   {socialLinks.map((social, idx) => (

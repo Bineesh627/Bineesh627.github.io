@@ -81,7 +81,7 @@ export const About = () => {
                 {/* Core parameter tags */}
                 <div className="logs-meta-grid font-mono mb-4">
                   <div className="meta-item"><span className="m-lbl">SUBJECT:</span> <span className="m-val text-white">BINEESH S</span></div>
-                  <div className="meta-item"><span className="m-lbl">ORG_ID:</span> <span className="m-val text-gradient-green">FUSINTECH [FOUNDER]</span></div>
+                  <div className="meta-item"><span className="m-lbl">ORG_ID:</span> <span className="m-val text-gradient-green">INDEPENDENT [FREELANCER]</span></div>
                   <div className="meta-item"><span className="m-lbl">CLASS:</span> <span className="m-val text-white">CLASS_AI_ENGINEER</span></div>
                   <div className="meta-item"><span className="m-lbl">STATUS:</span> <span className="m-val text-gradient-blue">ACTIVE_EXECUTION</span></div>
                 </div>

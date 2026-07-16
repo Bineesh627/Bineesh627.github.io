@@ -1,0 +1,99 @@
+.wcm-os {
+  padding: 100px 0;
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.wcm-os-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wcm-os-glow.top-right {
+  top: -10%;
+  right: -15%;
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.04) 0%, transparent 70%);
+}
+
+.wcm-os-glow.bottom-left {
+  bottom: -10%;
+  left: -15%;
+  background: radial-gradient(circle, rgba(59, 163, 255, 0.03) 0%, transparent 70%);
+}
+
+.wcm-os-card {
+  padding: 28px;
+  background: rgba(6, 6, 12, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wcm-os-card:hover {
+  border-color: rgba(157, 78, 221, 0.3);
+  box-shadow: 0 0 25px rgba(157, 78, 221, 0.15);
+  transform: translateY(-3px);
+}
+
+.wcm-os-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(157, 78, 221, 0.08);
+  color: var(--accent-purple);
+  margin-bottom: 20px;
+  transition: all 0.3s;
+}
+
+.wcm-os-card:hover .wcm-os-icon-box {
+  background: var(--accent-purple);
+  color: #020205;
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+}
+
+.wcm-os-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.wcm-os-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #a0aec0;
+  margin-bottom: 20px;
+}
+
+.wcm-telemetry-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.wcm-telemetry-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: #718096;
+}
+
+.wcm-telemetry-value {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-green);
+}

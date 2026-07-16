@@ -1,5 +1,5 @@
 import React from "react";
-import { Cpu, Terminal, Play, Check } from "lucide-react";
+import { Cpu, Terminal, Play, Check, MapPin, ExternalLink } from "lucide-react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -63,8 +63,29 @@ export const Experience = () => {
                 </h3>
                 
                 <h5 className="vertical-timeline-element-subtitle font-display mt-1 mb-2 text-secondary" style={{ fontSize: "0.9rem" }}>
-                  {element.location}
+                  {element.link ? (
+                    <a
+                      href={element.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gradient-blue text-decoration-none d-inline-flex align-items-center gap-1"
+                      style={{ borderBottom: "1px dashed rgba(59, 163, 255, 0.4)" }}
+                    >
+                      {element.company}
+                      <ExternalLink size={12} className="ms-1" />
+                    </a>
+                  ) : (
+                    element.company
+                  )}
                 </h5>
+
+                {element.location && (
+                  <div className="font-mono mb-2 d-flex align-items-center gap-1" style={{ fontSize: "0.75rem", color: "var(--text-primary)" }}>
+                    <MapPin size={12} style={{ color: "var(--accent-blue)" }} />
+                    <span style={{ color: "rgba(255, 255, 255, 0.75)" }}>{element.location}</span>
+                  </div>
+                )}
+
 
                 {/* Info Badges */}
                 {(element.employmentType || element.workMode) && (

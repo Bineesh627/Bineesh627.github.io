@@ -4,7 +4,9 @@ export const experienceData = [
     pid: "PID_7284",
     status: "ACTIVE",
     title: "Video Editor & AI Content Creator",
-    location: "Pydart Intelli Corp Pvt Ltd",
+    company: "Pydart Intelli Corp Pvt Ltd",
+    location: "Ernakulam, Kerala, India",
+    link: "https://www.pydart.in/",
     employmentType: "Part-time",
     workMode: "Remote",
     description:
@@ -16,11 +18,13 @@ export const experienceData = [
     pid: "PID_9104",
     status: "ACTIVE",
     title: "Co-founder & COO",
-    location: "Corepro Techno LLP",
+    company: "Corepro Techno LLP",
+    location: "Malappuram, Kerala, India",
+    link: "https://www.coreprotechno.com",
     employmentType: "Part-time",
     workMode: "Remote",
     description:
-      "Co-founded Corepro Techno LLP, direct operational and technical strategy to build software products and services. Official website: www.coreprotechno.com",
+      "Co-founded Corepro Techno LLP, direct operational and technical strategy to build software products and services.",
     date: "March 2026 - Present",
   },
   {
@@ -28,7 +32,9 @@ export const experienceData = [
     pid: "PID_8829",
     status: "ACTIVE",
     title: "Founder & CEO",
-    location: "Fusintech [EdTech Platform]",
+    company: "Fusintech [EdTech Platform]",
+    location: "Alappuzha, Kerala, India",
+    link: "https://www.fusintech.com",
     employmentType: "Full-time",
     workMode: "Remote",
     description:
@@ -40,7 +46,9 @@ export const experienceData = [
     pid: "PID_4193",
     status: "SUCCESS",
     title: "Cyber Security • Intern",
-    location: "RedTeam Hacker Academy, Trivandrum",
+    company: "RedTeam Hacker Academy",
+    location: "Trivandrum, Kerala, India",
+    link: "https://redteamacademy.com/",
     employmentType: "Internship",
     workMode: "Remote",
     description:
@@ -48,3 +56,4 @@ export const experienceData = [
     date: "October 2024 - November 2024",
   },
 ];
+

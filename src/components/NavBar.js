@@ -29,7 +29,7 @@ export const NavBar = ({ activeTab }) => {
       <div className="mobile-top-header d-lg-none">
         <div className="mobile-header-container">
           <span className="taskbar-status-dot green animate-pulse"></span>
-          <span className="taskbar-brand font-mono">FUSINTECH_OS_V5.0</span>
+          <span className="taskbar-brand font-mono">BINEESH S</span>
         </div>
       </div>
 
@@ -40,7 +40,7 @@ export const NavBar = ({ activeTab }) => {
           {/* System Name / Status */}
           <div className="os-taskbar-left" onClick={() => handleNavClick('home')}>
             <span className="taskbar-status-dot green animate-pulse"></span>
-            <span className="taskbar-brand font-mono">FUSINTECH_OS_V5.0</span>
+            <span className="taskbar-brand font-mono">BINEESH S</span>
           </div>
 
           {/* Center: System Windows Nav Links */}

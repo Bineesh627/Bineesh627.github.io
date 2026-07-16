@@ -98,7 +98,7 @@ export const Banner = () => {
 
                   {/* Detailed Description */}
                   <p className="os-hero-description">
-                    AI Engineer and Python developer specializing in Machine Learning, Deep Learning, and Computer Vision solutions. Experienced in deploying neural networks, building intelligent agents, and integrating secure full-stack EdTech platforms at Fusintech.
+                    Freelance AI Engineer and Python Developer specializing in Machine Learning, Deep Learning, and Computer Vision solutions. Dedicated to building advanced intelligent agents, training custom neural networks, and deploying secure full-stack automation pipelines.
                   </p>
 
                   {/* Simulated telemetry diagnostic gauges */}

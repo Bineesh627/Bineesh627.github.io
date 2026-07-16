@@ -107,3 +107,4 @@ export const Qualifications = () => {
   );
 };
 export default Qualifications;
+

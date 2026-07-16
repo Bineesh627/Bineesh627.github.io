@@ -11,14 +11,14 @@ export const Certifications = () => {
   const [selectedFilter, setSelectedFilter] = useState("all");
 
   const filterCategories = [
-    { key: "all", label: "ALL", emoji: "📁" },
-    { key: "Featured", label: "FEATURED", emoji: "⭐" },
-    { key: "AI", label: "AI", emoji: "🤖" },
-    { key: "Security", label: "SECURITY", emoji: "🔒" },
-    { key: "Cloud", label: "CLOUD", emoji: "☁️" },
-    { key: "Design", label: "DESIGN", emoji: "🎨" },
-    { key: "Soft", label: "SOFT", emoji: "🌟" },
-    { key: "Competition", label: "COMPETITION", emoji: "🏆" }
+    { key: "all", label: "ALL" },
+    { key: "Featured", label: "FEATURED" },
+    { key: "AI", label: "AI" },
+    { key: "Security", label: "SECURITY" },
+    { key: "Cloud", label: "CLOUD" },
+    { key: "Design", label: "DESIGN" },
+    { key: "Soft", label: "SOFT" },
+    { key: "Competition", label: "COMPETITION" }
   ];
 
   const filteredCertifications = selectedFilter === "all"
@@ -91,10 +91,11 @@ export const Certifications = () => {
                 className={`certs-os-tab-btn font-mono ${selectedFilter === category.key ? 'active' : ''}`}
                 onClick={() => setSelectedFilter(category.key)}
               >
-                <span className="me-1">{category.emoji}</span> {category.label}
+                {category.label}
               </button>
             ))}
           </div>
+
 
           {/* OS Window Frame */}
           <div className="os-window-frame mt-5">

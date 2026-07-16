@@ -3,7 +3,7 @@ import { Terminal, Send } from 'lucide-react';
 
 export const InteractiveTerminal = () => {
   const [history, setHistory] = useState([
-    { type: 'system', text: 'Fusintech Kernel System v5.0.0-release' },
+    { type: 'system', text: 'Bineesh S Kernel System v5.0.0-release' },
     { type: 'system', text: 'Type "help" to display available system utilities.' }
   ]);
   const [input, setInput] = useState('');
@@ -28,7 +28,7 @@ export const InteractiveTerminal = () => {
     if (trimmed === '') return;
 
     // Log the input command
-    response.push({ type: 'input', text: `guest@fusintech_os:~$ ${cmd}` });
+    response.push({ type: 'input', text: `guest@bineesh_os:~$ ${cmd}` });
 
     switch (trimmed) {
       case 'help':
@@ -44,7 +44,7 @@ export const InteractiveTerminal = () => {
       case 'about':
         response.push(
           { type: 'output', text: '--- BIOMETRIC LOGS: BINEESH S ---' },
-          { type: 'output', text: 'Role: Founder & CEO of Fusintech (EdTech Innovation Platform).' },
+          { type: 'output', text: 'Role: Freelance AI Engineer & Python Developer.' },
           { type: 'output', text: 'Domain Specialty: 4.0 Technologies, AI, Python Development, Ethical Hacking.' },
           { type: 'output', text: 'Bio: Aspiring Full-Stack Architect with a focus on self-learning and rapid execution.' }
         );
@@ -117,7 +117,7 @@ export const InteractiveTerminal = () => {
           <span className="os-dot yellow"></span>
           <span className="os-dot green"></span>
         </div>
-        <div className="os-window-title">FUSINTECH_SYS_SHELL</div>
+        <div className="os-window-title">BINEESH_S_SYS_SHELL</div>
         <Terminal size={14} className="text-secondary" />
       </div>
 
@@ -142,7 +142,7 @@ export const InteractiveTerminal = () => {
             </div>
 
             <div className="terminal-input-prompt mt-2">
-              <span className="prompt-label">guest@fusintech_os:~$</span>
+              <span className="prompt-label">guest@bineesh_os:~$</span>
               <input
                 ref={inputRef}
                 type="text"
