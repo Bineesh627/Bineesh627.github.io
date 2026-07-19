@@ -1,6 +1,8 @@
 {
   "rewrites": [
-    { "source": "/sitemap.xml/google205fe98f277c14e1.html", "destination": "/google205fe98f277c14e1.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/((?!api/|static/|sitemap\\.xml|robots\\.txt|google205fe98f277c14e1\\.html|manifest\\.json|llms\\.txt|logo192\\.png|logo512\\.png|\\.well-known/.*).*$)",
+      "destination": "/index.html"
+    }
   ]
 }
