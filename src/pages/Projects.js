@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight, HardDrive, FileCode } from "lucide-react";
 import '../assets/css/Projects.css';
 import { projectsData } from "../data/projectsData";
+import { Metadata } from "../components/Metadata";
+import { pagesMetadata } from "../data/metadata";
 
 export const Projects = () => {
   const navigate = useNavigate();
@@ -29,6 +31,7 @@ export const Projects = () => {
 
   return (
     <div className="projects-page min-vh-100" style={{ position: "relative", zIndex: 2 }}>
+      <Metadata {...pagesMetadata.projects} />
       <div className="projects-glow blur-3xl"></div>
 
       <section className="py-5 mt-5">

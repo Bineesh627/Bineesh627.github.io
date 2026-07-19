@@ -3,6 +3,8 @@ import "../assets/css/Contact.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { Mail, Phone, MapPin, Globe, Linkedin, Twitter, Instagram, MessageSquare, Github, Terminal } from "lucide-react";
 import { SiHuggingface } from "react-icons/si";
+import { Metadata } from "../components/Metadata";
+import { pagesMetadata } from "../data/metadata";
 
 export const Contact = () => {
   const contactInfo = [
@@ -54,7 +56,7 @@ export const Contact = () => {
     },
     {
       icon: <SiHuggingface size={18} />,
-      label: "Hugging Face",
+      label: "HuggingFace",
       url: "https://huggingface.co/bineesh627"
     }
   ];
@@ -85,6 +87,7 @@ export const Contact = () => {
 
   return (
     <div className="contact-page min-vh-100" style={{ position: "relative", zIndex: 2 }}>
+      <Metadata {...pagesMetadata.contact} />
       <div className="contact-glow blur-3xl"></div>
 
       <Container className="py-5 mt-5">

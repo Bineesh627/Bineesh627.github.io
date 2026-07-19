@@ -4,6 +4,8 @@ import { Calendar, Clock, ArrowLeft, Share2, Tag, Check, Terminal, ArrowRight } 
 import gsap from 'gsap';
 import { blogsData } from '../data/blogsData';
 import '../assets/css/BlogPost.css';
+import { Metadata } from '../components/Metadata';
+import { blogsMetadata } from '../data/metadata';
 
 export const BlogPost = () => {
   const { slug } = useParams();
@@ -72,6 +74,10 @@ export const BlogPost = () => {
   if (!post) {
     return (
       <section className="blogs-page min-vh-100 d-flex align-items-center justify-content-center" style={{ position: "relative", zIndex: 2 }}>
+        <Metadata 
+          title="Error 404: Blog Post Not Found" 
+          description="The requested blog resource could not be found or loaded from the technical insights database index."
+        />
         <div className="blogs-glow blur-3xl"></div>
         <div className="container text-center py-5">
           <div className="os-window-frame mx-auto" style={{ maxWidth: '500px' }}>
@@ -98,6 +104,12 @@ export const BlogPost = () => {
       </section>
     );
   }
+
+  const customMeta = blogsMetadata[slug] || {};
+  const metaTitle = customMeta.title || post.title;
+  const metaDesc = customMeta.description || post.excerpt;
+  const metaKeywords = customMeta.keywords || (post.tags ? post.tags.join(', ') : '');
+  const metaImage = customMeta.image || post.cover_image_url;
 
   // Handle Share URL Copy
   const handleShareClick = () => {
@@ -147,6 +159,12 @@ export const BlogPost = () => {
 
   return (
     <div className="blog-post-page min-vh-100 py-5 mt-5">
+      <Metadata 
+        title={metaTitle}
+        description={metaDesc}
+        keywords={metaKeywords}
+        image={metaImage}
+      />
       {/* Top scroll-dependent progress indicator */}
       <div className="reading-progress-container">
         <div className="reading-progress-bar" style={{ width: `${scrollProgress}%` }} />

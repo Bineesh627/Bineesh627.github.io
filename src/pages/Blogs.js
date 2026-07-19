@@ -5,6 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Calendar, Clock, FileText } from 'lucide-react';
 import '../assets/css/Blogs.css';
 import { blogsData } from '../data/blogsData';
+import { Metadata } from '../components/Metadata';
+import { pagesMetadata } from '../data/metadata';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,6 +83,10 @@ export const Blogs = () => {
   if (loading) {
     return (
       <section className="blogs-page min-vh-100 d-flex align-items-center justify-content-center">
+        <Metadata
+          title="Loading Blogs"
+          description="Loading blog database."
+        />
         <div className="text-center text-white-50 font-mono">LOADING_INSIGHTS_DB...</div>
       </section>
     );
@@ -88,6 +94,7 @@ export const Blogs = () => {
 
   return (
     <div className="blogs-page min-vh-100" style={{ position: "relative", zIndex: 2 }}>
+      <Metadata {...pagesMetadata.blogs} />
       <div className="blogs-glow blur-3xl"></div>
 
       <section id="blog" ref={containerRef} className="py-5 mt-5">

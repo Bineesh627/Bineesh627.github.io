@@ -5,6 +5,8 @@ import { X, ZoomIn, Calendar, Award, HardDrive } from "lucide-react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import "../assets/css/Certifications.css";
 import { certificationsData } from "../data/certificationsData";
+import { Metadata } from "../components/Metadata";
+import { pagesMetadata } from "../data/metadata";
 
 export const Certifications = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -69,6 +71,7 @@ export const Certifications = () => {
 
   return (
     <div className="certifications-page min-vh-100" style={{ position: "relative", zIndex: 2 }}>
+      <Metadata {...pagesMetadata.certifications} />
       <div className="certs-glow blur-3xl"></div>
 
       <section className="py-5 mt-5">

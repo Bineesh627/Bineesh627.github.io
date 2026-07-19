@@ -4,6 +4,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { ArrowLeft, Github, Terminal, Activity, Cpu, Globe, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
 import '../assets/css/ProjectCaseStudy.css';
+import { Metadata } from '../components/Metadata';
+import { projectsMetadata } from '../data/metadata';
 
 export const ProjectCaseStudy = () => {
   const { id } = useParams();
@@ -70,6 +72,10 @@ export const ProjectCaseStudy = () => {
   if (!project) {
     return (
       <section className="project-cs-page min-vh-100 d-flex align-items-center justify-content-center" style={{ position: "relative", zIndex: 2 }}>
+        <Metadata 
+          title="Error 404: Project Not Found" 
+          description="The requested project case study could not be located in the explorer shell archive."
+        />
         <div className="project-cs-glow blur-3xl"></div>
         <div className="container text-center py-5">
           <div className="os-window-frame mx-auto" style={{ maxWidth: '500px' }}>
@@ -97,8 +103,20 @@ export const ProjectCaseStudy = () => {
     );
   }
 
+  const customMeta = projectsMetadata[id] || {};
+  const metaTitle = customMeta.title || project.title;
+  const metaDesc = customMeta.description || project.description;
+  const metaKeywords = customMeta.keywords || (project.tags ? project.tags.join(', ') : '');
+  const metaImage = customMeta.image || project.image;
+
   return (
     <div className="project-cs-page min-vh-100 py-5 mt-5">
+      <Metadata 
+        title={metaTitle}
+        description={metaDesc}
+        keywords={metaKeywords}
+        image={metaImage}
+      />
       <div className="project-cs-glow blur-3xl" />
       <div className="project-cs-glow-2 blur-3xl" />
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Metadata } from '../components/Metadata';
+import { pagesMetadata } from '../data/metadata';
 import { Banner } from '../components/Banner';
 import { About } from '../components/About';
 import { Services } from '../components/Services';
@@ -9,11 +11,12 @@ import { Skills } from '../components/Skills';
 import { Awards } from '../components/Awards';
 import { Testimonials } from '../components/Testimonials';
 import { FAQ } from '../components/FAQ';
-import { Contact } from './Contact';
+import { WhatsAppCTA } from '../components/WhatsAppCTA';
 
 export const Home = () => {
   return (
     <>
+      <Metadata {...pagesMetadata.home} />
       <Banner />
       <About />
       <Services />
@@ -24,7 +27,7 @@ export const Home = () => {
       <Qualifications />
       <Testimonials />
       <FAQ />
-      <Contact />
+      <WhatsAppCTA />
     </>
   );
-};
+};
